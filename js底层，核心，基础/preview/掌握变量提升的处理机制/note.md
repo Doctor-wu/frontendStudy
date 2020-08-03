@@ -80,7 +80,7 @@ console.log(a); // 13 映射机制是一个修改另一个也会修改
 if(!("a" in window)) { // false
     var a = 1; // 会被提升
 
-    // 新版本当中func只会提前声明，不会提前赋值
+    // 新版本当中出现在大括号里的func只会提前声明，不会提前赋值
     // 老版本中提前声明和赋值都有
     function func(){
         console.log('inner func')
