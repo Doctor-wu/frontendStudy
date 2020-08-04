@@ -177,5 +177,4 @@
 ## 堆栈内存
 
 ### JS底层运行机制之堆栈内存
-
-![](..\imgs\02.png)
+![](C:\Users\uu\Desktop\珠峰\js底层，核心，基础\preview\imgs\02.png)
