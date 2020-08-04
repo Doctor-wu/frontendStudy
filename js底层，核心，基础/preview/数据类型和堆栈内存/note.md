@@ -18,7 +18,7 @@
 
 - ##### null
 
-- ##### boolean 
+- ##### boolean
 
 - ##### symbol    通过symbol函数创建一个唯一值
 
@@ -68,7 +68,7 @@
 
 #### 转换规则
 
-- Number-把其他数据类型转换成Number类型
+- **Number**-把其他数据类型转换成Number类型
 
   1）特定需要转换成为Number
 
@@ -114,9 +114,9 @@
 
   ​			0 + {} => "0[object Object]" // 此时{}参与到运算当中了
 
-  
 
-- String-把其他数据类型转换成String类型
+
+- **String**-把其他数据类型转换成String类型
 
   1）能使用的办法
 
@@ -132,7 +132,7 @@
 
   ​		基于alert/confirm/prompt/document.write...这些方法输出的内容，都是先把内容转换成字符串，然后再输出
 
-- Boolean-把其他数据类型转换成Boolean类型
+- **Boolean**-把其他数据类型转换成Boolean类型
 
   1）基于以下方法可以把其他类型转换成布尔类型的值
 
@@ -162,7 +162,7 @@
 
     *[类型不一样的几个特殊点]*
 
-    null==undefined: true, 但是转换成===比较的结果就是false（因为类型不一致）,剩下null/undefined和其他任何数据类型值都不相等
+    null==undefined: true, 但是转换成\===比较的结果就是false（因为类型不一致）,剩下null/undefined和其他任何数据类型值都不相等
 
     字符串==对象	要把对象转换成字符串
 
@@ -172,22 +172,10 @@
 
     把其他类型转换成字符串一般都是直接“”包起来，只有{}普通对象调取toString是调取的Object.prototype.toString, 不是转换为字符串，而是检测数据类型， 返回结果是 "[object Object]"
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## 堆栈内存
+
+### JS底层运行机制之堆栈内存
+
+![](..\imgs\02.png)
