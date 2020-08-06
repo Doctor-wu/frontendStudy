@@ -19,3 +19,11 @@
 //     console.log(5);
 // }
 // fn();// 3
+
+
+{
+    function foo() {};
+    foo = 1;
+}
+
+console.log(foo);

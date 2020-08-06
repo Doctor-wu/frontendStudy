@@ -39,3 +39,59 @@
 // }
 // A(1); // 1  a->2
 // A(2); // 4  b->3
+
+// var arr = [];
+// debugger
+// for (let i = 0; i < 5; i++) {
+//     var a = 5;
+//     arr[i] = function() {
+//         console.log(i);
+//     }
+// }
+// console.log(a);
+// arr.forEach(f => f());
+
+
+
+
+
+
+
+
+
+
+// {
+//     console.log(foo); // function foo(){2}
+//     console.log(window.foo); // undefined, 因为下面还有一次映射，所以第一次不会映射
+//     foo = 3;
+
+//     function foo() { 1 };
+//     console.log(window.foo)
+//     foo = 1; // 映射给全局
+//     function foo() { 2 };
+//     console.log(foo); // 1
+// }
+// console.log(foo); // 1
+
+
+
+
+// for (var i = 0; i < 10; i++) {
+//     function index() {};
+//     index = i;
+//     setTimeout(function() {
+//         console.log(index);
+//     }, 1000)
+// }
+
+// var a = 12;
+// if (true) {
+//     console.log(a); // function 
+//     a = 13;
+//     console.log(a); // 13
+
+//     function a() {};
+//     a = 14;
+//     console.log(a); // 14
+// }
+// console.log(a); // 13
