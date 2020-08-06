@@ -1,4 +1,4 @@
-// example 1
+// // example 1
 // let x = 1;
 
 // function A(y) {
@@ -12,7 +12,7 @@
 // let C = A(2);
 // C(3);
 
-// example 2
+// // example 2
 // let x = 5;
 
 // function fn(x) {
@@ -27,7 +27,7 @@
 // console.log(x); // 5
 
 
-// example 3
+// // example 3
 // let a = 0,
 //     b = 0;
 
@@ -95,3 +95,18 @@
 //     console.log(a); // 14
 // }
 // console.log(a); // 13
+
+var x = 1;
+
+function func(
+    x,
+    y = function anonymous1() {
+        x = 2;
+    }
+) {
+    var x = 3;
+    y();
+    console.log(x);
+}
+func(5);
+console.log(x);
