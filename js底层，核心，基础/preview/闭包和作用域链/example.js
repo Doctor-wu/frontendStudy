@@ -96,17 +96,96 @@
 // }
 // console.log(a); // 13
 
-var x = 1;
+// var x = 1;
 
-function func(
-    x,
-    y = function anonymous1() {
-        x = 2;
-    }
-) {
-    var x = 3;
-    y();
-    console.log(x);
-}
-func(5);
-console.log(x);
+// function func(
+//     x,
+//     y = function anonymous1() {
+//         x = 2;
+//     }
+// ) {
+//     var x = 3;
+//     y();
+//     console.log(x);
+// }
+// func(5);
+// console.log(x);
+
+// var a = 9;
+
+// function fn() {
+//     a = 0;
+//     return function(b) {
+//         return b + a++;
+//     }
+// }
+// var f = fn(); // a = 0;
+// console.log(f(5)); // 5  a->1
+// console.log(fn()(5)); // a->0 5 a->1
+// console.log(f(5)); // 6 a->2
+// console.log(a); // 2
+
+// var test = (
+//     function(i) {
+//         return function() {
+//             console.log(i *= 2); // 4
+//         }
+//     }
+// )(2)
+// test(5);
+
+
+
+// /**
+//  * EC(G)
+//  * function fun(n,o){...};var c;
+//  */
+// function fun(n, o) {
+//     /**
+//      * EC(FUN)
+//      * 初始化作用域链<EC(FUN), EC(G)>
+//      * 初始化this
+//      * 初始化arguments
+//      * 形参赋值 n = 0; o //  n = 1; o = 0;
+//      * 变量提升：--
+//      */
+//     console.log(o); // undefined 
+//     return {
+//         fun: function(m) {
+//             /**
+//              * EC(ANO)
+//              * 初始化作用域链<EC(ANO), EC(FUN)>
+//              * 初始化this {fun: ...}
+//              * 初始化arguments 1
+//              * 形参赋值 m = 1 // m =2  
+//              * 变量提升：--
+//              */
+//             return fun(m, n); // fun(1, 0) // fun(2, 1)
+//         }
+//     };
+// }
+
+// var c = fun(0).fun(1); // {fun: function(m){...}}
+// c.fun(2);
+// c.fun(3);
+
+// /**
+//  * undefined
+//  * 0
+//  * 1
+//  * 1
+//  */
+
+
+// var b = 10;
+// (
+//     // 匿名函数具名化有几个特点
+//     // 1.设置的名字只能在函数内部使用，外部是无法使用的（基于这种方式代替严格模式下不兼容的arguments.callee）
+//     function b() { // 如果这里是匿名函数，那么答案两个都是20
+//         // 并且如果这个具名函数的名字在函数体内被重新赋值，那么函数内部的变量不会被修改(除非函数名被重新声明过)
+//         // 并且外部如果有同名变量那么也不会改变
+//         b = 20;
+//         console.log(b); // function b(){...}
+//     }
+// )();
+// console.log(b); // 10
