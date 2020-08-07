@@ -121,6 +121,27 @@ console.log(num, obj.num)// 65, 30
 
 
 
+```javascript
+function person(name){
+    if(name){
+        this.name=name
+    }
+    console.log(this.name)
+}
+person.prototype.name='Tom';
+var humen={
+    person:person,
+    name:'Cat'
+}
+person()// undefined
+person('Jack')// window.name = 'Jack' => Jack
+new person()// 'Tom'
+new person('Ketty')// 'Ketty'
+humen.person()// 'Cat'
+humen.person('dog')// humen.name => dog => dog
+person.call(window)// Jack
+```
+
 
 
 
