@@ -1,0 +1,51 @@
+<!DOCTYPE html><html><head><title>闭包作用域</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h4 id="闭包作用域">闭包作用域</h4>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params">y</span>)</span>{
+</div><div class="hljs-line">   <span class="hljs-keyword">let</span> x = <span class="hljs-number">2</span>;
+</div><div class="hljs-line">   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params">z</span>)</span>{
+</div><div class="hljs-line">       <span class="hljs-built_in">console</span>.log(x+y+z);
+</div><div class="hljs-line">   }
+</div><div class="hljs-line">   <span class="hljs-keyword">return</span> B;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> C = A(<span class="hljs-number">2</span>);
+</div><div class="hljs-line">C(<span class="hljs-number">3</span>);
+</div></code></pre>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> x = <span class="hljs-number">5</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">x</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">y</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(y + (++x));
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> f = fn(<span class="hljs-number">6</span>);
+</div><div class="hljs-line">f(<span class="hljs-number">7</span>);
+</div><div class="hljs-line">fn(<span class="hljs-number">8</span>)(<span class="hljs-number">9</span>);
+</div><div class="hljs-line">f(<span class="hljs-number">10</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(x);
+</div></code></pre>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> a=<span class="hljs-number">0</span>,
+</div><div class="hljs-line">    b=<span class="hljs-number">0</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params">a</span>)</span>{
+</div><div class="hljs-line">    A=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">b</span>)</span>{
+</div><div class="hljs-line">        alert(a+b++);
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    alert(a++);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">A(<span class="hljs-number">1</span>);
+</div><div class="hljs-line">A(<span class="hljs-number">2</span>);
+</div></code></pre></div></body></html>

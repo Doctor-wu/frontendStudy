@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>珠峰培训-zTree</title>
+	<!-- IMPORT CSS -->
+	<link rel="stylesheet" href="css/reset.min.css">
+	<link rel="stylesheet" href="css/zTreeStyle.css">
+	<style>
+
+	</style>
+</head>
+
+<body>
+	<ul class="ztree" id="ztree1"></ul>
+
+	<!-- IMPORT JS -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.ztree.all.min.js"></script>
+	<script>
+		//=>$.fn.zTree.init([容器],[配置项],[数据]);
+		let $ztree1 = $('#ztree1'),
+			options = {};
+		$.ajax({
+			url: 'data.json',
+			method: 'GET',
+			success: result => {
+				$.fn.zTree.init($ztree1, options, result);
+			}
+		})
+	</script>
+</body>
+
+</html>

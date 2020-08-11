@@ -1,0 +1,293 @@
+<!DOCTYPE html><html><head><title>2020年04期在线JS高级（第二周作业）</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h3 id="2020年04期在线js高级第二周作业">2020年04期在线JS高级（第二周作业）</h3>
+
+<p><strong>需要自己先看的视频</strong></p>
+
+
+
+<p><img longdesc="./1595155809154.png" alt="Alt text" title="" type="image/png" src="data:image/png;base64,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" class=""></p>
+
+<hr>
+
+<p><strong>1.下面代码运行的结果</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fun</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.a=<span class="hljs-number">0</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.b=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        alert(<span class="hljs-keyword">this</span>.a);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">fun.prototype={
+</div><div class="hljs-line">    <span class="hljs-attr">b</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">this</span>.a=<span class="hljs-number">20</span>;
+</div><div class="hljs-line">        alert(<span class="hljs-keyword">this</span>.a);
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-attr">c</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">this</span>.a=<span class="hljs-number">30</span>;
+</div><div class="hljs-line">        alert(<span class="hljs-keyword">this</span>.a)
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> my_fun=<span class="hljs-keyword">new</span> fun();
+</div><div class="hljs-line">my_fun.b();
+</div><div class="hljs-line">my_fun.c();
+</div></code></pre>
+
+<p><strong>2.写出下面代码执行输出的结果</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">C1</span>(<span class="hljs-params">name</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span> (name) {
+</div><div class="hljs-line">        <span class="hljs-keyword">this</span>.name = name;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">C2</span>(<span class="hljs-params">name</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.name = name;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">C3</span>(<span class="hljs-params">name</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.name = name || <span class="hljs-string">'join'</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">C1.prototype.name = <span class="hljs-string">'Tom'</span>;
+</div><div class="hljs-line">C2.prototype.name = <span class="hljs-string">'Tom'</span>;
+</div><div class="hljs-line">C3.prototype.name = <span class="hljs-string">'Tom'</span>;
+</div><div class="hljs-line">alert((<span class="hljs-keyword">new</span> C1().name) + (<span class="hljs-keyword">new</span> C2().name) + (<span class="hljs-keyword">new</span> C3().name));
+</div></code></pre>
+
+<p><strong>3.下面代码运行的结果？</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fn</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.a = a;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Fn.prototype.say = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.a = <span class="hljs-number">2</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Fn.prototype = <span class="hljs-keyword">new</span> Fn;
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> f1 = <span class="hljs-keyword">new</span> Fn;
+</div><div class="hljs-line">​
+</div><div class="hljs-line">Fn.prototype.b = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.a = <span class="hljs-number">3</span>;
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(f1.a);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(f1.prototype);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(f1.b);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(f1.hasOwnProperty(<span class="hljs-string">'b'</span>));
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'b'</span> <span class="hljs-keyword">in</span> f1);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(f1.constructor == Fn);
+</div></code></pre>
+
+<p><strong>4.  写出下面代码执行输出的结果</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span>);
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Foo.getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2</span>);
+</div><div class="hljs-line">};
+</div><div class="hljs-line">Foo.prototype.getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">3</span>);
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> getName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">4</span>);
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getName</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">5</span>);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Foo.getName();
+</div><div class="hljs-line">getName();
+</div><div class="hljs-line">Foo().getName();
+</div><div class="hljs-line">getName();
+</div><div class="hljs-line"><span class="hljs-keyword">new</span> Foo.getName();
+</div><div class="hljs-line"><span class="hljs-keyword">new</span> Foo().getName();
+</div><div class="hljs-line"><span class="hljs-keyword">new</span> <span class="hljs-keyword">new</span> Foo().getName();
+</div></code></pre>
+
+<p><strong>5. 完成如下的需求</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> n = <span class="hljs-number">10</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> m = n.plus(<span class="hljs-number">10</span>).minus(<span class="hljs-number">5</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(m);<span class="hljs-comment">//=&gt;15（10+10-5）</span>
+</div></code></pre>
+
+<p><strong>6. 实现如下需求</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment"> * 编写queryURLParams方法实现如下的效果（至少两种方案）</span>
+</div><div class="hljs-line"><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> url=<span class="hljs-string">"http://www.zhufengpeixun.cn/?lx=1&amp;from=wx#video"</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(url.queryURLParams(<span class="hljs-string">"from"</span>)); <span class="hljs-comment">//=&gt;"wx"</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(url.queryURLParams(<span class="hljs-string">"_HASH"</span>)); <span class="hljs-comment">//=&gt;"video"</span>
+</div></code></pre>
+
+<p><strong>7. 基于ES6中的class重构下面的代码</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Modal</span>(<span class="hljs-params">x,y</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.x=x;
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.y=y;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Modal.prototype.z=<span class="hljs-number">10</span>;
+</div><div class="hljs-line">Modal.prototype.getX=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.x);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Modal.prototype.getY=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.y);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">Modal.n=<span class="hljs-number">200</span>;
+</div><div class="hljs-line">Modal.setNumber=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">n</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.n=n;
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> m = <span class="hljs-keyword">new</span> Model(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>);
+</div></code></pre>
+
+<p><strong>8.代码输出的结果</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> obj = {
+</div><div class="hljs-line">    <span class="hljs-number">2</span>: <span class="hljs-number">3</span>,
+</div><div class="hljs-line">    <span class="hljs-number">3</span>: <span class="hljs-number">4</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">length</span>: <span class="hljs-number">2</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">push</span>: <span class="hljs-built_in">Array</span>.prototype.push
+</div><div class="hljs-line">}
+</div><div class="hljs-line">obj.push(<span class="hljs-number">1</span>);
+</div><div class="hljs-line">obj.push(<span class="hljs-number">2</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(obj);
+</div></code></pre>
+
+<p><strong>9. a等于什么值会让下面条件成立</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> a = ?;
+</div><div class="hljs-line"><span class="hljs-keyword">if</span> (a == <span class="hljs-number">1</span> &amp;&amp; a == <span class="hljs-number">2</span> &amp;&amp; a == <span class="hljs-number">3</span>) {
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'OK'</span>);
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<p><strong>10. 实现如下需求</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> utils = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment">     * toArray：转换为数组的方法</span>
+</div><div class="hljs-line"><span class="hljs-comment">     *   @params</span>
+</div><div class="hljs-line"><span class="hljs-comment">     *      不固定数量，不固定类型</span>
+</div><div class="hljs-line"><span class="hljs-comment">     *   @return</span>
+</div><div class="hljs-line"><span class="hljs-comment">     *      [Array] 返回的处理后的新数组</span>
+</div><div class="hljs-line"><span class="hljs-comment">     * by zhufengpeixun on 2020</span>
+</div><div class="hljs-line"><span class="hljs-comment">     */</span>
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toArray</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-comment">//=&gt;实现你的代码（多种办法实现）   </span>
+</div><div class="hljs-line">    }
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> {
+</div><div class="hljs-line">        toArray
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">})();
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> ary = utils.toArray(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>); <span class="hljs-comment">//=&gt;[10,20,30]</span>
+</div><div class="hljs-line">ary = utils.toArray(<span class="hljs-string">'A'</span>,<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>); <span class="hljs-comment">//=&gt;['A',10,20,30]</span>
+</div></code></pre>
+
+<p><strong>11. 对象(数组)的深克隆和浅克隆（头条）</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//=&gt;浅克隆：只复制对象或者数组的第一级内容</span>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;深克隆：克隆后数组的每一级都和原始数组没有关联</span>
+</div><div class="hljs-line"><span class="hljs-comment">//那么请说出，浅克隆都怎么去实现，如何实现深度克隆</span>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> obj = {
+</div><div class="hljs-line">    <span class="hljs-attr">a</span>: <span class="hljs-number">100</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">b</span>: [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>],
+</div><div class="hljs-line">    <span class="hljs-attr">c</span>: {
+</div><div class="hljs-line">        <span class="hljs-attr">x</span>: <span class="hljs-number">10</span>
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-attr">d</span>: <span class="hljs-regexp">/^\d+$/</span>
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">10</span>, [<span class="hljs-number">100</span>, <span class="hljs-number">200</span>], {
+</div><div class="hljs-line">    <span class="hljs-attr">x</span>: <span class="hljs-number">10</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">y</span>: <span class="hljs-number">20</span>
+</div><div class="hljs-line">}];
+</div></code></pre>
+
+<p><strong>12. 已知基于 instanceof 可以实现检测：实例是否属于某个类，现在需要自己编写这样的一个方法，实现出 instanceof 的效果</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//=&gt;example：要检测的实例</span>
+</div><div class="hljs-line"><span class="hljs-comment">//=&gt;classFunc:要检测的类</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">instance_of</span>(<span class="hljs-params">example, classFunc</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-comment">//...</span>
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> res = instance_of([<span class="hljs-number">12</span>,<span class="hljs-number">23</span>],<span class="hljs-built_in">Array</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(res); <span class="hljs-comment">//=&gt;true</span>
+</div></code></pre>
+
+<hr>
+
+<h4 id="附加题偏难">附加题（偏难）</h4>
+
+<p><strong>1. 实现如下需求</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//=&gt;编写toType方法，实现数据类型检测</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toType</span>(<span class="hljs-params"> obj </span>) </span>{
+</div><div class="hljs-line">   <span class="hljs-comment">//完成你的代码</span>
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(toType(<span class="hljs-number">1</span>)); <span class="hljs-comment">//=&gt;"number"</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(toType(<span class="hljs-literal">NaN</span>)); <span class="hljs-comment">//=&gt;"number"</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(toType([])); <span class="hljs-comment">//=&gt;"array"</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(toType(<span class="hljs-regexp">/^\d+$/</span>)); <span class="hljs-comment">//=&gt;"regexp"</span>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(toType({})); <span class="hljs-comment">//=&gt;"object"</span>
+</div><div class="hljs-line">...
+</div></code></pre>
+
+<p><strong>2. 完成如下需求</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">~<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">change</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-comment">//=&gt;实现你的代码</span>
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    <span class="hljs-built_in">Function</span>.prototype.change=change;
+</div><div class="hljs-line">}();
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> obj = {<span class="hljs-attr">name</span>:<span class="hljs-string">'zhufeng'</span>};
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params">x,y</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.total=x+y;
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> res = func.change(obj,<span class="hljs-number">100</span>,<span class="hljs-number">200</span>);
+</div><div class="hljs-line"><span class="hljs-comment">//res =&gt; {name:'Alibaba',total:300}</span>
+</div></code></pre>
+
+<p><strong>3. 完成如下需求</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">~<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-comment">//=&gt;bind方法在IE6~8中不兼容，接下来我们自己基于原生JS实现这个方法</span>
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bind</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    <span class="hljs-built_in">Function</span>.prototype.bind=bind;
+</div><div class="hljs-line">}();
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> obj = {<span class="hljs-attr">name</span>:<span class="hljs-string">'zhufeng'</span>};
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>,<span class="hljs-built_in">arguments</span>);
+</div><div class="hljs-line">    <span class="hljs-comment">//=&gt;当点击BODY的时候，执行func方法，输出：obj [100,200,MouseEvent事件对象]</span>
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-built_in">document</span>.body.onclick = func.bind(obj,<span class="hljs-number">100</span>,<span class="hljs-number">200</span>);
+</div></code></pre>
+
+<p><strong>4. 下面代码的输出结果？为什么？</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> name = <span class="hljs-string">'珠峰培训'</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params">x,y</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> res=x+y;
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(res,<span class="hljs-keyword">this</span>.name);
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params">x,y</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> res=x-y;
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(res,<span class="hljs-keyword">this</span>.name);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">B.call(A,<span class="hljs-number">40</span>,<span class="hljs-number">30</span>);
+</div><div class="hljs-line">B.call.call.call(A,<span class="hljs-number">20</span>,<span class="hljs-number">10</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">Function</span>.prototype.call(A,<span class="hljs-number">60</span>,<span class="hljs-number">50</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">Function</span>.prototype.call.call.call(A,<span class="hljs-number">80</span>,<span class="hljs-number">70</span>);
+</div></code></pre></div></body></html>

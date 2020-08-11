@@ -1,0 +1,25 @@
+[{
+	"id": 1,
+	"name": "珠峰培训",
+	"password": "8376ac810bb9f231d28fcf1f",
+	"sex": 0,
+	"email": "1144709265@qq.com",
+	"phone": "18310612838",
+	"departmentId": 1,
+	"jobId": 1,
+	"desc": "珠峰培训最高管理员账户",
+	"time": 1568640222269,
+	"state": 0
+}, {
+	"id": 2,
+	"name": "周啸天",
+	"password": "8376ac810bb9f231d28fcf1f",
+	"sex": "0",
+	"email": "zhouxiaotian@163.com",
+	"phone": "13041086186",
+	"departmentId": "2",
+	"jobId": "2",
+	"desc": "我今天荣升为销售部经理了，请大家吃饭",
+	"time": 1568640222269,
+	"state": 0
+}]

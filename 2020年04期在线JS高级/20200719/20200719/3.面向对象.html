@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>十年珠峰、专注前端</title>
+	<!-- IMPORT CSS -->
+</head>
+
+<body>
+	<div id="box"></div>
+	<p id="p1"></p>
+
+	<!-- IMPORT JS -->
+	<script>
+		/* 
+		 * JS本身就是基于面向对象思想设计出来的一门编程语言，当我们基于JS进行程序设计的时候，也应该按照面向对象的思想去开发或者理解
+		 *   
+		 * 对象：一种泛指，JS中万物都是我们需要学习/研究/使用的对象
+		 * 类：对象的一种细分  把JS中的内容按照功能特点进行类别的划分
+		 * 实例：某一个类别中具体的事物  某一个类中的具体事物
+		 *  
+		 * JS中内置类
+		 *    【数据类型】
+		 *     Number  String  Boolean （Symbol  BigInt）
+		 *     Object ：Object  Array  RegExp  Date ...
+		 *     Function
+		 *     每一个数据类型都是自己所属类的一个实例
+		 *    
+		 *    【每一个元素对象都有一个自己所属的类】
+		 *     HTMLHtmlElement / HTMLBodyElement / HTMLDivElement / HTMLParagraphElement ...
+		 *     HTMLElement  XMLElement  HTMLDocument...
+		 *     Element  Text  Document...
+		 *     Node
+		 *     EventTarget
+		 *     Object
+		 * 
+		 *    【元素/节点/样式集合】 
+		 *    HTMLCollection / NodeList / CSSStyleDeclaration...
+		 */
+
+		// let arr1 = [10, 20];
+		// let arr2 = [30, 40];
+		// // arr1/arr2都是Array这个类的一个实例，具备数组应有的共同特征（例如：可以使用push/pop/shift...各种方法），但是每个实例也具备一些自己私有的特征
+	</script>
+
+	<script>
+		/*
+		 * 在JS中除了内置类，我们还需要自己定义“自定义类”，以及创建出自定义类的实例 
+		 *    执行的时候 “new 函数()”  => 构造函数执行
+		 *       + 此时这个函数被称为一个自定义类（构造函数）
+		 *       + 返回值被称为当前自定义类的一个实例（有特殊情况）
+		 * 
+		 *    分析构造函数执行相对于普通函数执行特殊做的事情
+		 */
+		function Func(x, y) {
+			// this -> 实例对象
+			let total = x + y;
+			this.result = total;
+			this.say = function () {};
+
+			// return 10;
+			/* return {
+				name: '珠峰'
+			}; */
+		}
+		// let f1 = new Func(10, 20);
+		// console.log(f1);
+		// console.log(f1.total); //=>undefined  total只是上下文中的私有变量，和实例没有必然的关系，只有this.xxx=xxx才是给实例设置的私有属性
+		// console.log(f1.result); //=>30
+
+		let f2 = new Func;
+		console.log(f2);
+		console.log(f2 instanceof Func); //=>true
+
+		// console.log(f1.say === f2.say); //=>false 私有属性
+		/* 
+		// 验证某个属性是否为当前对象的属性
+		// + in 不论是私有还是公有，只要是它的属性，结果就是TRUE
+		// + hasOwnProperty  只有是它的私有属性，结果才是TRUE
+		console.log('say' in f1); //=>true
+		console.log('toString' in f1); //=>true
+		console.log(f1.hasOwnProperty('say')); //=>true
+		console.log(f1.hasOwnProperty('toString')); //=>false 
+		*/
+
+
+
+		/* 
+		// 普通函数的玩法
+		function Func(x, y) {
+			// this -> window
+			let total = x + y;
+			this.result = total;
+		}
+		let f = Func(10, 20); // undefined
+		console.log(result); // 30 
+		*/
+	</script>
+</body>
+
+</html>

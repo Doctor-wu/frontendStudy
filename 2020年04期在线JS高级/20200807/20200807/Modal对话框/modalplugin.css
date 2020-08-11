@@ -1,0 +1,79 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.dpn-dialog {
+	font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+	font-size: 12px;
+	z-index: 99999;
+}
+
+.dpn-dialog {
+	display: none;
+	box-sizing: border-box;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 27%;
+	border: 1px solid #EBEEF5;
+	background: #FFF;
+}
+
+.dpn-dialog .dpn-title {
+	position: relative;
+	padding: 0 32px 0 10px;
+	height: 35px;
+	line-height: 35px;
+	background: #f0f9eb;
+	font-size: 16px;
+}
+
+.dpn-dialog .dpn-title .dpn-close {
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+	text-align: center;
+	font-style: normal;
+	cursor: pointer;
+}
+
+.dpn-dialog .dpn-content {
+	box-sizing: border-box;
+	padding: 10px;
+	min-height: 100px;
+}
+
+.dpn-dialog .dpn-handle {
+	padding: 0 10px;
+	height: 40px;
+	line-height: 40px;
+	background: #f0f9eb;
+	font-size: 0;
+	text-align: right;
+}
+
+.dpn-dialog .dpn-handle button {
+	display: inline-block;
+	margin-left: 10px;
+	padding: 0 10px;
+	height: 30px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+
+.dpn-model {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99997;
+	background: rgba(0, 0, 0, 0.5);
+}

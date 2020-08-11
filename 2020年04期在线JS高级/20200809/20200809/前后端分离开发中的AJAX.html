@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>前后端分离开发中的AJAX</title>
+  <meta charset='utf-8'>
+  <link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'>
+  <style>
+    .note-content {
+      font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='preview-contents' class='note-content'>
+
+
+    <h3 id="ajax基础知识">AJAX基础知识</h3>
+
+    <h4 id="1-什么是ajax">1. 什么是AJAX？</h4>
+
+    <ul>
+      <li>
+        <p>AJAX解决了网页异步刷新的问题</p>
+
+        <ul>
+          <li>
+            <p>什么是同步刷新</p>
+          </li>
+          <li>
+            <p>什么是异步刷新</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>XML 和 JSON</p>
+      </li>
+    </ul>
+
+    <h4 id="2ajax的基础操作">2.AJAX的基础操作</h4>
+
+    <ul>
+      <li>
+        <p>核心四步</p>
+
+        <ul>
+          <li>
+            <p>创建XHR（ActiveXObject）</p>
+          </li>
+          <li>
+            <p>打开URL</p>
+          </li>
+          <li>
+            <p>监听状态和获取数据</p>
+          </li>
+          <li>
+            <p>发送请求</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>HTTP请求方式</p>
+
+        <ul>
+          <li>
+            <p>GET：GET、DELETE、HEAD、OPTIONS</p>
+          </li>
+          <li>
+            <p>POST：POST、PUT</p>
+          </li>
+          <li>
+            <p>GET和POST系列的区别</p>
+
+            <ul>
+              <li>
+                <p>传递信息的方式</p>
+              </li>
+              <li>
+                <p>POST相对安全</p>
+              </li>
+              <li>
+                <p>GET容易产生缓存</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>AJAX状态码</p>
+
+        <ul>
+          <li>
+            <p>0 =&gt;UNSENT</p>
+          </li>
+          <li>
+            <p>1 =&gt;OPENED</p>
+          </li>
+          <li>
+            <p>2 =&gt;HEADERS_RECEIVED</p>
+          </li>
+          <li>
+            <p>3 =&gt;LOADING</p>
+          </li>
+          <li>
+            <p>4 =&gt;DONE</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>汇总XHR的属性和方法及事件</p>
+
+        <ul>
+          <li>
+            <p>xhr.response / xhr.responseText / xhr.responseXML</p>
+          </li>
+          <li>
+            <p>xhr.status / xhr.statusText</p>
+          </li>
+          <li>
+            <p>xhr.timeout</p>
+          </li>
+          <li>
+            <p>xhr.withCredentials</p>
+          </li>
+          <li>
+            <p>xhr.abort()</p>
+          </li>
+          <li>
+            <p>xhr.getAllResponseHeaders()</p>
+          </li>
+          <li>
+            <p>xhr.getResponseHeader([key])</p>
+          </li>
+          <li>
+            <p>xhr.open()</p>
+          </li>
+          <li>
+            <p>xhr.overrideMimeType()</p>
+          </li>
+          <li>
+            <p>xhr.send()</p>
+          </li>
+          <li>
+            <p>xhr.setRequestHeader()</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4 id="3基于ajax获取服务器时间">3.基于AJAX获取服务器时间</h4>
+    <blockquote>
+      <p>实战案例开发：倒计时抢购</p>
+    </blockquote>
+
+    <h4 id="4axios类库的应用">4.AXIOS类库的应用</h4>
+
+    <blockquote>
+      <p><a href="http://www.axios-js.com/zh-cn/docs/" target="_blank">http://www.axios-js.com/zh-cn/docs/</a></p>
+    </blockquote>
+
+    <ul>
+      <li>
+        <p>安装</p>
+      </li>
+      <li>
+        <p>基础语法</p>
+
+        <ul>
+          <li>
+            <p>axios.get</p>
+          </li>
+          <li>
+            <p>axios.post</p>
+          </li>
+          <li>
+            <p>axios.all</p>
+          </li>
+          <li>
+            <p>axios.spread</p>
+          </li>
+          <li>
+            <p>……</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>配置默认值</p>
+
+        <ul>
+          <li>
+            <p>axios.defaults.baseURL</p>
+          </li>
+          <li>
+            <p>axios.defaults.withCredentials</p>
+          </li>
+          <li>
+            <p>请求拦截器 axios.interceptors.request</p>
+
+            <ul>
+              <li>
+                <p>form-data、x-www-form-urlencoded、raw</p>
+              </li>
+              <li>
+                <p>QS库</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>响应拦截器 axios.interceptors.response</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+
+
+    <pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">'axios'</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-keyword">import</span> qs <span class="hljs-keyword">from</span> <span class="hljs-string">'qs'</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span><span class="hljs-comment"> * 根据环境变量区分接口的默认地址 </span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span><span class="hljs-keyword">switch</span> (process.env.NODE_ENV) {
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"production"</span>:
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>        axios.defaults.baseURL = <span class="hljs-string">"http://api.zhufengpeixun.cn"</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>        <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>    <span class="hljs-keyword">case</span> <span class="hljs-string">"test"</span>:
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span>        axios.defaults.baseURL = <span class="hljs-string">"http://192.168.20.12:8080"</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span>        <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span>    <span class="hljs-keyword">default</span>:
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span>        axios.defaults.baseURL = <span class="hljs-string">"http://127.0.0.1:3000"</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">15.</span>}
+</div><div class="hljs-line"><span class="hljs-comment line-number">16.</span><wbr>
+</div><div class="hljs-line"><span class="hljs-comment line-number">17.</span><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">18.</span><span class="hljs-comment"> * 设置超时时间和跨域是否允许携带凭证 </span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">19.</span><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">20.</span>axios.defaults.timeout = <span class="hljs-number">10000</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">21.</span>axios.defaults.withCredentials = <span class="hljs-literal">true</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">22.</span><wbr>
+</div><div class="hljs-line"><span class="hljs-comment line-number">23.</span><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">24.</span><span class="hljs-comment"> * 设置请求传递数据的格式（看服务器要求什么格式）</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">25.</span><span class="hljs-comment"> * x-www-form-urlencoded</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">26.</span><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">27.</span>axios.defaults.headers[<span class="hljs-string">'Content-Type'</span>] = <span class="hljs-string">'application/x-www-form-urlencoded'</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">28.</span>axios.defaults.transformRequest = <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> qs.stringify(data);
+</div><div class="hljs-line"><span class="hljs-comment line-number">29.</span><wbr>
+</div><div class="hljs-line"><span class="hljs-comment line-number">30.</span><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">31.</span><span class="hljs-comment"> * 设置请求拦截器 </span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">32.</span><span class="hljs-comment"> * 客户端发送请求 - &gt; [请求拦截器] - &gt; 服务器</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">33.</span><span class="hljs-comment"> * TOKEN校验（JWT）：接收服务器返回的token，存储到vuex/本地存储中，每一次向服务器发请求，我们应该把token带上</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">34.</span><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">35.</span>axios.interceptors.request.use(<span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> {
+</div><div class="hljs-line"><span class="hljs-comment line-number">36.</span>    <span class="hljs-comment">// 携带上token</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">37.</span>    <span class="hljs-keyword">let</span> token = localStorage.getItem(<span class="hljs-string">'token'</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">38.</span>    token &amp;&amp; (config.headers.Authorization = token);
+</div><div class="hljs-line"><span class="hljs-comment line-number">39.</span>    <span class="hljs-keyword">return</span> config;
+</div><div class="hljs-line"><span class="hljs-comment line-number">40.</span>}, error =&gt; {
+</div><div class="hljs-line"><span class="hljs-comment line-number">41.</span>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(error);
+</div><div class="hljs-line"><span class="hljs-comment line-number">42.</span>});
+</div><div class="hljs-line"><span class="hljs-comment line-number">43.</span><wbr>
+</div><div class="hljs-line"><span class="hljs-comment line-number">44.</span><span class="hljs-comment">/*</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">45.</span><span class="hljs-comment"> * 响应拦截器 </span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">46.</span><span class="hljs-comment"> * 服务器返回信息  -&gt; [拦截的统一处理] -&gt; 客户端JS获取到信息</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">47.</span><span class="hljs-comment"> */</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">48.</span>axios.defaults.validateStatus = <span class="hljs-function"><span class="hljs-params">status</span> =&gt;</span> {
+</div><div class="hljs-line"><span class="hljs-comment line-number">49.</span>    <span class="hljs-comment">// 自定义响应成功的HTTP状态码</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">50.</span>    <span class="hljs-keyword">return</span> <span class="hljs-regexp">/^(2|3)\d{2}$/</span>.test(status);
+</div><div class="hljs-line"><span class="hljs-comment line-number">51.</span>};
+</div><div class="hljs-line"><span class="hljs-comment line-number">52.</span>axios.interceptors.response.use(<span class="hljs-function"><span class="hljs-params">response</span> =&gt;</span> {
+</div><div class="hljs-line"><span class="hljs-comment line-number">53.</span>    <span class="hljs-keyword">return</span> response.data;
+</div><div class="hljs-line"><span class="hljs-comment line-number">54.</span>}, error =&gt; {
+</div><div class="hljs-line"><span class="hljs-comment line-number">55.</span>    <span class="hljs-keyword">let</span> {
+</div><div class="hljs-line"><span class="hljs-comment line-number">56.</span>        response
+</div><div class="hljs-line"><span class="hljs-comment line-number">57.</span>    } = error;
+</div><div class="hljs-line"><span class="hljs-comment line-number">58.</span>    <span class="hljs-keyword">if</span> (response) {
+</div><div class="hljs-line"><span class="hljs-comment line-number">59.</span>        <span class="hljs-comment">//=&gt;服务器最起码返回结果了</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">60.</span>        <span class="hljs-keyword">switch</span> (response.status) {
+</div><div class="hljs-line"><span class="hljs-comment line-number">61.</span>            <span class="hljs-keyword">case</span> <span class="hljs-number">401</span>: <span class="hljs-comment">//=&gt;权限</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">62.</span>                <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">63.</span>            <span class="hljs-keyword">case</span> <span class="hljs-number">403</span>: <span class="hljs-comment">//=&gt;服务器拒绝执行（token过期）</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">64.</span>                <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">65.</span>            <span class="hljs-keyword">case</span> <span class="hljs-number">404</span>: <span class="hljs-comment">//=&gt;找不到页面 </span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">66.</span>                <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">67.</span>        }
+</div><div class="hljs-line"><span class="hljs-comment line-number">68.</span>    } <span class="hljs-keyword">else</span> {
+</div><div class="hljs-line"><span class="hljs-comment line-number">69.</span>        <span class="hljs-comment">//=&gt;服务器连结果都没有返回</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">70.</span>        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">window</span>.navigator.onLine) {
+</div><div class="hljs-line"><span class="hljs-comment line-number">71.</span>            <span class="hljs-comment">// 断网处理：可以跳转到断网页面</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">72.</span>            <span class="hljs-keyword">return</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">73.</span>        }
+</div><div class="hljs-line"><span class="hljs-comment line-number">74.</span>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(error);
+</div><div class="hljs-line"><span class="hljs-comment line-number">75.</span>    }
+</div><div class="hljs-line"><span class="hljs-comment line-number">76.</span>});
+</div><div class="hljs-line"><span class="hljs-comment line-number">77.</span><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> axios;
+</div></code></pre>
+
+    <h4 id="5封装promise版ajax库">5.封装PROMISE版AJAX库</h4>
+
+  </div>
+</body>
+
+</html>

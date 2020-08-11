@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>zTree树形结构菜单</title>
+	<!-- import css -->
+	<link rel="stylesheet" href="css/reset.min.css">
+	<style>
+		.container {
+			box-sizing: border-box;
+			margin: 20px auto;
+			padding: 10px;
+			width: 600px;
+			border: 1px dashed #AAA;
+			-webkit-user-select: none;
+		}
+
+		.level {
+			display: none;
+			font-size: 14px;
+			margin-left: 10px;
+		}
+
+		.level.level0 {
+			display: block;
+			margin-left: 0;
+		}
+
+		.level li {
+			position: relative;
+			padding-left: 15px;
+			line-height: 30px;
+		}
+
+		.level li .icon {
+			position: absolute;
+			left: 0;
+			top: 9px;
+			box-sizing: border-box;
+			width: 12px;
+			height: 12px;
+			line-height: 8px;
+			text-align: center;
+			border: 1px solid #AAA;
+			background: #EEE;
+			cursor: pointer;
+		}
+
+		.level li .icon:after {
+			display: block;
+			content: "+";
+			font-size: 12px;
+			font-style: normal;
+		}
+
+		.level li .icon.open:after {
+			content: "-";
+		}
+
+		.level li .title {
+			color: #000;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<ul class="level level0">
+			<!-- <li>
+				<a href="#" class="title">前端开发基础</a>
+				<em class="icon open"></em>
+				<ul class="level level1" style="display:block">
+					
+				</ul>
+			</li> -->
+		</ul>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script>
+		/*
+		 * 在无限级折叠菜单中，数据一般不是固定的，需要从服务器获取
+		 *   + 如果数据量不大，一般是一次请求数据，获取到所有级别的信息
+		 *   + 如果数据量比较大，一般是只请求回来当前这一级的信息，当点击展示的时候，再去请求下一级的信息（再去动态生成下一级别的DOM内容）
+		 *   + 创建DOM的时候，有的是一次性把所有级别的DOM创建好(数据量不大)，接下来控制显示隐藏；也有的是只渲染第一级的DOM，后期点击哪个级别再去渲染哪个级别的DOM；
+		 *   + 再优化，可能还需要对已经获取的数据或者已经渲染的DOM做缓存
+		 *   + ...
+		 */
+		function queryData() {
+			return new Promise(resolve => {
+				$.ajax({
+					url: './data.json',
+					method: 'get',
+					dataType: 'json',
+					success: result => {
+						resolve(result);
+					}
+				});
+			});
+		}
+		$(async function () {
+			let $level = $('.level');
+
+			// 从服务器获取数据
+			let result = await queryData();
+
+			// 数据绑定
+			let n = 0;
+			let bindHTML = function bindHTML(result) {
+				let str = ``;
+				n++;
+				result.forEach((item, index) => {
+					let {
+						name,
+						open,
+						children
+					} = item;
+					str += `<li>
+						<a href="#" class="title">${name}</a>
+						${children && children.length>0?`
+							<em class="icon ${open?'open':''}"></em>
+							<ul class="level level${n}" 
+								style="display:${open?'block':'none'}">
+								${bindHTML(children)}
+							</ul>
+						`:''}
+					</li>`;
+				});
+				n--;
+				return str;
+			}
+			$level.html(bindHTML(result));
+
+			// 点击+/-控制当前级别的显示隐藏
+			// 给当前树形折叠菜单中的所有按钮绑定点击事件：事件委托
+			// + 分别给每个元素的事件行为绑定方法（循环绑定的时候，如果后续需要用到索引，必然会产生闭包；并且创建了大量的方法；而且必须保证当前元素已经存在了；...）
+			// + 事件委托是依赖于事件的冒泡传播机制，我们只需要给最外层元素的当前事件行为绑定方法，这样不论触发容器中哪一个元素的相关事件行为，都会传播到最外层的元素上，最外层绑定的方法触发，在方法中，我们基于当前触发的事件源不同，做不同的事情...
+			// + 没有循环，不存在创建大量闭包的操作；只创建了一个方法，不用开辟大量的堆内存；也不需要单独获取每个元素，所以事件绑定的时候元素是否存在无所谓，反正只要能触发这个元素，说名这个元素肯定存在了（实现了给动态绑定的元素做事件绑定的效果）；还有很多操作，不用事件委托实现不了；事件委托/事件代理性能可以提高40%~60%....
+			$level.click(function (ev) {
+				// 获取事件源：点击的是谁，事件源就是谁
+				let target = ev.target,
+					$target = $(target);
+				// 点击的是EM
+				if (target.tagName === 'EM') {
+					let $ul = $target.next('ul');
+					$ul.stop().slideToggle(200);
+					$target.toggleClass('open');
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

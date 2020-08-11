@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>十年珠峰、专注前端</title>
+	<!-- IMPORT CSS -->
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 在结构上存储元素的索引 -->
+	<button index="0">红</button>
+	<button index="1">绿</button>
+	<button index="2">蓝</button>
+	<button index="3">黑</button>
+	<button index="4">粉</button>
+
+	<!-- IMPORT JS -->
+	<script>
+		/* 
+		 * 在ES6之前，我们的上下文：全局上下文/函数私有上下文
+		 *
+		 * EC(G)
+		 *   arr = ...
+		 *   buttonList = ...
+		 * 
+		 *   i = 0
+		 *     第一轮循环给第一个按钮的点击事件行为绑定一个方法（此时没执行，点击才执行）
+		 *     i++
+		 *   i=1
+		 *     第二轮循环给第二个按钮的点击事件行为绑定一个方法（此时没执行，点击才执行）
+		 *     i++
+		 *   ....
+		 *   i=5 循环结束
+		 */
+		/* 
+		var arr = ['red', 'green', 'blue', 'black', 'pink'];
+		var buttonList = document.getElementsByTagName('button');
+		for (var i = 0; i < buttonList.length; i++) {
+			buttonList[i].onclick = function () {
+				/!*
+				 * 点击按钮执行函数  EC(AN)
+				 *   作用域链:<EC(AN),EC(G)>
+				 *   形参赋值:--
+				 *!/
+				// 遇到的i不是自己私有的，是全局的上下文中的，但是此时全局的i已经是循环结束的5了，不是我们期望的索引
+				var color = arr[i];
+				document.body.style.backgroundColor = color;
+			};
+		} 
+		*/
+
+		// 利用闭包是可以解决的
+		/* var arr = ['red', 'green', 'blue', 'black', 'pink'];
+		var buttonList = document.getElementsByTagName('button');
+		for (var i = 0; i < buttonList.length; i++) {
+			// i=0 第一轮循环
+			//    自执行函数执行，形成一个私有的上下文 
+			(function (i) {
+				/!* 
+				 * EC(AN)
+				 *   作用域链:<EC(AN),EC(G)>
+				 *   形参赋值:i=0
+				 * 此上下文是不能被释放的
+				 *!/
+				// buttonList[0].onclick = AAAFFF000 ([[scope]]:EC(AN))
+				buttonList[i].onclick = function () {
+					/!*
+					 * 私有上下文 EC(EV)
+					 *    作用域链:<EC(EV),EC(AN)>
+					 *!/
+					// 这里再遇到的i找的不是全局了，而是上级上下文EC(AN)，而在这个闭包中存储了对应的索引i
+					var color = arr[i];
+					document.body.style.backgroundColor = color;
+				};
+			})(i);
+			// 把每一轮循环全局I的值作为实参传递给私有上下文中的形参，第一轮循环传递的是0
+		} */
+
+		/* var arr = ['red', 'green', 'blue', 'black', 'pink'];
+		var buttonList = document.getElementsByTagName('button');
+		for (var i = 0; i < buttonList.length; i++) {
+			// 把自执行函数执行的返回值赋值给onclick
+			buttonList[i].onclick = (function (i) {
+				return function () {
+					var color = arr[i];
+					document.body.style.backgroundColor = color;
+				};
+			})(i);
+		} */
+
+		// 基于ES6处理和上面的原理是一样的（都是闭包的机制，但是因为let的块作用域是浏览器底层机制实现的，比我们自己创建的闭包性能要好一些）
+		/* let arr = ['red', 'green', 'blue', 'black', 'pink'];
+		let buttonList = document.getElementsByTagName('button');
+		for (let i = 0; i < buttonList.length; i++) {
+			// 每一轮都会形成一个私有的块级作用域，并且有一个私有的变量i，分别存储每一轮循环的索引
+			buttonList[i].onclick = function () {
+				// 上级作用域是创建的那个块作用域（也不是全局的）
+				var color = arr[i];
+				document.body.style.backgroundColor = color;
+			};
+		} */
+
+		// 真实项目中遇到循环事件绑定的，我们最好告别闭包（包括LET）
+		/* var arr = ['red', 'green', 'blue', 'black', 'pink'];
+		var buttonList = document.getElementsByTagName('button');
+		for (var i = 0; i < buttonList.length; i++) {
+			// 每一轮循环把后期需要用到的索引存储在自定义属性上
+			buttonList[i].myIndex = i;
+			buttonList[i].onclick = function () {
+				// this -> 当前操作的按钮
+				var color = arr[this.myIndex];
+				document.body.style.backgroundColor = color;
+			};
+		} */
+
+		// 最好的方法是事件委托（性能是最好的）
+		/* var arr = ['red', 'green', 'blue', 'black', 'pink'];
+		document.body.onclick = function (ev) {
+			let target = ev.target,
+				targetTag = target.tagName;
+			// 当前点击的是五个按钮中的一个，target事件源就是点击的这个按钮
+			if (targetTag === "BUTTON") {
+				var index = target.getAttribute('index');
+				document.body.style.backgroundColor = arr[index];
+			}
+		}; */
+	</script>
+</body>
+
+</html>

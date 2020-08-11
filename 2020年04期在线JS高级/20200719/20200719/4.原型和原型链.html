@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>十年珠峰、专注前端</title>
+	<!-- IMPORT CSS -->
+</head>
+
+<body>
+	<!-- IMPORT JS -->
+	<script>
+		/*
+		 * 三句话玩转面向对象
+		 *   1. 每一个函数(构造函数[类])都天生具备一个属性“prototype原型”，属性值是一个对象：存储当前类供实例调用的公共属性和方法
+		 *   2. 在原型对象上有一个内置的属性“constructor构造函数”，存储的值是当前函数本身，所以我们把类称为构造函数
+		 *   3. 每一个对象都天生具备一个属性“__proto__隐式原型/原型链”，属性指向自己所属类的原型对象   实例.__proto__===所属类.prototype
+		 * 
+		 * 函数类型：
+		 *   + 普通函数
+		 *   + 构造函数（类）
+		 *   + 内置类
+		 * 对象类型：
+		 *   + 普通对象/数组对象/正则对象/日期对象...
+		 *   + prototype/__proto__
+		 *   + 类的实例也是对象（排除基本数据类型值的特殊性）
+		 *   + 函数也是对象
+		 *   + 万物皆对象
+		 */
+
+
+		/* 
+		 * Object.create([OBJECT])
+		 *   创建一个空对象x，并且把[OBJECT]（这个值需要是一个对象）作为新对象的原型指向
+		 *   x.__proto__=[OBJECT]
+		 * 
+		 * Object.create(null)：创建一个没有原型/原型链的空对象（不是任何类的实例）
+		 */
+
+		// 我们写的这个方法不支持null的处理
+		Object.create = function create(prototype) {
+			if (prototype === null || typeof prototype !== "object") {
+				throw new TypeError(`Object prototype may only be an Object: ${prototype}`);
+			}
+			// 创建一个类,创建这个类的实例,实例.__proto__=类.prototype；而我们让类.prototype等于传递的prototype；
+			function Temp() {}
+			Temp.prototype = prototype;
+			return new Temp;
+		};
+
+		//=============================================
+		function Dog(name) {
+			this.name = name;
+		}
+		Dog.prototype.bark = function () {
+			console.log('wangwang');
+		}
+		Dog.prototype.sayName = function () {
+			console.log('my name is ' + this.name);
+		}
+		// Func要操作的这个类（最后要创建这个类的实例）
+		// ARGS存储未来传递给Func类的实参
+		function _new(Func, ...args) {
+			// 1.创建一个FUNC的实例对象（实例.__proto__=>类.prototype）
+			// 在IE浏览器中,禁止我们使用__proto__（也可以理解为IE并没有提供给我们__proto__这个属性，防止我们去改变原型指向）
+			/* let obj = {};
+			obj.__proto__ = Func.prototype; */
+			let obj = Object.create(Func.prototype);
+
+			// 2.把FUNC当做普通函数执行（让方法中的THIS指向创建的实例）
+			let result = Func.call(obj, ...args);
+
+			// 3.分析函数执行的返回值（没有返回值或者返回的是原始值类型则默认都返回创建的实例，否则以函数自身返回的为主）
+			if (result !== null && /^(object|function)$/.test(typeof result)) {
+				return result;
+			}
+			return obj;
+		}
+		let sanmao = _new(Dog, '三毛');
+		sanmao.bark(); //=>"wangwang"
+		sanmao.sayName(); //=>"my name is 三毛"
+		console.log(sanmao instanceof Dog); //=>true
+	</script>
+</body>
+
+</html>

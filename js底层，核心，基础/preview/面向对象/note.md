@@ -4,6 +4,8 @@
 
 函数被new操作符运行时作为自定义类/构造函数，构造函数做了很多普通函数没做的事情
 
+
+
 ### 构造函数执行
 
 构造函数执行也具备普通函数执行的一面（也会有创建上下文初始化作用域链，初始化this，初始化arguments，形参赋值，变量提升，代码执行）
@@ -36,13 +38,19 @@
 - 在原型对象上，有一个内置的属性"constructor"，存储的是当前函数本身，所以我们把类称为构造函数
 - 每一个对象都天生具备一个属性"\__proto__隐式原型/原型链"，属性只想自己所属类的原型对象
 
+
+
 ### 原型链机制
 
 访问对象的某个成员，首先看是否为私有的，如果是私有的，则找到的就是私有的；如果不是，则基于\__proto__找所属类.prototype上的公共属性方法...如果还是没有，则基于\__proto__继续向上查找，直到找到Object.prototype为止..
 
+
+
 ### 自定义类的原型和原型链
 
 实例.\__proto__  === 类.prototype
+
+
 
 ### Object.create([OBJECT])
 
@@ -50,13 +58,15 @@
 
 Object.create(null): 创建一个没有原型/原型链的空对象，这个对象不是任何类的实例
 
+
+
 ### Object.create Polyfill
 
 ```javascript
 // 这个方法不支持null的处理
 Object.create = Object.create || function create (prototype) {
     if(prototype === null || typeof prototype !== 'object') {
-        throw new TypeError(`Object prototype may only be ana Object: ${prototype}`)
+        throw new TypeError(`Object prototype may only be an Object: ${prototype}`)
     }
     
     function Temp (){};
@@ -67,9 +77,66 @@ Object.create = Object.create || function create (prototype) {
 
 
 
+### 向内置类原型拓展方法
+
+**细节知识点**：
+
+- 为了防止自己设定的方法覆盖内置的方法，我们设置的方法加方法名
+- 方法中的this**一般**就是当前要操作的实例（也就不需要基于形参传递实例进来了）
+
+**优势**：
+
+- 使用起来方便，和内置方法相似，直接让实例调用即可
+- 只要保证方法的返回结果还是当前类的实例，那么我们就可以基于链式方法调用当前类中提供的其他方法
+
+**劣势**
+
+- 如果在内置类的原型上加了可枚举的属性，在for in 遍历时会遍历到
+
+```javascript
+Array.prototype.myDistinct = function myDistinct() {
+    // 实现数组去重
+    // ES6中的Set实例（不重复的数组）:Set的实例
+    // return [...new Set(this)]
+    return Array.from(new Set(this))
+}
+
+let arr = [1, 2, 3, 4, 5, 5, 4, 3, 2, 1];
+console.log(arr.myDistinct());
+```
 
 
 
+------
 
 
 
+## THIS的五种情况深入解析
+
+全局上下文中的THIS=>window,
+
+块级上下文没有自己的THIS，它的this是继承所在上下文中的this
+
+在函数的私有上下文中，this的情况会多种多样（**重点研究**）
+
+### THIS不是执行上下文（EC才是执行上下文）
+
+this是执行主体
+
+### 如何区分执行主体
+
+执行主体this**和函数在哪执行和在哪创建没有必然关系**
+
+- #### 函数执行，看函数前是否有“点”，有“点”的话，“点”前面是谁THIS就是谁，没有“点”THIS就是window（非严格模式）／undefined（严格模式）
+
+  + 自执行函数IIFE中的this一般都是window/undefined
+
+  + 回调函数中的this一般也是window/undefined(除非某个函数内部给回调函数做了特殊处理,这样回调函数中的this有自己的特殊情况)
+
+- #### 给当前元素的某个事件行为绑定方法,当事件行为触发时,方法中的this是当前操作的元素(特殊:IE6~8中基于DOM2级事件事件绑定attachEvent,方法中的this不是元素)
+
+- #### 箭头函数中(私有块级上下文)没有自己的this 所用到的this都是其上级上下文中的this(也就是说没有初始化this这一步)
+
+- #### 构造函数中的this一般是当前类的实例
+
+- #### 基于call/apply/bind可以强制改变this

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>十年珠峰、专注前端</title>
+	<!-- IMPORT CSS -->
+	<link rel="stylesheet" href="modalplugin.css">
+</head>
+
+<body>
+	<button id="btn1">按钮1</button>
+
+	<!-- IMPORT JS -->
+	<script src="index.js"></script>
+	<script>
+		function fn1() {
+			console.log(1)
+		}
+
+		function fn2() {
+			console.log(2)
+		}
+
+		function fn3() {
+			console.log(3)
+		}
+
+		let modal1 = ModalPlugin({
+			template: `<a href="#">哈哈哈</a>`,
+			buttons: [{
+				text: '逗你玩',
+				click() {
+					console.log('点击丢你玩');
+					this.close();
+				}
+			}],
+			init() {
+				// ...
+			}
+		});
+		modal1.on('dragstart', fn1);
+		modal1.on('dragmove', fn2);
+		modal1.on('dragend', fn3);
+
+		btn1.onclick = function () {
+			modal1.open();
+		};
+	</script>
+</body>
+
+</html>

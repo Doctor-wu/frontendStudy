@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>珠峰培训-放大镜</title>
+	<!-- IMPORT CSS -->
+	<link rel="stylesheet" href="css/reset.min.css">
+	<style>
+		.magnifier {
+			box-sizing: border-box;
+			margin: 20px auto;
+			width: 600px;
+		}
+
+		.magnifier .abbre,
+		.magnifier .origin {
+			float: left;
+		}
+
+		.magnifier .abbre {
+			position: relative;
+			box-sizing: border-box;
+			width: 250px;
+			height: 240px;
+		}
+
+		.magnifier .abbre img {
+			width: 100%;
+			height: 100%;
+		}
+
+		.magnifier .abbre .mark {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 120px;
+			height: 100px;
+			background: rgba(255, 0, 0, .3);
+			cursor: move;
+		}
+
+		.magnifier .origin {
+			display: none;
+			position: relative;
+			box-sizing: border-box;
+			width: 350px;
+			height: 340px;
+			overflow: hidden;
+		}
+
+		.magnifier .origin img {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<section class="magnifier clearfix">
+		<!-- 左侧缩略图 -->
+		<div class="abbre">
+			<img src="images/1.jpg" alt="">
+			<div class="mark"></div>
+		</div>
+		<!-- 右侧原图(大图) -->
+		<div class="origin">
+			<img src="images/2.jpg" alt="">
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+	<script>
+		// 1.等待DOM结构加载完 DOMContentLoaded
+		// 2.形成一个闭包,保证私有性
+		$(function () {
+			let $magnifier = $('.magnifier'),
+				$abbre = $magnifier.find('.abbre'),
+				$mark = $abbre.find('.mark'),
+				$origin = $magnifier.find('.origin'),
+				$originImg = $origin.find('img');
+
+			// 首先按照比例计算大图的样式
+			let abbreW = $abbre.width(),
+				abbreH = $abbre.height(),
+				markW = $mark.width(),
+				markH = $mark.height(),
+				originW = $origin.width(),
+				originH = $origin.height(),
+				originImgW = null,
+				originImgH = null,
+				offset = $abbre.offset();
+			originImgW = originW / (markW / abbreW);
+			originImgH = originH / (markH / abbreH);
+			$originImg.css({
+				width: originImgW,
+				height: originImgH
+			});
+
+			// 处理鼠标在ABBRE中进入，离开，移动的相关操作
+			function computed(ev) {
+				// 计算MARK的位置以及根据MARK的移动计算出大图的移动距离
+				let markT = ev.pageY - offset.top - markH / 2,
+					markL = ev.pageX - offset.left - markW / 2,
+					originImgL = null,
+					originImgT = null;
+				// 边界判断
+				let minL = 0,
+					minT = 0,
+					maxL = abbreW - markW,
+					maxT = abbreH - markH;
+				markL = markL < minL ? minL : (markL > maxL ? maxL : markL);
+				markT = markT < minT ? minT : (markT > maxT ? maxT : markT);
+				originImgL = markL / abbreW * originImgW;
+				originImgT = markT / abbreH * originImgH;
+
+				$mark.css({
+					left: markL,
+					top: markT
+				});
+				$originImg.css({
+					left: -originImgL,
+					top: -originImgT
+				});
+			}
+
+			$abbre.mouseenter(function (ev) {
+					$mark.css('display', 'block');
+					$origin.css('display', 'block');
+					computed(ev);
+				})
+				.mousemove(computed)
+				.mouseleave(function (ev) {
+					$mark.css('display', 'none');
+					$origin.css('display', 'none');
+				});
+		});
+	</script>
+</body>
+
+</html>

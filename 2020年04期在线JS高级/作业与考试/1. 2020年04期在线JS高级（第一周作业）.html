@@ -1,0 +1,430 @@
+<!DOCTYPE html><html><head><title>2020年04期在线JS高级（第一周作业）</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h3 id="2020年04期在线js高级第一周作业">2020年04期在线JS高级（第一周作业）</h3>
+
+<h4 id="一变量提升的作业">一、变量提升的作业</h4>
+
+<p><img longdesc="./1594549120123.png" alt="Alt text" title="" type="image/png" src="data:image/png;base64,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" class=""> <br>
+至少看完第一个视频再去做</p>
+
+<p><strong>1</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a, b, c);
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">12</span>,
+</div><div class="hljs-line">    b = <span class="hljs-number">13</span>,
+</div><div class="hljs-line">    c = <span class="hljs-number">14</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">a</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a, b, c);
+</div><div class="hljs-line">    a = <span class="hljs-number">100</span>;
+</div><div class="hljs-line">    c = <span class="hljs-number">200</span>;
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a, b, c);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">b = fn(<span class="hljs-number">10</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a, b, c);
+</div></code></pre>
+
+<p><strong>2</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> i = <span class="hljs-number">10</span>;
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">x</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(i);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> x;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> y = A();
+</div><div class="hljs-line">y();
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">B</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> i = <span class="hljs-number">20</span>;
+</div><div class="hljs-line">    y();
+</div><div class="hljs-line">}
+</div><div class="hljs-line">B();
+</div></code></pre>
+
+<p><strong>3</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> a=<span class="hljs-number">1</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> obj ={
+</div><div class="hljs-line">   <span class="hljs-attr">name</span>:<span class="hljs-string">"tom"</span>
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">   <span class="hljs-keyword">var</span> a2 = a;
+</div><div class="hljs-line">   obj2 = obj;
+</div><div class="hljs-line">   a2 =a;
+</div><div class="hljs-line">   obj2.name =<span class="hljs-string">"jack"</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">fn();
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(obj);
+</div></code></pre>
+
+<p><strong>4</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">a</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a)
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>;
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">a</span>(<span class="hljs-params"></span>)</span>{}
+</div><div class="hljs-line">}
+</div><div class="hljs-line">fn(a);
+</div></code></pre>
+
+<p><strong>5</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a); 
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> a=<span class="hljs-number">12</span>; 
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a); 
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> a=<span class="hljs-number">13</span>;   
+</div><div class="hljs-line">}
+</div><div class="hljs-line">fn();   
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a);
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">----
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a); 
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> a=<span class="hljs-number">12</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a);
+</div><div class="hljs-line">    a=<span class="hljs-number">13</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">fn();
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a);
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">----
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a);
+</div><div class="hljs-line">a=<span class="hljs-number">12</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a);
+</div><div class="hljs-line">    a=<span class="hljs-number">13</span>;   
+</div><div class="hljs-line">}
+</div><div class="hljs-line">fn();
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a);
+</div></code></pre>
+
+<p><strong>6</strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> foo=<span class="hljs-string">'hello'</span>; 
+</div><div class="hljs-line">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">foo</span>)</span>{
+</div><div class="hljs-line">   <span class="hljs-built_in">console</span>.log(foo);
+</div><div class="hljs-line">   <span class="hljs-keyword">var</span> foo=foo||<span class="hljs-string">'world'</span>;
+</div><div class="hljs-line">   <span class="hljs-built_in">console</span>.log(foo);
+</div><div class="hljs-line">})(foo);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(foo);
+</div></code></pre>
+
+<p><strong>7</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">{
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{}
+</div><div class="hljs-line">    foo = <span class="hljs-number">1</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(foo);
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">----
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">{
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{}
+</div><div class="hljs-line">    foo = <span class="hljs-number">1</span>;
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{}
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(foo);
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">----
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">{
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{}
+</div><div class="hljs-line">    foo = <span class="hljs-number">1</span>;
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{}
+</div><div class="hljs-line">    foo = <span class="hljs-number">2</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(foo);
+</div></code></pre>
+
+<p><strong>8</strong></p>
+
+<p><img longdesc="./1594549323642.png" alt="Alt text" title="" type="image/png" src="data:image/png;base64,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" class=""></p>
+
+<h4 id="二数据类型和基础知识作业">二、数据类型和基础知识作业</h4>
+
+<p><strong>1</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> result = <span class="hljs-number">100</span> + <span class="hljs-literal">true</span> + <span class="hljs-number">21.2</span> + <span class="hljs-literal">null</span> + <span class="hljs-literal">undefined</span> + <span class="hljs-string">"Tencent"</span> + [] + <span class="hljs-literal">null</span> + <span class="hljs-number">9</span> + <span class="hljs-literal">false</span>;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(result);
+</div></code></pre>
+
+<p><strong>2</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">{}+<span class="hljs-number">0</span>?alert(<span class="hljs-string">'ok'</span>):alert(<span class="hljs-string">'no'</span>);
+</div><div class="hljs-line"><span class="hljs-number">0</span>+{}?alert(<span class="hljs-string">'ok'</span>):alert(<span class="hljs-string">'no'</span>);
+</div></code></pre>
+
+<p><strong>3</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> res = <span class="hljs-built_in">Number</span>(<span class="hljs-string">'12px'</span>);
+</div><div class="hljs-line"><span class="hljs-keyword">if</span>(res===<span class="hljs-number">12</span>){
+</div><div class="hljs-line">    alert(<span class="hljs-number">200</span>);
+</div><div class="hljs-line">}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(res===<span class="hljs-literal">NaN</span>){
+</div><div class="hljs-line">    alert(<span class="hljs-literal">NaN</span>);
+</div><div class="hljs-line">}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> res===<span class="hljs-string">'number'</span>){
+</div><div class="hljs-line">    alert(<span class="hljs-string">'number'</span>);
+</div><div class="hljs-line">}<span class="hljs-keyword">else</span>{
+</div><div class="hljs-line">    alert(<span class="hljs-string">'Invalid Number'</span>);
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<p><strong>4</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> arr = [<span class="hljs-number">27.2</span>,<span class="hljs-number">0</span>,<span class="hljs-string">'0013'</span>,<span class="hljs-string">'14px'</span>,<span class="hljs-number">123</span>];
+</div><div class="hljs-line">arr = arr.map(<span class="hljs-built_in">parseInt</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(arr);
+</div></code></pre>
+
+<h4 id="三闭包作用域的作业">三、闭包作用域的作业</h4>
+
+<p><strong>1</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span>,
+</div><div class="hljs-line">    b = <span class="hljs-number">11</span>,
+</div><div class="hljs-line">    c = <span class="hljs-number">12</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params">a</span>) </span>{
+</div><div class="hljs-line">    a = <span class="hljs-number">1</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> b = <span class="hljs-number">2</span>;
+</div><div class="hljs-line">    c = <span class="hljs-number">3</span>;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">test(<span class="hljs-number">10</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a, b, c);
+</div></code></pre>
+
+<p><strong>2</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">4</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">b</span>(<span class="hljs-params">x, y, a</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a);
+</div><div class="hljs-line">    <span class="hljs-built_in">arguments</span>[<span class="hljs-number">2</span>] = <span class="hljs-number">10</span>;
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(a);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">a = b(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a);
+</div></code></pre>
+
+<p><strong>3</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">9</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    a = <span class="hljs-number">0</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">b</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> b + a++;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> f = fn();
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(f(<span class="hljs-number">5</span>));
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(fn()(<span class="hljs-number">5</span>));
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(f(<span class="hljs-number">5</span>));
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(a);
+</div></code></pre>
+
+<p><strong>4</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> test = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">i</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">        alert(i *= <span class="hljs-number">2</span>);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">})(<span class="hljs-number">2</span>);
+</div><div class="hljs-line">test(<span class="hljs-number">5</span>);
+</div></code></pre>
+
+<p><strong>5</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> x = <span class="hljs-number">4</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">y</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(y + (--x));
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> f = func(<span class="hljs-number">5</span>);
+</div><div class="hljs-line">f(<span class="hljs-number">6</span>);
+</div><div class="hljs-line">func(<span class="hljs-number">7</span>)(<span class="hljs-number">8</span>);
+</div><div class="hljs-line">f(<span class="hljs-number">9</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(x);
+</div></code></pre>
+
+<p><strong>6</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>,
+</div><div class="hljs-line">    y = <span class="hljs-number">6</span>;
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    x += y;
+</div><div class="hljs-line">    func = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">y</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(y + (--x));
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(x, y);
+</div><div class="hljs-line">}
+</div><div class="hljs-line">func(<span class="hljs-number">4</span>);
+</div><div class="hljs-line">func(<span class="hljs-number">3</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(x, y);
+</div></code></pre>
+
+<p><strong>7</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fun</span>(<span class="hljs-params">n, o</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(o);
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> {
+</div><div class="hljs-line">        <span class="hljs-attr">fun</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">m</span>) </span>{
+</div><div class="hljs-line">            <span class="hljs-keyword">return</span> fun(m, n);
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> c = fun(<span class="hljs-number">0</span>).fun(<span class="hljs-number">1</span>);
+</div><div class="hljs-line">c.fun(<span class="hljs-number">2</span>);
+</div><div class="hljs-line">c.fun(<span class="hljs-number">3</span>);
+</div></code></pre>
+
+<p><strong>8 简述你对闭包的理解，以及其优缺点？</strong></p>
+
+<p><strong>9 简述let和var的区别？</strong></p>
+
+<p><strong>10 下面代码输出的结果是多少，为什么？如何改造一下，就能让其输出 20 10？</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> b = <span class="hljs-number">10</span>;
+</div><div class="hljs-line">(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">b</span>(<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    b = <span class="hljs-number">20</span>;
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(b);
+</div><div class="hljs-line">})();
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(b);
+</div></code></pre>
+
+<p><strong>11 实现函数fn，让其具有如下功能（百度二面）</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> res = fn(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(res); <span class="hljs-comment">//=&gt;6  1+2+3</span>
+</div></code></pre>
+
+<p><strong>12 实现函数fn，让其具有如下功能（百度二面）</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">/* </span>
+</div><div class="hljs-line"><span class="hljs-comment">    在函数式编程当中有一个很重要的概念就是函数组合， 实际上就是把处理数据的函数像管道一样连接起来， 然后让数据穿过管道得到最终的结果。 例如：</span>
+</div><div class="hljs-line"><span class="hljs-comment">    const add1 = (x) =&gt; x + 1;</span>
+</div><div class="hljs-line"><span class="hljs-comment">    const mul3 = (x) =&gt; x * 3;</span>
+</div><div class="hljs-line"><span class="hljs-comment">    const div2 = (x) =&gt; x / 2;</span>
+</div><div class="hljs-line"><span class="hljs-comment">    div2(mul3(add1(add1(0)))); //=&gt;3</span>
+</div><div class="hljs-line"><span class="hljs-comment">​</span>
+</div><div class="hljs-line"><span class="hljs-comment">    而这样的写法可读性明显太差了，我们可以构建一个compose函数，它接受任意多个函数作为参数（这些函数都只接受一个参数），然后compose返回的也是一个函数，达到以下的效果：</span>
+</div><div class="hljs-line"><span class="hljs-comment">    const operate = compose(div2, mul3, add1, add1)</span>
+</div><div class="hljs-line"><span class="hljs-comment">    operate(0) //=&gt;相当于div2(mul3(add1(add1(0)))) </span>
+</div><div class="hljs-line"><span class="hljs-comment">    operate(2) //=&gt;相当于div2(mul3(add1(add1(2))))</span>
+</div><div class="hljs-line"><span class="hljs-comment">​</span>
+</div><div class="hljs-line"><span class="hljs-comment">    简而言之：compose可以把类似于f(g(h(x)))这种写法简化成compose(f, g, h)(x)，请你完成 compose函数的编写 </span>
+</div><div class="hljs-line"><span class="hljs-comment">*/</span>
+</div></code></pre>
+
+<h4 id="四this的作业题">四、THIS的作业题</h4>
+
+<p><strong>1</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> num = <span class="hljs-number">10</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> obj = {
+</div><div class="hljs-line">    <span class="hljs-attr">num</span>: <span class="hljs-number">20</span>
+</div><div class="hljs-line">};
+</div><div class="hljs-line">obj.fn = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">num</span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.num = num * <span class="hljs-number">3</span>;
+</div><div class="hljs-line">    num++;
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">n</span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">this</span>.num += n;
+</div><div class="hljs-line">        num++;
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(num);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">})(obj.num);
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> fn = obj.fn;
+</div><div class="hljs-line">fn(<span class="hljs-number">5</span>);
+</div><div class="hljs-line">obj.fn(<span class="hljs-number">10</span>);
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(num, obj.num);
+</div></code></pre>
+
+<p><strong>2</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">let</span> obj = {
+</div><div class="hljs-line">    <span class="hljs-attr">fn</span>: (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">            <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    })()
+</div><div class="hljs-line">};
+</div><div class="hljs-line">obj.fn();
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> fn = obj.fn;
+</div><div class="hljs-line">fn();
+</div></code></pre>
+
+<p><strong>3</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> fullName = <span class="hljs-string">'language'</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> obj = {
+</div><div class="hljs-line">    <span class="hljs-attr">fullName</span>: <span class="hljs-string">'javascript'</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">prop</span>: {
+</div><div class="hljs-line">        <span class="hljs-attr">getFullName</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.fullName;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">};
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(obj.prop.getFullName());
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> test = obj.prop.getFullName;
+</div><div class="hljs-line"><span class="hljs-built_in">console</span>.log(test());
+</div></code></pre>
+
+<p><strong>4</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">var</span> name = <span class="hljs-string">'window'</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> Tom = {
+</div><div class="hljs-line">    <span class="hljs-attr">name</span>: <span class="hljs-string">"Tom"</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">show</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name);
+</div><div class="hljs-line">    },
+</div><div class="hljs-line">    <span class="hljs-attr">wait</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">var</span> fun = <span class="hljs-keyword">this</span>.show;
+</div><div class="hljs-line">        fun();
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">};
+</div><div class="hljs-line">Tom.wait();
+</div></code></pre>
+
+<p><strong>5</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-built_in">window</span>.val = <span class="hljs-number">1</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> json = {
+</div><div class="hljs-line">    <span class="hljs-attr">val</span>: <span class="hljs-number">10</span>,
+</div><div class="hljs-line">    <span class="hljs-attr">dbl</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">        <span class="hljs-keyword">this</span>.val *= <span class="hljs-number">2</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">json.dbl();
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> dbl = json.dbl;
+</div><div class="hljs-line">dbl();
+</div><div class="hljs-line">json.dbl.call(<span class="hljs-built_in">window</span>);
+</div><div class="hljs-line">alert(<span class="hljs-built_in">window</span>.val + json.val);
+</div></code></pre>
+
+<p><strong>6</strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> val = <span class="hljs-number">1</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> json = {
+</div><div class="hljs-line">        <span class="hljs-attr">val</span>: <span class="hljs-number">10</span>,
+</div><div class="hljs-line">        <span class="hljs-attr">dbl</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line">            val *= <span class="hljs-number">2</span>;
+</div><div class="hljs-line">        }
+</div><div class="hljs-line">    };
+</div><div class="hljs-line">    json.dbl();
+</div><div class="hljs-line">    alert(json.val + val);
+</div><div class="hljs-line">})();
+</div></code></pre></div></body></html>
