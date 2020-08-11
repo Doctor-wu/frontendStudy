@@ -46,25 +46,52 @@
 // C3.prototype.name = 'Tom';
 // console.log((new C1().name) /*Tom*/ + (new C2().name) /*undefined*/ + (new C3().name) /*join*/ ); // Tomundefinedjoin
 
-function Fn() {
-    let a = 1;
-    this.a = a;
-}
-Fn.prototype.say = function() {
-        this.a = 2;
-    } // useless
+// function Fn() {
+//     let a = 1;
+//     this.a = a;
+// }
+// Fn.prototype.say = function() {
+//         this.a = 2;
+//     } // useless
 
-Fn.prototype = new Fn; // a = 1
-let f1 = new Fn; // a = 1
-Fn.prototype.b = function() {
-    this.a = 3;
-}; // a = 1 ; b = function(){...}
-console.log(f1.a); // 1
-console.log(f1.prototype); // a = 1 ; b = function(){...}  /============================>undefined
-console.log(f1.b); // function(){...}
-console.log(f1.hasOwnProperty('b')); // false
-console.log('b' in f1); // true
-console.log(f1.constructor == Fn); // false/=============================>true
+// Fn.prototype = new Fn; // a = 1
+// let f1 = new Fn; // a = 1
+// Fn.prototype.b = function() {
+//     this.a = 3;
+// }; // a = 1 ; b = function(){...}
+// console.log(f1.a); // 1
+// console.log(f1.prototype); // a = 1 ; b = function(){...}  /============================>undefined
+// console.log(f1.b); // function(){...}
+// console.log(f1.hasOwnProperty('b')); // false
+// console.log('b' in f1); // true
+// console.log(f1.constructor == Fn); // false/=============================>true
+
+function Foo() {
+    getName = function() {
+        console.log(1);
+    };
+    return this;
+}
+Foo.getName = function() {
+    console.log(2);
+};
+Foo.prototype.getName = function() {
+    console.log(3);
+};
+var getName = function() {
+    console.log(4);
+};
+
+function getName() {
+    console.log(5);
+}
+Foo.getName(); // 2
+getName(); // 4
+Foo().getName(); // 4 /====》1
+getName(); // 4  /====》1
+new Foo.getName(); // 2
+new Foo().getName(); // 4  /====》3
+new new Foo().getName(); // 4  /====》3
 
 //-------------------------------THIS-------------------------------------
 
