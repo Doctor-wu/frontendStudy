@@ -50,6 +50,21 @@
 
 Object.create(null): 创建一个没有原型/原型链的空对象，这个对象不是任何类的实例
 
+### Object.create Polyfill
+
+```javascript
+// 这个方法不支持null的处理
+Object.create = Object.create || function create (prototype) {
+    if(prototype === null || typeof prototype !== 'object') {
+        throw new TypeError(`Object prototype may only be ana Object: ${prototype}`)
+    }
+    
+    function Temp (){};
+    Temp.prototype = prototype;
+    return new Temp;
+}
+```
+
 
 
 
