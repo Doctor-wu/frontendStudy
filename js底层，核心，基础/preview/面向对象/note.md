@@ -218,9 +218,16 @@ console.log(f)
 
 
 
+## 函数的三种角色
 
+<img src="..\imgs\函数的三种角色.png" style="zoom:200%;" />
 
+**如果认为Function比Object大，但Function既是一个类，也是一个对象，作为对象，它是Object的实例**
 
+**如果认为Object比Function大，但Object作为一个类，是Function的实例**
 
-
+```javascript
+Object instanceof Function  // true
+Function instanceof Object  // true
+```
 
