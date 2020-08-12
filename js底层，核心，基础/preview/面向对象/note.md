@@ -140,3 +140,30 @@ this是执行主体
 - #### 构造函数中的this一般是当前类的实例
 
 - #### 基于call/apply/bind可以强制改变this
+
+## Object和Function的爱恨情仇
+
+Function.prototype 上有三个方法 call/apply/bind,　每一个函数都是Function的实例，都可以调用call/apply/bind
+
+Object(每一个对象都是Object的实例)
+
+Object.prototype.\__proto__ === null
+
+除了typeof Function.prototype === 'function'外，typeof 所有内置类的prototype === 'object'
+
+Function.prototype 是一个匿名空函数empty/anonymous 但是相关操作和其他原型对象没有区别
+
+**Object作为一个类是Function的实例，Function虽然是函数，但也是一个对象，所以它也是Object的一个实例**
+
+**互相为爹！！**
+
+
+
+
+
+
+
+
+
+
+

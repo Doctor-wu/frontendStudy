@@ -66,32 +66,42 @@
 // console.log('b' in f1); // true
 // console.log(f1.constructor == Fn); // false/=============================>true
 
-function Foo() {
-    getName = function() {
-        console.log(1);
-    };
-    return this;
-}
-Foo.getName = function() {
-    console.log(2);
-};
-Foo.prototype.getName = function() {
-    console.log(3);
-};
-var getName = function() {
-    console.log(4);
-};
+// function Foo() {
+//     getName = function() {
+//         console.log(1);
+//     };
+//     return this;
+// }
+// Foo.getName = function() {
+//     console.log(2);
+// };
+// Foo.prototype.getName = function() {
+//     console.log(3);
+// };
+// var getName = function() {
+//     console.log(4);
+// };
 
-function getName() {
-    console.log(5);
+// function getName() {
+//     console.log(5);
+// }
+// Foo.getName(); // 2
+// getName(); // 4
+// Foo().getName(); // 4 /====》1
+// getName(); // 4  /====》1
+// new Foo.getName(); // 2
+// new Foo().getName(); // 4  /====》3
+// new new Foo().getName(); // 4  /====》3
+
+let n = 10;
+Number.prototype.plus = function(val) {
+    return this + val;
 }
-Foo.getName(); // 2
-getName(); // 4
-Foo().getName(); // 4 /====》1
-getName(); // 4  /====》1
-new Foo.getName(); // 2
-new Foo().getName(); // 4  /====》3
-new new Foo().getName(); // 4  /====》3
+Number.prototype.minus = function(val) {
+    return this - val;
+}
+let m = n.plus(10).minus(5);
+console.log(m); //=>15（10+10-5）
 
 //-------------------------------THIS-------------------------------------
 
