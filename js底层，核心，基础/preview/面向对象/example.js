@@ -93,15 +93,16 @@
 // new Foo().getName(); // 4  /====》3
 // new new Foo().getName(); // 4  /====》3
 
-let n = 10;
-Number.prototype.plus = function(val) {
-    return this + val;
-}
-Number.prototype.minus = function(val) {
-    return this - val;
-}
-let m = n.plus(10).minus(5);
-console.log(m); //=>15（10+10-5）
+// let n = 10;
+// Number.prototype.plus = function(val) {
+//     return this + val;
+// }
+// Number.prototype.minus = function(val) {
+//     return this - val;
+// }
+// let m = n.plus(10).minus(5);
+// console.log(m); //=>15（10+10-5）
+
 
 //-------------------------------THIS-------------------------------------
 

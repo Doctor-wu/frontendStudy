@@ -159,6 +159,63 @@ Function.prototype 是一个匿名空函数empty/anonymous 但是相关操作和
 
 
 
+## 类原型的重定向
+
+**问题：**
+
+- 重新定向的原型对象中没有constructor
+- 原始的原型对象上，存放的属性方法，不会放到重定向的对象上，导致实例不能再用原始的那些方法了
+- 原始的愿你选哪个对象不被占用后，会被释放掉
+- 内置类的原型都不允许重定向
+
+```javascript
+function Func() {
+
+}
+// 向内置的原型上扩展方法
+// 1. 一个个的处理（比较麻烦）
+Func.prototype.A = function (){};
+Func.prototype.B = function (){};
+Func.prototype.C = function (){};
+Func.prototype.D = function (){};
+Func.prototype.E = function (){};
+// 2.设置别名
+let proto = Func.prototype;
+proto.A =  function (){};
+proto.B =  function (){};
+
+
+// 一般想往内置原型上批量设置睡醒方法，都是基于重定向的方式
+// 1. 缺失了constructor
+// 2. 也缺失了原始类型对象上的属性和方法
+
+// 解决批量处理的问题
+
+// 1.手动设置constructor，但是之前的原型对象上的方法和属性就丢失了
+Func.prototype = {
+    constructor: Func, // 手动加上constructor
+    A: function() {},
+    B: function() {}
+}
+
+// 2.两个原型对象合并，用新的原型对象替换原始的原型对象（如果有相同方法，新对象方法会覆盖老对象方法）
+Func.prototype = Object.assign(Func.prototype, {
+    A: function() {},
+    B: function() {}
+})
+
+// 3.让新的原型对象的__proto__属性是老的原型对象
+let newProto = Object.create(Func.prototype);
+newProto = Object.assign(newProto, {
+    A: function() {},
+    B: function() {}
+})
+Func.prototype = newProto
+
+let f = new Func;
+console.log(f)
+```
+
 
 
 
