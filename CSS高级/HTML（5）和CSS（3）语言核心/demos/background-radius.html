@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-radius</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+            /** 
+            *  四个方向：左上角开始
+            *  水平
+            *  垂直
+            */
+            border-radius: 10px 20px 30px 40px;
+            margin: 20px;
+        }
+        
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+            /**
+            *  左上角 = 右下角    右上角 = 左上角
+            */
+            border-radius: 30px 40px;
+            margin: 20px;
+        }
+        
+        .box3 {
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+            /** 
+            *  左上角 = 30 右上角 = 左下角 右下角 = 50
+            */
+            border-radius: 30px 40px 50px;
+            margin: 20px;
+        }
+        
+        .box4 {
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+            /** 
+            *  四个角相等 = 60/160
+            */
+            border-radius: 60px/160px;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+
+</html>

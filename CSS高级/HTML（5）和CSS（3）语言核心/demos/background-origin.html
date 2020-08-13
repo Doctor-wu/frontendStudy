@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-origin</title>
+    <style>
+        .box1 {
+            width: 60px;
+            height: 60px;
+            border: 20px dashed red;
+            padding: 30px;
+            background: url(./example.png) no-repeat;
+            /* 从边框线开始显示 */
+            background-origin: border-box;
+        }
+        
+        .box2 {
+            width: 60px;
+            height: 60px;
+            border: 20px dashed red;
+            padding: 30px;
+            background: url(./example.png) no-repeat;
+            /* 从内容开始显示 */
+            background-origin: content-box;
+        }
+        
+        .box3 {
+            width: 60px;
+            height: 60px;
+            border: 20px dashed red;
+            padding: 30px;
+            background: url(./example.png) no-repeat;
+            /* 从内边距开始显示 */
+            background-origin: padding-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+
+</html>

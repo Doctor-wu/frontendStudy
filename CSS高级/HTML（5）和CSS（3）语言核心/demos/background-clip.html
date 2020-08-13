@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-clip</title>
+    <style>
+        .box1 {
+            width: 60px;
+            height: 60px;
+            border: 20px dashed red;
+            padding: 30px;
+            background: url(./example.png) no-repeat;
+            /* 从边框往外裁剪 */
+            background-clip: border-box;
+        }
+        
+        .box2 {
+            width: 60px;
+            height: 60px;
+            border: 20px dashed red;
+            padding: 30px;
+            background: url(./example.png) no-repeat;
+            /* 从内容往外裁剪 */
+            background-clip: content-box
+        }
+        
+        .box3 {
+            width: 60px;
+            height: 60px;
+            border: 20px dashed red;
+            padding: 30px;
+            background: url(./example.png) no-repeat;
+            /* 从内边距往外裁剪 */
+            background-clip: padding-box
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+
+</html>
