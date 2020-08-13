@@ -38,6 +38,14 @@
 
 - ##### function
 
+
+
+### 为啥分成两种数据类型，两种类型有什么区别
+
+堆栈内存
+
+
+
 ------
 
 
@@ -55,6 +63,8 @@
 #### constructor
 
 #### Object.prototype.otString
+
+
 
 ------
 
