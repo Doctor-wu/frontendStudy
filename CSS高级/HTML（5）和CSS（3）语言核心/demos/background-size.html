@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-size</title>
+    <style>
+        .box1 {
+            border: 1px solid #000;
+            width: 600px;
+            height: 600px;
+            background: #000 url(./zuihao.png) no-repeat;
+            background-size: 100px 100px;
+        }
+        
+        .box2 {
+            border: 1px solid #000;
+            float: left;
+            margin: 20px;
+            width: 600px;
+            height: 800px;
+            background: #000 url(./zuihao.png) no-repeat;
+            /* 裁剪 */
+            background-size: cover;
+        }
+        
+        .box3 {
+            border: 1px solid #000;
+            float: left;
+            margin: 20px;
+            width: 600px;
+            height: 800px;
+            background: #000 url(./zuihao.png) no-repeat;
+            /* 留白 */
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+
+</html>

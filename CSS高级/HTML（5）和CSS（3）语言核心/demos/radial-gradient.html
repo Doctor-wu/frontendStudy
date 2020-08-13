@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radial-gradient </title>
+    <style>
+        .box1 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background: radial-gradient(#e66456, #9198e5);
+        }
+        
+        .box2 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background: radial-gradient(closest-side, #3f87a6, #ebf8e1, #f69d3c);
+        }
+        
+        .box3 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background: radial-gradient(circle at 100%, #333, #333 50%, #eee 75%, #333 75%);
+        }
+        
+        .box4 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            background: radial-gradient(ellipse at top, #e66465, transparent), radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+
+</html>
