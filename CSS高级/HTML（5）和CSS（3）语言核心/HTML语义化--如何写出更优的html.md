@@ -1,7 +1,3 @@
-# HTML（5）和CSS（3）语言核心
-
-
-
 ## HTML语义化--如何写出更优的html
 
 
@@ -101,7 +97,7 @@ article, aside, bdi, command, details, dialog, summary, figure,figcaption, foote
 
   对元素的操作应该添加在JS代码中，而不要在html中添加，后期难以维护
 
-  
+
 
 - **代码校验**
 
@@ -117,7 +113,7 @@ article, aside, bdi, command, details, dialog, summary, figure,figcaption, foote
 
   video和audio元素必须要有结束标签
 
-  
+
 
 - **良好的代码排版**
 
@@ -133,7 +129,7 @@ article, aside, bdi, command, details, dialog, summary, figure,figcaption, foote
 
   同一所有的引号使用规则
 
-  
+
 
 - **语义化设计**
 
@@ -159,7 +155,7 @@ article, aside, bdi, command, details, dialog, summary, figure,figcaption, foote
 
   每个input标签对应的说明文本和对应的input的关联起来，或者直接在label中嵌套控件
 
-  
+
 
 - **布局规范**
 
@@ -179,7 +175,7 @@ article, aside, bdi, command, details, dialog, summary, figure,figcaption, foote
 
   使用margin的规则：通常情况下，margin都是添加在元素的bottom和right，有时也可以是top和left。无论如何，尽量避免同时在bottom和top，或者right和left添加margin，可以用last-of-type选择器来去掉最后一个子元素的margin
 
-  
+
 
 - **标签嵌套的规范**
 
@@ -189,8 +185,28 @@ article, aside, bdi, command, details, dialog, summary, figure,figcaption, foote
 
   有几个特殊的块级元素只能包含内联元素不能再包含块级元素：h1~h6, p, dt
 
-  
+  ul,li/ol,li/dl,dt,dd拥有父子级关系，ul,ol下都只能跟li，dl下只能跟dt,dd
+
+  a标签不能嵌套a标签
+
+
 
 - **网站代码优化**
 
-#### 
+  要多为用户考虑，不同的设备条件，使用环境以及输入法等都会给你的HTML带来不同的体验
+
+  网页的title, keywords, description一定要写，要精简全面
+
+  网页使用语义化代码
+
+  a标签要设置title属性；外部链接还要设置rel属性--rel="nofollow"，nofollow值会使得网络爬虫不顺着链接爬出
+
+  所有的标题建议使用h1标签，样式可以用css设置
+
+  br标签只能用于文本的换行
+
+  table一定要使用caption设置表格题目
+
+  strong用来设置重标，em设置斜体
+
+  img标签一定要设置其alt属性
