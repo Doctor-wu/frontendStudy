@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过float + margin实现两列布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #left {
+            width: 400px;
+            height: 300px;
+            background-color: #c9394a;
+            float: left;
+            /* 被右列覆盖 显示position-relative提高显示层级 */
+            position: relative;
+        }
+        
+        #right-fix {
+            /* background-color: hotpink; */
+            float: right;
+            width: 100%;
+            margin-left: -400px;
+        }
+        
+        #right {
+            margin-left: 400px;
+            height: 400px;
+            background-color: #ccc;
+        }
+        
+        #inner {
+            height: 300px;
+            background-color: green;
+            /* 清楚浮动属性 inner现在不会掉下去*/
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left"></div>
+    <!-- 修复清楚浮动内容跌落的bug -->
+    <div id="right-fix">
+        <!-- 自适应容器 -->
+        <div id="right">
+            <div id="inner"></div>
+        </div>
+    </div>
+</body>
+
+</html>

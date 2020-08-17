@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用float和overflow实现两列布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #left {
+            width: 400px;
+            height: 300px;
+            background-color: #c9394a;
+            float: left;
+        }
+        
+        #right {
+            height: 400px;
+            background-color: #ccc;
+            /* 
+            * 开启BFC  形成一个隔离容器 
+            * 缺点：会开启溢出隐藏
+            */
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left"></div>
+    <div id="right"></div>
+</body>
+
+</html>

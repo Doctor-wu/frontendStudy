@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用grid实现两列布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #parent {
+            width: 100%;
+            height: 500px;
+            /* 网格布局可以分配子容器大小 */
+            display: grid;
+            /* 每个列的宽度 左列-400px  右列-自适应 */
+            grid-template-columns: 400px auto;
+        }
+        
+        #left {
+            /* width: 400px;  网格布局不需要分配宽度 */
+            height: 400px;
+            background-color: #c9394a;
+        }
+        
+        #right {
+            height: 500px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用position实现两列布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #parent {
+            position: relative;
+        }
+        
+        #left {
+            width: 400px;
+            height: 400px;
+            background-color: #c9394a;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        #right {
+            height: 500px;
+            background-color: #ccc;
+            position: absolute;
+            left: 400px;
+            right: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+</body>
+
+</html>
