@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <title>伪类和伪元素</title>
+    <style>
+        /* 伪类选择器 */
+        
+        .block {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 20px;
+        }
+        
+        .block:last-child {
+            background-color: greenyellow;
+        }
+        /* 伪元素 */
+        
+        p::before {
+            content: '我是p标签的伪元素'
+        }
+        
+        .text::first-letter {
+            color: red;
+            background-color: greenyellow;
+        }
+        
+        .text::first-line {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <p class="text">我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我<br> 是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真
+        <br> 的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是
+        <br> 真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真
+        <br> 的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签我是真的标签
+    </p>
+</body>
+
+</html>
