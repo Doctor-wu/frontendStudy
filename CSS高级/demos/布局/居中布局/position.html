@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position 实现水平垂直居中</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #parent {
+            /* 开启定位 */
+            position: relative;
+            height: 600px;
+            width: 1000px;
+            background-color: #ccc;
+        }
+        
+        #child {
+            position: absolute;
+            /* top: 50%;
+            left: 50%; */
+            /* 使用margin修复定位，使子元素完全水平垂直居中，兼容性好，但是需要知道子元素宽高 */
+            /* margin: -100px 0 0 -100px; */
+            /* 使用transform, 兼容性不太好，但是可以不知道子元素的宽高 */
+            /* transform: translate(-50%, -50%); */
+            /* 可以让left, right, top, bottom 都为0， margin设置为auto */
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            background-color: #c9394a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+</body>
+
+</html>

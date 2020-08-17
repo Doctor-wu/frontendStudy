@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table-cell水平垂直居中布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #parent {
+            height: 600px;
+            width: 1000px;
+            background-color: #ccc;
+            /* td */
+            display: table-cell;
+            /* 垂直对齐-居中 */
+            vertical-align: middle;
+        }
+        
+        #child {
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            background-color: #c9394a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+</body>
+
+</html>
