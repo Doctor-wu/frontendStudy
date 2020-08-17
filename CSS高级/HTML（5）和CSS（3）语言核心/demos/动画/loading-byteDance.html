@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading</title>
+    <style>
+         :root {
+            --base: 55;
+            --transparent: .9
+        }
+        
+        .box {
+            overflow: hidden;
+            height: 200px;
+            width: 200px;
+            margin: 200px auto;
+            text-align: center;
+            background: linear-gradient(to left top, rgba(50, 90, 179, var(--transparent)), rgba(61, 140, 254, var(--transparent)), rgba(0, 200, 209, var(--transparent)), rgba(119, 230, 220, var(--transparent)));
+        }
+        
+        .wrapper {
+            display: flex;
+            margin: 60px auto 0 auto;
+            justify-content: space-between;
+            align-items: flex-end;
+            text-align: center;
+            height: 55px;
+            width: 48px;
+        }
+        
+        .loading {
+            display: inline-block;
+            height: 80%;
+            width: 17%;
+            background-color: skyblue;
+            transition: all ease .3s;
+            animation: bounce 1.5s infinite;
+        }
+        
+        .b1 {
+            animation-delay: .3s;
+            left: calc(var(--base) * 1px + 13px);
+            clip-path: polygon(0% 5%, 100% 15%, 100% 85%, 0% 95%);
+            background-color: rgb(50, 90, 179);
+        }
+        
+        .b2 {
+            animation-delay: .5s;
+            left: calc(var(--base) * 1px + 26px);
+            clip-path: polygon(0% 40%, 100% 50%, 100% 90%, 0% 100%);
+            background-color: rgb(61, 140, 254);
+        }
+        
+        .b3 {
+            animation-delay: .7s;
+            left: calc(var(--base) * 1px + 39px);
+            clip-path: polygon(0% 40%, 100% 30%, 100% 90%, 0% 80%);
+            background-color: rgb(0, 200, 209);
+        }
+        
+        .b4 {
+            animation-delay: .9s;
+            left: calc(var(--base) * 1px + 52px);
+            clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%);
+            background-color: rgb(119, 230, 220);
+        }
+        
+        .loading-text {
+            color: #efefef;
+            font-weight: bold;
+        }
+        
+        @keyframes bounce {
+            0% {
+                height: 80%;
+            }
+            20% {
+                height: 100%;
+                /* clip-path: polygon(0% 0%, 100% 10%, 100% 90%, 0% 100%); */
+            }
+            40% {
+                height: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="wrapper">
+            <span class="loading b1"></span>
+        <span class="loading b2"></span>
+        <span class="loading b3"></span>
+        <span class="loading b4"></span>
+        </span>
+        <div class="loading-text">Loading </div>
+    </div>
+</body>
+
+</html>
