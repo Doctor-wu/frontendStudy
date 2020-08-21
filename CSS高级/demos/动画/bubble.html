@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bubble-animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body,
+        html {
+            background-color: #eb6100;
+            height: 100vh;
+            width: 100vw;
+            /* overflow: hidden; */
+        }
+        
+        .bubble {
+            animation: rotate 6s linear infinite;
+            position: fixed;
+            bottom: -300px;
+            left: -300px;
+            width: 600px;
+            height: 600px;
+        }
+        
+        .bubble1 {
+            border-radius: 43%;
+            background-color: #fffbc7;
+        }
+        
+        .bubble2 {
+            border-radius: 43%;
+            animation-delay: .5s;
+            background-color: rgba(255, 251, 199, .8);
+        }
+        
+        .bubble3 {
+            border-radius: 43%;
+            animation-delay: 1s;
+            background-color: rgba(255, 251, 199, .6);
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0%);
+            }
+            0% {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bubble bubble1"></div>
+    <div class="bubble bubble2"></div>
+    <div class="bubble bubble3"></div>
+</body>
+
+</html>
