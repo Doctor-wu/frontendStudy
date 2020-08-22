@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float+margin实现三列布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #left {
+            width: 200px;
+            height: 300px;
+            background-color: #c9394a;
+            float: left;
+        }
+        
+        #center {
+            width: 200px;
+            height: 300px;
+            background-color: green;
+            float: left;
+        }
+        
+        #right {
+            height: 400px;
+            background-color: #ccc;
+            margin-left: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left"></div>
+    <div id="center"></div>
+    <div id="right"></div>
+</body>
+
+</html>

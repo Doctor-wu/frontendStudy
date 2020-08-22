@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        
+        #left,
+        #center,
+        #right {
+            height: 100%;
+            /* 第一步：要让三个容器横向排列 加了浮动之后三个容器已经在同一行了，但是center列宽度是100%，left和right因为没有剩余的空间，所以掉下去了 */
+            float: left;
+        }
+        
+        #left,
+        #right {
+            width: 300px;
+        }
+        
+        #parent {
+            height: 100%;
+            /* 第二步：给left和right容器留出一些空间  把center往中间挤 */
+            padding-left: 310px;
+            padding-right: 310px;
+        }
+        
+        #center {
+            width: 100%;
+            background-color: green;
+            text-align: center;
+            color: #ccc;
+        }
+        
+        #left {
+            background-color: #c9394a;
+            /* 第三步：把left及right移到原本的位置 */
+            margin-left: -100%;
+            /* 把left移到理想的位置 利用定位*/
+            position: relative;
+            left: -310px;
+        }
+        
+        #right {
+            background-color: #ccc;
+            margin-left: -300px;
+            position: relative;
+            left: 310px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="center">
+            <h1>圣杯布局</h1>
+        </div>
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+</body>
+
+</html>

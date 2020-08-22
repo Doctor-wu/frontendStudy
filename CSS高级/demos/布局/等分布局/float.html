@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动实现等分布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* clearfix 进行清楚浮动的封装   => 公用代码 */
+        
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        #parent {
+            border: 10px solid black;
+            /* 
+                子元素浮动 - 导致父元素高度塌陷
+                1.固定高度  不推荐
+                2.开启BFC
+                3.clear：both 清除浮动 => 加在浮动子元素末尾  <div style="clear: both;"></div> 需要改动结构，一般不适用
+                4.利用伪元素::after  提取公用代码clearfix [推荐使用]
+             */
+            /* overflow: hidden; */
+        }
+        
+        .col1,
+        .col2,
+        .col3,
+        .col4 {
+            float: left;
+            width: 25%;
+            height: 400px;
+        }
+        
+        .col1 {
+            background-color: pink;
+        }
+        
+        .col2 {
+            background-color: lightblue;
+        }
+        
+        .col3 {
+            background-color: yellow;
+        }
+        
+        .col4 {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent" class="clearfix">
+        <div class="col1"></div>
+        <div class="col2"></div>
+        <div class="col3"></div>
+        <div class="col4"></div>
+    </div>
+</body>
+
+</html>
