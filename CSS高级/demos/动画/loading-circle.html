@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
-    <title>动态画一个圆环</title>
+    <title>环绕加载</title>
     <style>
         * {
             margin: 0;
@@ -25,20 +25,6 @@
             border: 5px solid violet;
             border-radius: 50%;
         }
-        /* .circle:before {
-            content: '';
-            position: absolute;
-            display: block;
-            width: 100%;
-            height: 50%;
-            box-sizing: border-box;
-            top: 50%;
-            left: 0;
-            border: 5px solid violet;
-            border-top: transparent;
-            border-radius: 0 0 50% 50%/ 0 0 100% 100%;
-            z-index: 2;
-        } */
         
         .top,
         .bottom {
@@ -54,7 +40,7 @@
             top: 0;
             z-index: 3;
             transform-origin: center bottom;
-            animation: 2s back-half ease-in-out 1s infinite;
+            animation: 2s back-half ease-in-out .6s infinite;
             /* animation-fill-mode: forwards; */
         }
         

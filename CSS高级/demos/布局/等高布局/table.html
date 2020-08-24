@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table实现等高布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #parent {
+            width: 100%;
+            display: table;
+        }
+        
+        #left,
+        #right {
+            width: 300px;
+            font-size: 24px;
+            display: table-cell;
+        }
+        
+        #left {
+            background-color: #f00;
+        }
+        
+        #right {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="left">something</div>
+        <div id="right">somethingsomethingsomethingsomethingsomething somethingsomethingsomethingsomethingsomethingsomethingsomething somethingsomethingsomethingsomethingsomethingsomethingsomething somethingsomethingsomethingsomethingsomethingsomethingsomething
+        </div>
+    </div>
+</body>
+
+</html>
