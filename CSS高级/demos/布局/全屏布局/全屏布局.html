@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全屏布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            height: 100px;
+            background-color: lightgray;
+            /* 定位会导致元素宽度变为本身内容的宽度，不加之前是可以继承的 */
+            position: fixed;
+            top: 0;
+            /* 宽度撑开 */
+            left: 0;
+            right: 0;
+        }
+        
+        .content {
+            background-color: lightblue;
+        }
+        
+        .content .left {
+            width: 300px;
+            height: 100%;
+            background-color: lightcoral;
+            /* 定宽300 */
+            position: fixed;
+            top: 100px;
+            bottom: 100px;
+            left: 0;
+        }
+        
+        .content .right {
+            background-color: greenyellow;
+            /* 自适应 */
+            position: fixed;
+            top: 100px;
+            left: 300px;
+            right: 0;
+            bottom: 100px;
+            overflow: auto;
+        }
+        
+        footer {
+            /* 固定在底部 */
+            position: fixed;
+            bottom: 0;
+            /* 把宽度撑开 */
+            left: 0;
+            right: 0;
+            height: 100px;
+            background-color: lightslategray;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <div class="content">
+        <div class="left"></div>
+        <div class="right">
+            <div style="height: 1500px;"></div>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+
+</html>
