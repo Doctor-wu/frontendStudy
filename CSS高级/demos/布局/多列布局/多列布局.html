@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多列布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #parent {
+            /* columns：列宽  列数量      单独指定列宽可以自动计算有多少列，100%/400 = 有多少个列   也可以单独指定列的个数，则列宽自动计算 100%/5 = 列宽*/
+            columns: 5;
+            /* 列间距 有默认值 */
+            column-gap: 100px;
+            /* 可以添加分隔线 */
+            /* column-rule-width: 30px;
+            column-rule-color: blueviolet;
+            column-rule-style: dotted; */
+            column-rule: 10px dotted hotpink;
+        }
+        
+        .col1,
+        .col2,
+        .col3,
+        .col4,
+        .col5 {
+            height: 300px;
+        }
+        
+        .col1,
+        .col6 {
+            background-color: hotpink;
+        }
+        
+        .col2,
+        .col7 {
+            background-color: blueviolet;
+        }
+        
+        .col3,
+        .col8 {
+            background-color: green;
+        }
+        
+        .col4,
+        .col9 {
+            background-color: yellow;
+        }
+        
+        .col5 {
+            background-color: tomato;
+        }
+        
+        #parent3 {
+            margin-top: 20px;
+            columns: 200px;
+        }
+        
+        .col9 {
+            /* 相当于td标签里的colspan合并列     */
+            /* column-span: none; */
+            column-span: all;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div class="col1"></div>
+        <div class="col2"></div>
+        <div class="col3"></div>
+        <div class="col4"></div>
+        <div class="col1"></div>
+        <div class="col2"></div>
+        <div class="col3"></div>
+        <div class="col4"></div>
+    </div>
+    <div id="parent3">
+        <div class="col6">
+            Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some
+            Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text
+        </div>
+        <div class="col7">
+            Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some
+            Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text
+        </div>
+        <div class="col8">
+            Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some
+            Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text
+        </div>
+        <div class="col9">
+            Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some
+            Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text Some Text
+        </div>
+    </div>
+</body>
+
+</html>
