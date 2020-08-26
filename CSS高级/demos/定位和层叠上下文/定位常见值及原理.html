@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位常见值及原理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {}
+        
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+        }
+        
+        div:nth-child(1) {
+            background-color: gold;
+        }
+        
+        div:nth-child(2) {
+            background-color: green;
+        }
+        
+        div:nth-child(3) {
+            background-color: hotpink;
+        }
+        
+        div:nth-child(4) {
+            background-color: lightblue;
+        }
+        
+        div:nth-child(5) {
+            background-color: tomato;
+        }
+        
+        .static {
+            /* 默认值  加方位无效 */
+            position: static;
+            top: 20px;
+        }
+        
+        .relative {
+            /* 对文档流没影响 加方位生效，基点是本身的默认位置  不会脱离文档流 */
+            position: relative;
+            top: 20px;
+        }
+        
+        .absolute {
+            /* 参照物-基点：父元素或窗口  会脱离文档流 */
+            position: absolute;
+            top: 20px;
+        }
+        
+        .fixed {
+            /* 参照物-基点：视口  脱离文档流 */
+            position: fixed;
+        }
+        
+        .sticky {
+            /* 不会脱离文档流 */
+            position: sticky;
+            top: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="static">static默认值</div>
+    <div class="relative">relative默认值</div>
+    <div class="absolute">absolute默认值</div>
+    <div class="fixed">fixed默认值</div>
+    <div class="sticky">sticky默认值</div>
+    <div style="height: 400px"></div>
+</body>
+
+</html>
