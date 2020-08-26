@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>层叠顺序</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 
+            层叠上下文元素：
+            1.html  根层叠上下文
+            2.定位属性 z-index为数值    .box1,.box2 => 在根层叠上下文中
+
+            p1 元素在 box1 层叠上下文元素中
+            p2 元素在 box2 层叠上下文元素中
+
+            不同的层叠上下文一定要往上找到在同一层叠上下文的父元素进行比较层叠顺序
+
+        */
+        
+        html {
+            background-color: #ccc;
+        }
+        
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            position: relative;
+            top: -120px;
+            left: 30px;
+            z-index: 2;
+        }
+        
+        .box1>p {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            top: 10px;
+            z-index: 999;
+        }
+        
+        .box2>p {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            position: absolute;
+            top: 10px;
+            z-index: -999;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <p>z-index: 999</p>
+    </div>
+    <div class="box2">
+        <p>z-index: -999</p>
+    </div>
+</body>
+
+</html>
