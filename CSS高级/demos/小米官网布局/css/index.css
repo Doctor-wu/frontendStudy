@@ -99,10 +99,11 @@
     align-items: center;
     align-content: stretch;
     justify-content: stretch;
+    margin-right: 10px;
 }
 
 .phone-left-content {
-    background-color: green;
+    background-size: cover;
     height: 100%;
     width: 100%;
     margin-top: 15px;
@@ -114,7 +115,6 @@
 
 .phone-right {
     height: 100%;
-    margin-left: 250px;
     columns: 4;
 }
 
@@ -130,6 +130,8 @@
     height: 100%;
     border-top: 10px solid #fff;
     width: 100%;
+    background-size: cover;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
