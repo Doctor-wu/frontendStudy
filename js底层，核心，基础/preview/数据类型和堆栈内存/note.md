@@ -66,7 +66,7 @@
 
 #### constructor
 
-#### Object.prototype.otString
+#### Object.prototype.toString
 
 
 
