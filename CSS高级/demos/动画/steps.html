@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>steps</title>
+    <style>
+        .step1 {
+            width: 200px;
+            height: 312px;
+            margin: 50px;
+            background: red;
+            /* 跳过第一帧 */
+            animation: move 2s steps(1, start) infinite;
+        }
+        
+        .step2 {
+            width: 200px;
+            height: 312px;
+            margin: 50px;
+            background: red;
+            /* 跳过最后一帧 */
+            animation: move 2s steps(1, end) infinite;
+        }
+        
+        @keyframes move {
+            from {
+                background: purple;
+            }
+            50% {
+                background: blue;
+            }
+            100% {
+                background: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="step1"></div>
+    <div class="step2"></div>
+</body>
+
+</html>

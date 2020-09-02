@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation动画</title>
+    <style>
+        .container {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation: run 1s linear;
+            animation-direction: reverse;
+            animation-iteration-count: infinite;
+            /* animation-play-state: paused; */
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+            animation-delay: 1s;
+        }
+        
+        @keyframes run {
+            0% {
+                width: 100px;
+            }
+            50% {
+                width: 800px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"></div>
+</body>
+
+</html>
