@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vw实现图标列表</title>
+    <link rel="stylesheet" href="iconfont.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="iconfont.js"></script>
+</head>
+
+<body>
+    <header>
+        <h2>head</h2>
+    </header>
+    <main class="content">
+        <ul class="left">
+            <li>一些图标1</li>
+            <li>一些图标2</li>
+            <li>一些图标3</li>
+            <li>一些图标4</li>
+            <li>一些图标5</li>
+            <li>一些图标6</li>
+            <li>一些图标7</li>
+            <li>一些图标8</li>
+            <li>一些图标9</li>
+            <li>一些图标10</li>
+            <li>一些图标11</li>
+            <li>一些图标12</li>
+            <li>一些图标13</li>
+            <li>一些图标14</li>
+            <li>一些图标15</li>
+            <li>一些图标16</li>
+            <li>一些图标17</li>
+            <li>一些图标18</li>
+            <li>一些图标19</li>
+            <li>一些图标20</li>
+            <li>一些图标21</li>
+            <li>一些图标22</li>
+            <li>一些图标23</li>
+            <li>一些图标24</li>
+            <li>一些图标25</li>
+            <li>一些图标26</li>
+            <li>一些图标27</li>
+            <li>一些图标28</li>
+            <li>一些图标29</li>
+            <li>一些图标30</li>
+            <li>一些图标31</li>
+            <li>一些图标32</li>
+            <li>一些图标33</li>
+            <li>一些图标34</li>
+            <li>一些图标35</li>
+            <li>一些图标36</li>
+            <li>一些图标37</li>
+            <li>一些图标38</li>
+            <li>一些图标39</li>
+            <li>一些图标40</li>
+            <li>一些图标41</li>
+            <li>一些图标42</li>
+            <li>一些图标43</li>
+            <li>一些图标44</li>
+            <li>一些图标45</li>
+            <li>一些图标46</li>
+            <li>一些图标47</li>
+            <li>一些图标48</li>
+            <li>一些图标49</li>
+            <li>一些图标50</li>
+            <li>一些图标51</li>
+            <li>一些图标52</li>
+            <li>一些图标53</li>
+            <li>一些图标54</li>
+            <li>一些图标55</li>
+            <li>一些图标56</li>
+            <li>一些图标57</li>
+            <li>一些图标58</li>
+            <li>一些图标59</li>
+            <li>一些图标60</li>
+            <li>一些图标61</li>
+            <li>一些图标62</li>
+            <li>一些图标63</li>
+            <li>一些图标64</li>
+            <li>一些图标65</li>
+            <li>一些图标66</li>
+            <li>一些图标67</li>
+            <li>一些图标68</li>
+            <li>一些图标69</li>
+            <li>一些图标70</li>
+            <li>一些图标71</li>
+            <li>一些图标72</li>
+            <li>一些图标73</li>
+            <li>一些图标74</li>
+            <li>一些图标75</li>
+            <li>一些图标76</li>
+            <li>一些图标77</li>
+            <li>一些图标78</li>
+            <li>一些图标79</li>
+            <li>一些图标80</li>
+        </ul>
+        <ul class="right">
+            <!-- 利用Unicode字符实体构建图标 -->
+            <li><span class="iconfont">&#xe663;</span>图标1</li>
+            <li><span class="iconfont">&#xe664;</span>图标2</li>
+            <li><span class="iconfont">&#xe665;</span>图标3</li>
+            <li><span class="iconfont">&#xe666;</span>图标4</li>
+            <li><span class="iconfont">&#xe667;</span>图标5</li>
+            <!-- 根据类名添加图标 -->
+            <li><span class="iconfont icon-arrow-up-circle"></span>图标6</li>
+            <li><span class="iconfont icon-arrow-right-circle"></span>图标7</li>
+            <li><span class="iconfont icon-arrow-down"></span>图标8</li>
+            <li><span class="iconfont icon-ashbin"></span>图标9</li>
+            <li><span class="iconfont icon-arrow-right"></span>图标10</li>
+            <!-- 根据symbol生成图标
+                这是一种全新的使用方式，应该说这才是未来的主流，也是平台目前推荐的用法。相关介绍可以参考这篇文章 这种用法其实是做了一个 SVG 的集合，与另外两种相比具有如下特点：
+
+                支持多色图标了，不再受单色限制。
+                通过一些技巧，支持像字体那样，通过 font-size, color 来调整样式。
+                兼容性较差，支持 IE9+，及现代浏览器。
+                浏览器渲染 SVG 的性能一般，还不如 png。
+            -->
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-browse"></use>
+                    </svg>
+                </span> 图标11
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-bottom"></use>
+                    </svg>
+                </span> 图标12
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-back"></use>
+                    </svg>
+                </span> 图标13
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-beidai"></use>
+                    </svg>
+                </span> 图标14
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-chaoduanqun"></use>
+                    </svg>
+                </span> 图标15
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-dayi"></use>
+                    </svg>
+                </span> 图标16
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-diaodai"></use>
+                    </svg>
+                </span> 图标17
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-huaduanxiu"></use>
+                    </svg>
+                </span> 图标18
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-kuzi"></use>
+                    </svg>
+                </span> 图标19
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-duanxiu"></use>
+                    </svg>
+                </span> 图标20
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-maoshan"></use>
+                    </svg>
+                </span> 图标21
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-qifenku"></use>
+                    </svg>
+                </span> 图标22
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-mianyi"></use>
+                    </svg>
+                </span> 图标23
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-maoyi"></use>
+                    </svg>
+                </span> 图标24
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-niuziqun"></use>
+                    </svg>
+                </span> 图标25
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-qiuyi"></use>
+                    </svg>
+                </span> 图标26
+            </li>
+            <li>
+                <span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span> 图标27
+            </li>
+            <li><span class="iconfont">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-weiyi"></use>
+                </svg>
+            </span>图标28</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标29</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标30</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标31</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标32</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标33</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标34</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标35</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标36</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标37</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标38</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标39</li>
+            <li><span class="iconfont">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weiyi"></use>
+                    </svg>
+                </span>图标40</li>
+        </ul>
+    </main>
+    <footer>
+        <h2>foot</h2>
+    </footer>
+</body>
+
+</html>

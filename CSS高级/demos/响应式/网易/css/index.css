@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+body {
+    transition: scroll ease .2s;
+}
+
 .item {
     display: -webkit-box;
     display: -webkit-flex;
