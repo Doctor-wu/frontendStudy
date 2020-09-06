@@ -46,6 +46,7 @@ footer {
     overflow-y: auto;
     text-align: center;
     transition: all .2s;
+    font-weight: bold;
 }
 
 .content .left li {
@@ -67,8 +68,9 @@ footer {
 }
 
 .content .right li {
-    width: 33.334%;
+    width: 33.333%;
     text-align: center;
+    font-weight: bold;
     padding: 15px 0;
 }
 
@@ -76,6 +78,7 @@ footer {
     font-size: 36px;
     height: 36px;
     display: block;
+    margin-bottom: 5px;
 }
 
 .icon {
