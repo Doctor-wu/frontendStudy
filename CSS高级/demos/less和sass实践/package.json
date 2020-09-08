@@ -1,0 +1,18 @@
+{
+    "name": "less",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+        "less": "^3.12.2"
+    },
+    "scripts": {
+        "less": "nodemon -w ./less/less -e .less ./compiler.js lang=less",
+        "sass": "nodemon -w ./sass/sass -e .scss ./compiler.js lang=sass"
+    },
+    "dependencies": {
+        "lessc": "^1.0.2",
+        "node-cmd": "^3.0.0",
+        "node-sass": "^4.14.1"
+    }
+}

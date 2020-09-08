@@ -1,0 +1,5 @@
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: 1000px/12*$i;
+    }
+}

@@ -1,0 +1,16 @@
+.block,
+.wrapper .nav,
+.wrapper .content {
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.wrapper {
+  background-color: #ffcccc;
+}
+.wrapper .nav {
+  color: #333333;
+}
+.wrapper .content:hover {
+  background-color: red;
+}

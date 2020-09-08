@@ -1,0 +1,36 @@
+@fontSize: 12px;
+@bgColor: red;
+
+.block(@fontSize) {
+    font-size: @fontSize;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.wrapper {
+    background-color: lighten(@bgColor, 40%);
+
+    .nav {
+        .block(@fontSize + 2px);
+    }
+
+    .content {
+        .block(@fontSize + 2px);
+
+        &:hover {
+            background-color: red;
+        }
+    }
+
+    // 会解析成这样
+    // .wrapper .nav {
+    //     font-size: 14px;
+    //     border: 1px solid #ccc;
+    //     border-radius: 4px;
+    // }
+    // .wrapper .content {
+    //     font-size: 14px;
+    //     border: 1px solid #ccc;
+    //     border-radius: 4px;
+    // }
+}

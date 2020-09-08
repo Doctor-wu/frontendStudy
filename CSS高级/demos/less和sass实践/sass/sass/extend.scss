@@ -1,0 +1,17 @@
+$fontSize: 12px;
+$bgColor: blue;
+.block {
+    font-size: $fontSize;
+    border: 1px solid gold;
+    border-radius: 4px;
+}
+
+.nav {
+    .inner {
+        @extend .block;
+    }
+    .other {
+        @extend .block;
+        background-color: wheat;
+    }
+}

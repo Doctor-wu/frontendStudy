@@ -1,0 +1,11 @@
+#header {
+  width: 10px;
+  height: 20px;
+}
+html {
+  background-color: red;
+}
+body {
+  background-color: red;
+  font-size: 16px;
+}

@@ -1,0 +1,8 @@
+$fontSize: 12px;
+$bgColor: blue;
+.parent {
+    background-color: $bgColor;
+    .child {
+        font-size: $fontSize;
+    }
+}

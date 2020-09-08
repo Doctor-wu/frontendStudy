@@ -1,0 +1,13 @@
+$fontSize: 12px;
+$bgColor: blue;
+@mixin block($fontSize) {
+    font-size: $fontSize;
+    border: 1px solid gold;
+    border-radius: 4px;
+}
+
+.nav {
+    .inner {
+        @include block($fontSize +2px);
+    }
+}

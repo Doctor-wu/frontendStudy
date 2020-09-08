@@ -1,0 +1,20 @@
+#header {
+  color: black;
+}
+#header .navgation {
+  font-size: 12px;
+}
+#header .logo {
+  width: 300px;
+}
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+  font-size: 0;
+  visibility: hidden;
+}
