@@ -1,0 +1,9 @@
+{
+  "name": "less",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "less": "^3.12.2"
+  }
+}
