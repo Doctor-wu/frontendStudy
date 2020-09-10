@@ -5,42 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .left,
-        .right,
-        .center-wrap {
-            float: left;
-        }
-
-        .left {
-            background-color: rgb(102, 51, 153);
-            width: 200px;
-            height: 400px;
-            margin-left: -100%;
-        }
-
-        .center-wrap {
-            width: 100%;
-        }
-
-        .center {
-            height: 500px;
-            background-color: green;
-            margin: 0 210px;
-        }
-
-        .right {
-            background-color: gold;
-            width: 200px;
-            height: 400px;
-            margin-left: -200px;
-        }
-    </style>
 </head>
 
 <body>
@@ -50,6 +14,19 @@
         <div class="left"></div>
         <div class="right"></div>
     </div>
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            Math.random() > 0.5 ? resolve('OK') : reject('ERROR');
+            // throw new Error('error');
+        });
+
+        let p2 = p1.then(res => {
+            console.log(res, 'res');
+        }, rej => {
+            console.log(rej, 'rej');
+        });
+        console.log(p1, p2);
+    </script>
 
 </body>
 
