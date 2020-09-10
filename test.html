@@ -6,27 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
     <style>
-        .box {
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .left,
+        .right,
+        .center-wrap {
+            float: left;
+        }
+
+        .left {
+            background-color: rgb(102, 51, 153);
             width: 200px;
-            height: 200px;
-            margin: 150px auto;
-            background-color: lightblue;
+            height: 400px;
+            margin-left: -100%;
+        }
+
+        .center-wrap {
+            width: 100%;
+        }
+
+        .center {
+            height: 500px;
+            background-color: green;
+            margin: 0 210px;
+        }
+
+        .right {
+            background-color: gold;
+            width: 200px;
+            height: 400px;
+            margin-left: -200px;
         }
     </style>
 </head>
 
 <body>
-    <div class="box"></div>
-    <script>
-        window.onload = function() {
-            let box = document.querySelector('.box');
-            setTimeout(() => {
-                box.style.backgroundColor = "red";
-                alert('stop!');
-            }, 100);
-            box.style.backgroundColor = "green";
-        }
-    </script>
+    <div class="parent">
+        <div class="center-wrap">
+        </div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+
 </body>
 
 </html>
