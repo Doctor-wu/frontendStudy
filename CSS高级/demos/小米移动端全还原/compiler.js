@@ -32,6 +32,7 @@ function initSASS() {
         cmd.run(`node-sass --output-style nested  ${origin} > ${target}`);
     })
 }
+
 let lang = process.argv.find(i => i.startsWith('lang')).split('=')[1];
 console.log(`init${lang.toUpperCase()}`);
 eval(`init${lang.toUpperCase()}()`);
