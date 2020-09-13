@@ -70,7 +70,8 @@
   一旦回流，那么分层和重绘一定会发生，单纯的重绘不会影响回流，所以优化的重点在回流上
 
   - 操作DOM大小或位置这些会导致回流的属性时尽量写在一起，这样浏览器会对其进行相应的优化
-  - box.style.xxx 或者window.getComputedStyle(box).xxx或者 box.clientHeight|Width|Top|Left 或者 box.offsetHeight|Width|Top|Left 或者 box.scrollHeight|Width|Top|Left会刷新浏览器的渲染队列，会导致多次回流
+  - box.style.xxx作为RHS 或者window.getComputedStyle(box).xxx或者 box.clientHeight|Width|Top|Left 或者 box.offsetHeight|Width|Top|Left 或者 box.scrollHeight|Width|Top|Left会刷新浏览器的渲染队列，会导致多次回流
+  - **样式分离读写**：把修改样式和读取样式的操作分离开
 
 - ....
 
