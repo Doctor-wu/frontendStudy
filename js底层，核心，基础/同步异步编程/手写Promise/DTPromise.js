@@ -30,7 +30,11 @@ function DTPromise(executor) {
 
 DTPromise.resolve = function(data) {
     return new DTPromise((resolve) => {
-        resolve(data)
+        if (data instanceof DTPromise) {
+            data.then(resolve);
+        } else {
+            resolve(data)
+        }
     })
 }
 
@@ -43,47 +47,103 @@ DTPromise.reject = function(reason) {
 
 
 DTPromise.prototype.then = function(resolve, reject) {
-    reject = reject || DTPromise.reject;
-    resolve = resolve || DTPromise.resolve;
     let x;
-    return new DTPromise((res, rej) => {
+    let NDTP = new DTPromise((res, rej) => {
         try {
             if (this.DTPromiseStatus === "fullfilled") {
                 x = resolve(this.DTPromiseValue);
-            } else {
+
+                if (x instanceof DTPromise) {
+                    x.then(res, rej);
+                } else {
+                    res(x);
+                }
+            } else if (this.DTPromiseStatus === "reject") {
                 x = reject(this.DTPromiseValue);
+
+                if (x instanceof DTPromise) {
+                    x.then(res, rej);
+                } else {
+                    res(x);
+                }
+            } else {
+                resolve && this.resolveFuncs.push(resolve);
+                reject && this.rejectFuncs.push(reject);
+                this.resolveFuncs.push((data, error) => {
+                    if (error) {
+                        rej(error);
+                    } else if (data instanceof DTPromise) {
+                        data.then(res);
+                    } else {
+                        res(data);
+                    }
+                });
+                this.rejectFuncs.push((reason, error) => {
+                    if (error) {
+                        rej(error);
+                    } else if (reason instanceof DTPromise) {
+                        reason.then(null, rej)
+                    } else {
+                        rej(reason);
+                    }
+                    rej(reason);
+                });
             }
         } catch (e) {
             rej(e);
         }
+    })
+    return NDTP;
+}
 
-        if (x instanceof DTPromise) {
-            x.then(res, rej);
-        } else {
-            res(x);
-        }
+DTPromise.prototype.catch = function(rejFunc) {
+    let _this = this;
+    return new DTPromise((resolve, reject) => {
+        _this.then(res => {
+            resolve(res);
+        }, rej => {
+            try {
+                resolve(rejFunc(rej));
+            } catch (e) {
+                reject(e);
+            }
+        })
     })
 }
 
-DTPromise.prototype.catch = function(rej) {
-    return this.then(res => {
-        return DTPromise.resolve(res);
-    }, rej);
+DTPromise.deferred = function() {
+    var result = {};
+    result.promise = new DTPromise(function(resolve, reject) {
+        result.resolve = resolve;
+        result.reject = reject;
+    });
+
+    return result;
 }
 
 
 function flushFuncs(DTP) {
     setTimeout(() => {
+        let result = DTP.DTPromiseValue,
+            error;
         if (DTP.DTPromiseStatus === "fullfilled") {
             DTP.resolveFuncs.forEach(func => {
-                func(DTP.DTPromiseValue);
+                try {
+                    result = func(result, error);
+                } catch (e) {
+                    error = e;
+                }
             });
             DTP.resolveFuncs.length = 0;
-        } else {
+        } else if (DTP.DTPromiseStatus === "reject") {
             DTP.rejectFuncs.forEach(func => {
-                func(DTP.DTPromiseValue);
-                DTP.rejectFuncs.length = 0;
+                try {
+                    result = func(result, error);
+                } catch (e) {
+                    error = e;
+                }
             })
+            DTP.rejectFuncs.length = 0;
         }
     }, 0);
 }
@@ -94,14 +154,22 @@ let p = new DTPromise((resolve, reject) => {
 });
 
 p.then(res => {
-    throw new Error("error")
+    console.log(res);
+    return new DTPromise((resolve) => {
+        setTimeout(() => {
+            resolve(111);
+        }, 1000)
+    });
 }, rej => {
     console.log(rej, "error1");
 }).then(res => {
-    console.log(res, 111)
+    console.log(res, 222);
+    throw new Error("333");
 }).catch(rej => {
-    console.log(rej, 222);
-    return 333;
+    console.log(rej, "catch");
+    return "catch";
 }).then(res => {
-    console.log(res, 444);
+    console.log(res, 666);
 });
+
+module.exports = DTPromise;

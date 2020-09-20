@@ -1,0 +1,12 @@
+{
+    "name": "DTPromise",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+        "promises-aplus-tests": "^2.1.2"
+    },
+    "scripts": {
+        "test": "promises-aplus-tests DTPromise"
+    }
+}
