@@ -127,7 +127,7 @@ function compose(...funcs){
     
     return function anonymous(...args){
         // ARGS 存储第一个函数执行需要传递的实参信息（是一个数组） => 20
-   	    if(funcs.length == 0) return args
+   	    if(funcs.length == 0) return args;
         if(funcs.length == 1) return funcs[0](...args);
         // 能走到这一步一定至少有两个函数
         return funcs.reduce((N, func)=>{
