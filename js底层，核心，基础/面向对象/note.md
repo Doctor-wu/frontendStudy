@@ -26,7 +26,7 @@
 
 **Tips**
 
-- 函数创建私有上下文后的第一件事不是初始化作用域链而是创建一个*空对象*
+- 构造函数函数创建私有上下文后的第一件事不是初始化作用域链而是创建一个*空对象*
 - new后面的函数不带小括号，属于不带参的new，只是没传递实参而已
 - 带参数new优先级是19，不带是18
 
@@ -68,7 +68,7 @@ Object.create = Object.create || function create (prototype) {
     if(prototype === null || typeof prototype !== 'object') {
         throw new TypeError(`Object prototype may only be an Object: ${prototype}`)
     }
-    
+
     function Temp (){};
     Temp.prototype = prototype;
     return new Temp;
@@ -245,12 +245,3 @@ JavaScript本身是面向对象开发的编程语言
 **继承：**子类继承父类中的方法和属性
 
 未详细记录....
-
-
-
-
-
-
-
-
-
