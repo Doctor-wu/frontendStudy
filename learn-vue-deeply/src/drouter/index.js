@@ -37,7 +37,16 @@ const routes = [{
         path: '/about',
         name: 'About',
         component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/About.vue')
+            import( /* webpackChunkName: "about" */ '../views/About.vue'),
+        children: [{
+            path: "info",
+            name: "about-info",
+            component: {
+                render(h) {
+                    return h("div", "自己实现的二级路由")
+                }
+            }
+        }]
     },
     ...routeList
 ]

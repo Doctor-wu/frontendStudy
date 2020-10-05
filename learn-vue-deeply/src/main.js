@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './drouter'
-import store from './store'
+import store from './dstore'
 import create from '@/utils/create'
 
 Vue.prototype.$create = create;

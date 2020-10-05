@@ -11,7 +11,10 @@ class DVueRouter {
         // 利用Vue提供的util中的defineReactive创建响应式属性
         // 这样以后用到这个current属性的组件都会被收集起来
         // 当current改变时, 会通知收集的组件进行更新
-        Vue.util.defineReactive(this, "current", window.location.hash.slice(1) || "/");
+        // Vue.util.defineReactive(this, "current", window.location.hash.slice(1) || "/");
+        Vue.util.defineReactive(this, "matched", []);
+        this.current = window.location.hash.slice(1) || "/";
+        this.match();
 
         // 监听页面加载以及哈希变化
         window.addEventListener("hashchange", this.onHashChange.bind(this));
@@ -24,9 +27,39 @@ class DVueRouter {
     }
 
 
+    match(routes, prefix) {
+        routes = routes || this.$options.routes;
+        for (const route of routes) {
+            const path = prefix ? prefix + "/" + route.path : route.path;
+            if (path === "/" && this.current === "/") {
+                if (route.redirect) {
+                    window.location.hash = "#" + route.redirect;
+                    return;
+                }
+                this.matched.push(route);
+                return;
+            }
+
+            // 当current包含路由对象的path时，这个路由对象算作命中
+            if (path !== "/" && this.current.indexOf(path) != -1) {
+                if (route.redirect) {
+                    window.location.hash = "#" + route.redirect;
+                    return;
+                }
+                this.matched.push(route);
+                if (route.children) {
+                    this.match(route.children, route.path);
+                }
+            }
+        }
+    }
+
+
 
     onHashChange() {
         this.current = window.location.hash.slice(1);
+        this.matched.length = 0;
+        this.match();
     }
 }
 
