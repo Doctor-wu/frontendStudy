@@ -10,8 +10,13 @@
 
 <script>
 import Schema from "async-validator";
+import emitter from "@/mixins/emitter";
+
 export default {
+  name: "DFormItem",
+  componentName: "DFormItem",
   inject: ["form"],
+  mixins: [emitter],
   props: {
     label: {
       type: String,
@@ -26,6 +31,11 @@ export default {
       error: "",
       valid: true,
     };
+  },
+  created() {
+    if (this.prop) {
+      this.dispatch("DForm", "doctorwu.form.field", [this]);
+    }
   },
   mounted() {
     this.$on("validate", async function() {

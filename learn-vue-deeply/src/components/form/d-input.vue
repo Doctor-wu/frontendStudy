@@ -8,8 +8,10 @@
 </template>
 
 <script>
+import emitter from "@/mixins/emitter";
 export default {
   name: "DInput",
+  mixins: [emitter],
   inheritAttrs: false, // 设置为false，避免把$attrs设置到父组件上
   props: {
     type: {
@@ -25,7 +27,7 @@ export default {
       this.$emit("input", e.target.value);
 
       // 让form-item组件校验, form-item不一定就是input的父级，这里先简单写
-      this.$parent.$emit("validate");
+      this.dispatch("DFormItem", "validate");
     },
   },
 };

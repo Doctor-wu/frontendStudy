@@ -50,7 +50,7 @@ export default {
         const notice = this.$create(Notice, {
           title: "Doctorwu提醒您",
           message: valid ? "登录成功" : "校验失败",
-          duration: 3000,
+          duration: 2000,
         });
         notice.show();
         // if (valid) {
