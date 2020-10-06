@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{counter}} <span><a href="javascript: void(0)">{{counter}}</a></span></p>
+        <p d-text="counter"></p>
+        <p>{{desc}}</p>
+    </div>
+    <!-- <script src="../node_modules/vue/dist/vue.js"></script> -->
+    <script src="./DVue.js"></script>
+    <script src="./Compiler.js"></script>
+    <script>
+        const app = new DVue({
+            el: '#app',
+            data: {
+                counter: 1,
+                desc: "Hello, this is MVVM by Doctor wu!"
+            },
+        });
+        console.log(app)
+        setInterval(() => {
+            app.counter++
+        }, 1000);
+    </script>
+</body>
+
+</html>
