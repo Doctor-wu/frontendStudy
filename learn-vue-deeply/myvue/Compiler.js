@@ -37,12 +37,18 @@ class Compiler {
     complieElement(node) {
         const attrs = node.attributes;
         Array.from(attrs).forEach(attr => {
+            const exp = attr.value;
             // 处理指令
             if (this.isDirective(attr)) {
                 const dir = attr.name.slice(2);
-                const exp = attr.value;
 
                 this.execDir(dir, node, exp);
+            }
+            // 处理事件
+            if (this.isEvent(attr)) {
+                const dir = attr.name.slice(1);
+
+                this.eventHandler(node, dir, exp);
             }
         })
         this.compile(node);
@@ -61,6 +67,17 @@ class Compiler {
 
     isDirective(attr) {
         return attr.name.startsWith("d-");
+    }
+
+    isEvent(attr) {
+        return attr.name.startsWith("@");
+    }
+
+    eventHandler(node, evName, fnName) {
+        const fn = this.vm.$options.methods && this.vm.$options.methods[fnName];
+        node.addEventListener(evName, () => {
+            fn && fn.apply(this.vm);
+        })
     }
 
     execDir(dir, node, exp) {
@@ -82,5 +99,19 @@ class Compiler {
 
     htmlUpdater(node, value) {
         node.innerHTML = value;
+    }
+
+    model(node, exp) {
+        // 初始化数据并观察数据
+        this.update(node, exp, "model");
+
+        // 监听表单控件输入
+        node.addEventListener("input", (ev) => {
+            this.vm[exp] = ev.target.value;
+        })
+    }
+
+    modelUpdater(node, value) {
+        node.value = value;
     }
 }

@@ -15,9 +15,10 @@
 
 <body>
     <div id="app">
-        <p>{{counter}} <span><a href="javascript: void(0)">{{counter}}</a></span></p>
+        <p>{{counter}} <span><a href="javascript: void(0)" @click="add">{{counter}}</a></span></p>
         <p d-text="counter"></p>
-        <p>{{desc}}</p>
+        <p d-html="desc"></p>
+        <input type="text" d-model="desc">
     </div>
     <!-- <script src="../node_modules/vue/dist/vue.js"></script> -->
     <script src="./DVue.js"></script>
@@ -27,13 +28,18 @@
             el: '#app',
             data: {
                 counter: 1,
-                desc: "Hello, this is MVVM by Doctor wu!"
+                desc: "<span style='color: red;' >Hello, this is MVVM by Doctor wu!</span>"
             },
+            methods: {
+                add() {
+                    this.counter++
+                }
+            }
         });
         console.log(app)
-        setInterval(() => {
-            app.counter++
-        }, 1000);
+        // setInterval(() => {
+        //     app.counter++
+        // }, 1000);
     </script>
 </body>
 

@@ -58,6 +58,7 @@ function proxy(obj, attr) {
 
 class DVue {
     constructor(options) {
+        this.$options = options;
         this.$el = options.el;
         this.$data = options.data;
 
