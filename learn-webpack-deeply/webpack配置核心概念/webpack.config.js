@@ -29,14 +29,20 @@ module.exports = {
         },{
             test: /\.(png|jpe?g|gif|ttf)$/i,
             use: {
-                loader: "file-loader",
+                // url-loader 包含 file-loader
+                loader: "url-loader",
                 options: {
                     name: "[name]_[hash:6].[ext]",
-                    outputPath: "images/"
+                    outputPath: "images/",
+                    // 未超过1024*10字节的图片会在打包时被转换成base64的格式
+                    limit: 1024 * 10
                 }
             }
         }]
     },
+    // mode为development时默认source-map是打开的，可以将devtool设置为none关闭sourcemap，不过有什么必要呢
+    // mode为production时默认source-map是关闭的，不建议在生产环境开启source-map
+    devtool: "source-map",
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
