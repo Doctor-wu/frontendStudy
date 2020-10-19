@@ -3,6 +3,7 @@ const {
     CleanWebpackPlugin
 } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: "./src/index.js",
@@ -14,7 +15,8 @@ module.exports = {
     module: {
         rules: [{
             test: /\.s[ac]ss$/i,
-            use: ["style-loader", {
+            use: [
+                MiniCssExtractPlugin.loader, {
                     loader: "css-loader",
                     options: {
                         // 开启CSS modules
@@ -26,8 +28,8 @@ module.exports = {
                     loader: "postcss-loader"
                 }, "sass-loader"
             ]
-        },{
-            test: /\.(png|jpe?g|gif|ttf)$/i,
+        }, {
+            test: /\.(png|jpe?g|gif|ttf|svg|woff2?)$/i,
             use: {
                 // url-loader 包含 file-loader
                 loader: "url-loader",
@@ -43,10 +45,25 @@ module.exports = {
     // mode为development时默认source-map是打开的，可以将devtool设置为none关闭sourcemap，不过有什么必要呢
     // mode为production时默认source-map是关闭的，不建议在生产环境开启source-map
     devtool: "source-map",
+
+    devServer: {
+        // 静态资源目录
+        contentBase: "./dist",
+        // 是否在开启服务后自动打开默认浏览器窗口
+        // open: true, 
+        port: 8080
+    },
+
+
     plugins: [
         new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "css/[name][chunkhash:8].css"
+        }),
         new HtmlWebpackPlugin({
-            template: "./index.html"
+            template: "./index.html",
+            title: "webpack",
+            filename: "index.html"
         })
     ]
 }
