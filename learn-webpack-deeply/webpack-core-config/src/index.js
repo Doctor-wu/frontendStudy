@@ -1,9 +1,13 @@
 import "./index.scss";
-import bg from "./bg.png";
+// import bg from "./bg.png";
 
-const img = new Image();
-img.src = bg;
+// const img = new Image();
+// img.src = bg;
 
-document.body.appendChild(img);
+// document.body.appendChild(img);
 
-console.log("Hello webpack");
+// console.log("Hello webpack");
+
+const promiseArr = [new Promise((r) => {
+    r()
+})].map(p => p.then())

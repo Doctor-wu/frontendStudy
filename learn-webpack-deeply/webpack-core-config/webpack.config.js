@@ -40,6 +40,10 @@ module.exports = {
                     limit: 1024 * 10
                 }
             }
+        }, {
+            test: /\.js$/i,
+            loader: "babel-loader",
+            exclude: /node_modules/,
         }]
     },
     // mode为development时默认source-map是打开的，可以将devtool设置为none关闭sourcemap，不过有什么必要呢
