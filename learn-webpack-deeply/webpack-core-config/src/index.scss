@@ -3,4 +3,11 @@ body {
     display: flex;
     padding: 0;
     margin: 0;
+    font-family: "ZS" !important;
+}
+
+@font-face {
+    font-family: "ZS";
+    font-display: swap;
+    src: url("./zs.ttf") format("ttf");
 }
