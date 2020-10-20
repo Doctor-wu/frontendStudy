@@ -51,7 +51,7 @@ module.exports = {
         contentBase: "./dist",
         // 是否在开启服务后自动打开默认浏览器窗口
         // open: true, 
-        port: 8080
+        port: 8088
     },
 
 
