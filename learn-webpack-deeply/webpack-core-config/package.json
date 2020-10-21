@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack-dev-server"
+        "dev": "cross-env NODE_ENV=development webpack-dev-server",
+        "build": "cross-env NODE_ENV=production webpack"
     },
     "author": "doctorwu",
     "license": "ISC",
@@ -15,10 +16,13 @@
         "babel": "^6.23.0",
         "babel-loader": "^8.1.0",
         "clean-webpack-plugin": "^3.0.0",
+        "cross-env": "^7.0.2",
         "css-loader": "^5.0.0",
+        "cssnano": "^4.1.10",
         "file-loader": "^6.1.1",
         "html-webpack-plugin": "^4.5.0",
-        "mini-css-extract-plugin": "^1.0.0",
+        "mini-css-extract-plugin": "^1.1.1",
+        "optimize-css-assets-webpack-plugin": "^5.0.4",
         "postcss-loader": "^4.0.4",
         "sass": "^1.27.0",
         "sass-loader": "^10.0.3",
@@ -26,7 +30,8 @@
         "url-loader": "^4.1.1",
         "webpack": "^4.4.30",
         "webpack-cli": "^3.3.11",
-        "webpack-dev-server": "^3.11.0"
+        "webpack-dev-server": "^3.11.0",
+        "webpack-merge": "^5.2.0"
     },
     "dependencies": {
         "@babel/polyfill": "^7.12.1"
