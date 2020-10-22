@@ -30,6 +30,8 @@ const formatter = function (profile) {
   );
 };
 
+const childJsx = <div>I am child JSX, {myName}</div>;
+
 const jsx = (
   //   <React.StrictMode>
   //     <App />
@@ -41,6 +43,7 @@ const jsx = (
       {myName}是{profile.sex === "male" ? "男" : "女"}的
     </h3>
     <hr />
+    {childJsx}
   </div>
 );
 
