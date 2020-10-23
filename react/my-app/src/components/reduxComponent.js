@@ -10,7 +10,6 @@ class ReduxComponent extends Component {
   render() {
     return (
       <div>
-        <hr />
         <strong>Redux Component</strong>
         <br />
         <br />

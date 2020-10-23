@@ -11,6 +11,7 @@ import ReduxComponent from "./components/reduxComponent";
 import { Provider } from "react-redux";
 import { counterStore } from "./store/counter";
 import ReactReduxComponent from "./components/reactReduxComponent";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 // const myName = "Doctorwu";
 // const profile = {
@@ -41,10 +42,32 @@ import ReactReduxComponent from "./components/reactReduxComponent";
 const jsx = (
   <React.StrictMode>
     {/* <App /> */}
-    <ClassComponent />
+    <strong>React Router</strong>
+    <br />
+    <Router>
+      <Link to="/ClassComponent">ClassComponent</Link>
+      <br />
+      <Link to="/FunctionComponent">FunctionComponent</Link>
+      <br />
+      <Link to="/ReduxComponent">ReduxComponent</Link>
+      <br />
+      <Link to="/ReactReduxComponent">ReactReduxComponent</Link>
+      <br />
+      <hr />
+      <Switch>
+        <Route path="/ClassComponent" component={ClassComponent} />
+        <Route path="/FunctionComponent" render={() => <FunctionComponent />} />
+        {/* 渲染优先级: children>component>render */}
+        {/* 如果有路径重合, 则所有符合的组件都会渲染，除非设置exact或在外层嵌套Switch */}
+        {/* <Route path="/ReduxComponent" children={() => <ReduxComponent/>} // children 无论如何都会渲染 */}
+        <Route path="/ReduxComponent" render={() => <ReduxComponent />} />
+        <Route path="/ReactReduxComponent" component={ReactReduxComponent} />
+      </Switch>
+    </Router>
+    {/* <ClassComponent />
     <FunctionComponent />
     <ReduxComponent />
-    <ReactReduxComponent />
+    <ReactReduxComponent /> */}
   </React.StrictMode>
   //   <div>
   //     <h2 className={styles.name}>My name is {myName}</h2>

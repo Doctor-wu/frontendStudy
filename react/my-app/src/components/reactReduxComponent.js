@@ -18,7 +18,6 @@ export default connect(
       console.log(this.props);
       return (
         <div>
-          <hr />
           <strong>React-redux Component</strong>
           <br />
           <br />
