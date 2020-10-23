@@ -7,6 +7,7 @@ import "./index.css";
 import ClassComponent from "./components/classComponent";
 import FunctionComponent from "./components/functionComponent";
 import * as serviceWorker from "./serviceWorker";
+import ReduxComponent from "./components/reduxComponent";
 
 // const myName = "Doctorwu";
 // const profile = {
@@ -39,6 +40,7 @@ const jsx = (
     {/* <App /> */}
     <ClassComponent />
     <FunctionComponent/>
+    <ReduxComponent/>
   </React.StrictMode>
   //   <div>
   //     <h2 className={styles.name}>My name is {myName}</h2>
