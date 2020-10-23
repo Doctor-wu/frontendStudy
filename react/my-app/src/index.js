@@ -8,6 +8,9 @@ import ClassComponent from "./components/classComponent";
 import FunctionComponent from "./components/functionComponent";
 import * as serviceWorker from "./serviceWorker";
 import ReduxComponent from "./components/reduxComponent";
+import { Provider } from "react-redux";
+import { counterStore } from "./store/counter";
+import ReactReduxComponent from "./components/reactReduxComponent";
 
 // const myName = "Doctorwu";
 // const profile = {
@@ -39,8 +42,9 @@ const jsx = (
   <React.StrictMode>
     {/* <App /> */}
     <ClassComponent />
-    <FunctionComponent/>
-    <ReduxComponent/>
+    <FunctionComponent />
+    <ReduxComponent />
+    <ReactReduxComponent />
   </React.StrictMode>
   //   <div>
   //     <h2 className={styles.name}>My name is {myName}</h2>
@@ -53,7 +57,17 @@ const jsx = (
   //   </div>
 );
 
-ReactDOM.render(jsx, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={counterStore}>{jsx}</Provider>,
+  document.getElementById("root")
+);
+
+counterStore.subscribe(() => {
+  ReactDOM.render(
+    <Provider store={counterStore}>{jsx}</Provider>,
+    document.getElementById("root")
+  );
+});
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
