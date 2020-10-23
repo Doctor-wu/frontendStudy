@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from "react";
+import useClock from "./customHook";
 
 const Hook = () => {
   const [count, setCount] = useState(0);
-  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     console.log("count effect", count);
   }, [count]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setDate(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <div>
@@ -23,7 +16,9 @@ const Hook = () => {
       <button onClick={() => setCount(count + 1)}>ADD</button>&nbsp;&nbsp;
       <button onClick={() => setCount(count - 1)}>MINUS</button>
       <br />
-      <em>time: {date.toLocaleTimeString()}</em>
+      <strong>customHook</strong>
+      <br />
+      <em>time: {useClock().toLocaleTimeString()}</em>
     </div>
   );
 };
