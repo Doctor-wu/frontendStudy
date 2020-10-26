@@ -91,7 +91,7 @@ article, aside, bdi, command, details, dialog, summary, figure,figcaption, foote
 
 - **结构搭建上**
 
-  采用HTML5标准时开头应该加上<!DOCTYPE html>
+  采用HTML5标准时开头应该加上\<!DOCTYPE html>
 
   
 

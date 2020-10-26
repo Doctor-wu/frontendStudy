@@ -13,6 +13,8 @@ import { counterStore } from "./store/counter";
 import ReactReduxComponent from "./components/reactReduxComponent";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Hook from "./components/Hook";
+import UseMemo from "./components/useMemo";
+import UseCallback from "./components/useCallback";
 
 // const myName = "Doctorwu";
 // const profile = {
@@ -56,6 +58,10 @@ const jsx = (
       <br />
       <Link to="/Hook">Hook</Link>
       <br />
+      <Link to="/UseMemo">useMemo</Link>
+      <br />
+      <Link to="/UseCallback">useCallback</Link>
+      <br />
       <hr />
       <Switch>
         <Route path="/ClassComponent" component={ClassComponent} />
@@ -66,6 +72,8 @@ const jsx = (
         <Route path="/ReduxComponent" render={() => <ReduxComponent />} />
         <Route path="/ReactReduxComponent" component={ReactReduxComponent} />
         <Route path="/Hook" component={Hook} />
+        <Route path="/UseMemo" component={UseMemo} />
+        <Route path="/UseCallback" component={UseCallback} />
       </Switch>
     </Router>
     {/* <ClassComponent />
