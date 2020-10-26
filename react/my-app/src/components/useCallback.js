@@ -1,17 +1,17 @@
-import React, { useState, useCallback, Component } from "react";
+import React, { useState, useCallback, PureComponent } from "react";
 
 const UseCallback = () => {
   const [price, setPrice] = useState(0);
-  const [value, setValue] = useState("");
 
-  const addPrice = () => {
-    console.log("addPrice");
+  const addPrice = useCallback(() => {
     let sum = 0;
     for (let i = 0; i <= price; i++) {
       sum += i;
     }
     return sum;
-  };
+  }, [price]);
+
+  const [value, setValue] = useState("");
 
   return (
     <div>
@@ -32,12 +32,14 @@ const UseCallback = () => {
   );
 };
 
-class Child extends Component {
+class Child extends PureComponent {
   render() {
+    console.log("child render");
+    const { addPrice } = this.props;
     return (
       <div>
         <strong>Child</strong>
-        <button onClick={() => console.log(this.props.addPrice())}>add</button>
+        <button onClick={() => console.log(addPrice())}>add</button>
       </div>
     );
   }
