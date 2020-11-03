@@ -1,5 +1,23 @@
 import React, { Component } from "react";
 
+const foo = (Cmp) => (props) => {
+  return (
+    <div style={{ border: "1px solid red", margin: "10px" }}>
+      <Cmp {...props} />
+    </div>
+  );
+};
+
+class Child extends Component {
+  render() {
+    return <div>child</div>;
+  }
+}
+
+@foo
+@foo
+@foo
+@foo
 class ClassComponent extends Component {
   constructor(props) {
     super(props);
@@ -29,10 +47,10 @@ class ClassComponent extends Component {
         <strong>Class Component</strong>
         <br />
         {date.toLocaleTimeString()}
+        <Child />
       </div>
     );
   }
 }
-
 
 export default ClassComponent;
