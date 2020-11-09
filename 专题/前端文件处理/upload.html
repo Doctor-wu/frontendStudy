@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="uplaodInp" type="file" multiple>
+    <img id="abbreImg" style="height: 200px;" src="" alt="">
+
+    <script>
+        let uploadInp = document.querySelector("#uplaodInp");
+        uploadInp.onchange = function () {
+            console.log(this.files) // 可以拿到用户上传的文件信息
+            let file = this.files[0];
+            // FileList {0: File, length: 1}
+            // 每一项就是选择的文件 File
+            // name
+            // size 单位 Byte
+            // type
+
+            // 可以在这里通过size判断文件大小决定是否允许上传
+            // if (file.size > 1024) {
+            //     alert("上传的文件必须在1KB以内");
+            //     return;
+            // }
+
+            // 可以在这里判断文件的类型决定是否允许上传
+            if (!/(png|jpe?g|gif)$/i.test(file.type)) {
+                alert(`不允许上传${file.type}格式的文件`);
+                return;
+            }
+
+            let reader = new FileReader;
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                abbreImg.src = e.target.result;
+            }
+        }
+    </script>
+</body>
+
+</html>

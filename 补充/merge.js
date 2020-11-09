@@ -165,3 +165,5 @@ function merge(obj1, obj2) {
 //     cache: {},
 //     [Symbol(AA)]: 22
 // }
+
+// 封装FileReader方法
