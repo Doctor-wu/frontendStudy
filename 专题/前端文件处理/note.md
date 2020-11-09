@@ -90,6 +90,19 @@ async function upload(file) {
 
 
 
+### 进度监测
+
+```javascript
+config: {
+    onUploadProgress(e){
+        // e.loaded 已经上传的
+        // e.total 总共的值
+    }
+}
+```
+
+
+
 
 
 
