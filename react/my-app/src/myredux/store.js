@@ -1,6 +1,6 @@
-import { createStore } from "./myredux";
+import { createStore, combineReducers } from "./myredux";
 
-function reducer(state, action) {
+function count(state, action) {
   state = state || {
     count: 100,
   };
@@ -22,7 +22,29 @@ function reducer(state, action) {
   }
 }
 
-let store = createStore(reducer);
+function color(state, action) {
+  state = state || {
+    color: "red",
+  };
+  switch (action.type) {
+    case "changeColor":
+      return {
+        color: action.color,
+      };
+
+    default:
+      return {
+        ...state,
+      };
+  }
+}
+
+let rootReducer = combineReducers({
+  countReducer: count,
+  colorReducer: color,
+});
+
+let store = createStore(rootReducer);
 // dispatch getState subscribe
 
 export default store;

@@ -4,20 +4,22 @@ import store from "./store";
 import { Provider, connect } from "react-redux";
 
 class App extends Component {
-//   componentDidMount() {
-//     this.disScribe = store.subscribe(() => {
-//       this.setState({});
-//     });
-//   }
-//   componentWillUnmount() {
-//     // 在组件销毁时，把该组件的订阅函数从事件池中移除
-//     this.disScribe();
-//   }
+  //   componentDidMount() {
+  //     this.disScribe = store.subscribe(() => {
+  //       this.setState({});
+  //     });
+  //   }
+  //   componentWillUnmount() {
+  //     // 在组件销毁时，把该组件的订阅函数从事件池中移除
+  //     this.disScribe();
+  //   }
   render() {
     console.log("render", this.props);
     return (
       <>
-        <h2>{store.getState().count}</h2>
+        <h2 style={{ color: this.props.colorReducer.color }}>
+          {this.props.countReducer.count}
+        </h2>
         <button
           onClick={() => {
             store.dispatch({ type: "add", num: 10 });
@@ -31,7 +33,7 @@ class App extends Component {
 }
 
 App = connect(
-  (state) => ({ count: state.count }),
+  (state) => state,
   (dispatch) => ({ dispatch })
 )(App);
 
