@@ -7,11 +7,11 @@ export default connect(
     num: state,
   }),
   // mapDispatchToProps
-
-  {
-    add: () => ({ type: "ADD" }),
-    minus: () => ({ type: "MINUS" }),
-  }
+  (dispatch) => ({ dispatch })
+  //   {
+  //     add: () => ({ type: "ADD" }),
+  //     minus: () => ({ type: "MINUS" }),
+  //   }
 )(
   class ReactReduxComponent extends Component {
     render() {
@@ -23,7 +23,18 @@ export default connect(
           <br />
           <em>counter: {this.props.num}</em>
           <br />
-          <button onClick={this.props.add}>ADD</button>
+          <button
+            onClick={() => {
+              this.props.dispatch((dispatch, getState) => {
+                  console.log(getState());
+                setTimeout(() => {
+                  dispatch({ type: "ADD" });
+                }, 2000);
+              });
+            }}
+          >
+            ADD
+          </button>
           <br />
           <button onClick={this.props.minus}>MINUS</button>
         </div>
