@@ -1,7 +1,6 @@
 export const createStore = function (reducer, fn) {
   let state;
   let listeners = [];
-  let execQuene = [];
   let dispatch = function (action) {
     state = reducer(state, action);
     listeners.forEach((update) => {
