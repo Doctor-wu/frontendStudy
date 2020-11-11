@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from "./myredux";
-import thunk from "redux-thunk";
+import thunk from "./redux-thunk";
 function count(state, action) {
   state = state || {
     count: 100,

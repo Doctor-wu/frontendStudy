@@ -55,7 +55,6 @@ export const applyMiddleware = function (middleware) {
       let store = createStore(reducer);
       let middle = middleware(store);
       let midDispatch = middle(store.dispatch);
-        console.log(midDispatch, store);
       return {
         ...store,
         dispatch: midDispatch,

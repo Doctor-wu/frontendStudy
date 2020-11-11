@@ -13,6 +13,11 @@ class App extends Component {
   //     // 在组件销毁时，把该组件的订阅函数从事件池中移除
   //     this.disScribe();
   //   }
+  add = (dispatch, getState) => {
+    setTimeout(() => {
+      dispatch({ type: "add", num: getState().countReducer.count });
+    }, 1000);
+  };
   render() {
     console.log("render", this.props);
     return (
@@ -22,7 +27,7 @@ class App extends Component {
         </h2>
         <button
           onClick={() => {
-            store.dispatch({ type: "add", num: 10 });
+            store.dispatch(this.add);
           }}
         >
           +
