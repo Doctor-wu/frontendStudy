@@ -1,6 +1,7 @@
-export const createStore = function (reducer) {
+export const createStore = function (reducer, fn) {
   let state;
   let listeners = [];
+  let execQuene = [];
   let dispatch = function (action) {
     state = reducer(state, action);
     listeners.forEach((update) => {
@@ -26,6 +27,10 @@ export const createStore = function (reducer) {
 
   dispatch({});
 
+  if (typeof fn === "function") {
+    return fn(createStore)(reducer);
+  }
+
   return {
     dispatch,
     getState,
@@ -41,5 +46,20 @@ export const combineReducers = function (obj) {
     }, state);
     console.log(state);
     return state;
+  };
+};
+
+export const applyMiddleware = function (middleware) {
+  return function (createStore) {
+    return function (reducer) {
+      let store = createStore(reducer);
+      let middle = middleware(store);
+      let midDispatch = middle(store.dispatch);
+        console.log(midDispatch, store);
+      return {
+        ...store,
+        dispatch: midDispatch,
+      };
+    };
   };
 };
