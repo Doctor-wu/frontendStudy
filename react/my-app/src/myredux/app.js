@@ -16,7 +16,7 @@ class App extends Component {
   add = (dispatch, getState) => {
     setTimeout(() => {
       dispatch({ type: "add", num: getState().countReducer.count });
-    }, 1000);
+    }, 500);
   };
   render() {
     console.log("render", this.props);

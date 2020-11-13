@@ -43,21 +43,44 @@ export const combineReducers = function (obj) {
       state[current] = obj[current](state[current], action);
       return state;
     }, state);
-    console.log(state);
     return state;
   };
 };
 
-export const applyMiddleware = function (middleware) {
-  return function (createStore) {
-    return function (reducer) {
-      let store = createStore(reducer);
-      let middle = middleware(store);
-      let midDispatch = middle(store.dispatch);
-      return {
-        ...store,
-        dispatch: midDispatch,
-      };
-    };
+// export const applyMiddleware = function (middleware) {
+//   return function (createStore) {
+//     return function (reducer) {
+//       let store = createStore(reducer);
+//       let middle = middleware(store);
+//       let midDispatch = middle(store.dispatch);
+//       return {
+//         ...store,
+//         dispatch: midDispatch,
+//       };
+//     };
+//   };
+// };
+
+export const compose = (...fns) => (...args) => {
+  let first = fns.shift();
+  return fns.reduce((prev, next) => {
+    return next(prev);
+  }, first(...args));
+};
+
+export const applyMiddleware = (...middlewares) => (createStore) => (
+  reducer
+) => {
+  let store = createStore(reducer);
+  //   let middle = middlewares(store);
+  let middles = middlewares.map((middleware) => {
+    return middleware(store);
+  });
+  let midDispatch = compose(...middles)(store.dispatch);
+  console.log(midDispatch);
+  //   let midDispatch = middle(store.dispatch);
+  return {
+    ...store,
+    dispatch: midDispatch,
   };
 };

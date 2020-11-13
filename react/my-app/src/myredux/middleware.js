@@ -1,4 +1,4 @@
-export default function thunk(store) {
+export function thunk(store) {
   return function (dispatch) {
     return function midDispatch(action) {
       if (typeof action === "function") {
@@ -9,3 +9,9 @@ export default function thunk(store) {
     };
   };
 }
+
+export const logger = (store) => (dispatch) => (action) => {
+  console.log("老值是: ", store.getState());
+  dispatch(action);
+  console.log("新值是: ", store.getState());
+};
