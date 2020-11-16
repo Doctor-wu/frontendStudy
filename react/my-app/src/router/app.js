@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom";
 import {
-  BrowserRouter,
+//   BrowserRouter,
   HashRouter,
   Route,
   Link,
@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <BrowserRouter>
+        <HashRouter>
           <div>
             <Link to="/home">Home</Link>
             <br />
@@ -32,7 +32,7 @@ class App extends Component {
             <Route path="/list" component={List}></Route>
             <Route path="*" component={() => <h1>404 Not Found</h1>}></Route>
           </Switch>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     );
   }
