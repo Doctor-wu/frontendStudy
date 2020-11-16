@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import store from "./store";
-import { Provider, connect } from "react-redux";
+import { Provider, connect } from "./my-react-redux";
 
 class App extends Component {
   //   componentDidMount() {
@@ -31,6 +31,15 @@ class App extends Component {
           }}
         >
           +
+        </button>
+        <button
+          onClick={() => {
+            store.dispatch((dispatch, getState) => {
+              dispatch({ type: "changeColor", color: "blue" });
+            });
+          }}
+        >
+          Change Blue
         </button>
       </>
     );

@@ -77,7 +77,6 @@ export const applyMiddleware = (...middlewares) => (createStore) => (
     return middleware(store);
   });
   let midDispatch = compose(...middles)(store.dispatch);
-  console.log(midDispatch);
   //   let midDispatch = middle(store.dispatch);
   return {
     ...store,
