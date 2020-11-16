@@ -1,0 +1,53 @@
+.top_Nav_box {
+    display: flex;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    .iconfont {
+        width: 10%;
+        font-size: 25px;
+        color: #333;
+    }
+
+    .nav_box {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 6px;
+        padding: 0 5%;
+        transition: all ease .3s;
+
+        a {
+            flex: auto;
+            text-align: center;
+            font-size: 17px;
+            color: #777;
+
+            &.active {
+                color: #333;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.route_wrap {
+    margin-top: 50px;
+    position: relative;
+    z-index: 3;
+}
+
+
+.search_page_wrap{
+    margin-top: -50px;
+    height: 100vh;
+    background-color: #fff;
+}

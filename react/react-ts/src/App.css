@@ -1,38 +1,25 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@font-face {font-family: "iconfont";
+    src: url('//at.alicdn.com/t/font_2207563_rwpd8n8lcyd.eot?t=1605532923089'); /* IE9 */
+    src: url('//at.alicdn.com/t/font_2207563_rwpd8n8lcyd.eot?t=1605532923089#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMoAAsAAAAABxAAAALZAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqBeIF7ATYCJAMMCwgABCAFhG0HNxtCBsgOJSEhwYDhAQBgPHw/9u3c9+6aSNxoGhVJDImk1SSRIDamb6PSPZP///r33kJOsbWHQN6Hk1QbscmbNLVnrydpgoeJ/3PMdPk8CvPbbC4ZVBk4wPGABhqVF2R3IAfkN4xd8AIPE2g3zY3ScXxqLmhK9qhAPBbwqkCz4JaSxVqF5oaFKb5S01o+l2PgS/T78Y93aFI0VfbEi0dxtRD5k7wuqTQ3mpUGCMLljGDLqNgEknjQaL5PJQlvUtGuy1SNUtAshbKU7/+fSGComg/6j1eIZnZ2J1iFkcJP4rEJfi8tUkAFzT4jeg48R9hBR1XSzl4YqzACQ/jDXuSPjJtnD5ufXhZcPOefPeaeP+X1XWYMmWUt6PSN5A31LY1Le/MvLlxqS8HlJbUv7/yc2px7dlbk7jrvMb8z7w650YYQ8TAxPsKub/Hf2cvefwTy8qhb/9aXJtXkbXZp5qDHrkvMv5O17vZB6Ii1qab9ZV4qSrKn1D4JpS663DCd0GT7VLTYQCL2yThKkyxQyR5avxc30GhOpfr+t/+NNx17nyoMQv9r6iT4cTX1HYmGWUHrTVmCn1yXQOM/g6shZWoCT2BZq+0bNhYgj9s0wLb3e5iuGhqcTWg1lEHRYgqqVovIxG5Ckw5b0KzVHrTbkLC8wwBCRWQb1nUACL3WoOj2DapeJ8jE3kOTYV/QrDdUoN3dMNmww3IItGMIrmK4FlU3IUGNTMq5OqYd52ZjXp24iuTFES0fEyrwIS93z3IsAUsxWWIKred5M8YhjsgkKB4ch8ViGZITmRDXMHc+Y/JgDw+u6Zvca2QS0HaEwKowWC2kWhNEoIaMFBd0ZrQrP58N46kjVoV0tNQ582EEJegd8eLOcwAyQSEd1PIoz1D1eLwxDAfhEDISSDwwYmInLIPIm/sJYTUYd/wJQblgHqgdN1Thvr1K8n+7oJ29Y40SNVI+wdI6dYqrSA0fAAAAAA==') format('woff2'),
+    url('//at.alicdn.com/t/font_2207563_rwpd8n8lcyd.woff?t=1605532923089') format('woff'),
+    url('//at.alicdn.com/t/font_2207563_rwpd8n8lcyd.ttf?t=1605532923089') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url('//at.alicdn.com/t/font_2207563_rwpd8n8lcyd.svg?t=1605532923089#iconfont') format('svg'); /* iOS 4.1- */
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .icon-menu:before {
+    content: "\e672";
   }
-}
+  
+  .icon-search:before {
+    content: "\e8ab";
+  }
+  
