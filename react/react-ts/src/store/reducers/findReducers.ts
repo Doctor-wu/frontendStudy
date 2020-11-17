@@ -24,7 +24,10 @@ export default function findReducer(
       return state;
 
     case actionTypes.SETBANNERLIST:
-      return state;
+      return {
+        ...state,
+        bannerList: action.list,
+      };
 
     default:
       return { ...state };
