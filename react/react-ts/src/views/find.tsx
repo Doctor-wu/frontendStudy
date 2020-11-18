@@ -5,10 +5,16 @@ import { IState } from "../store/index";
 import { IFIndAction } from "../store/reducers/findReducers";
 import { getBannerAction } from "../store/actions/find";
 import { Carousel, WingBlank } from "antd-mobile";
-
+import "../style/find.scss";
 export interface IFindProps {
   bannerList: [];
   dispatch: Dispatch<IFIndAction>;
+}
+
+export interface IBanner {
+  url: string;
+  pic: string;
+  bannerId: string;
 }
 class Find extends Component<IFindProps> {
   state = {
@@ -17,32 +23,34 @@ class Find extends Component<IFindProps> {
   };
   componentDidMount() {
     // simulate img loading
-    setTimeout(() => {
-      this.setState({
-        data: [
-          "AiyWuByWklrrUDlFignR",
-          "TekJlZRVCjLFexlOCuWn",
-          "IJOtIlfsYdTyaDTRVrLI",
-        ],
-      });
-    }, 100);
-    this.props.dispatch(getBannerAction());
+    // setTimeout(() => {
+    //   this.setState({
+    //     data: [
+    //       "AiyWuByWklrrUDlFignR",
+    //       "TekJlZRVCjLFexlOCuWn",
+    //       "IJOtIlfsYdTyaDTRVrLI",
+    //     ],
+    //   });
+    // }, 100);
+    this.props.bannerList.length || this.props.dispatch(getBannerAction());
   }
   render() {
+    console.log(this.props);
+
+    let { bannerList } = this.props;
     return (
       <WingBlank>
         <Carousel
           autoplay={true}
           infinite
-          beforeChange={(from, to) =>
-            console.log(`slide from ${from} to ${to}`)
-          }
-          afterChange={(index) => console.log("slide to", index)}
+          className="banner_box"
+          beforeChange={(from, to) => {}}
+          afterChange={(index) => {}}
         >
-          {this.state.data.map((val) => (
+          {bannerList.map((banner: IBanner) => (
             <a
-              key={val}
-              href="http://www.alipay.com"
+              key={banner.bannerId}
+              href={banner.url}
               style={{
                 display: "inline-block",
                 width: "100%",
@@ -50,7 +58,7 @@ class Find extends Component<IFindProps> {
               }}
             >
               <img
-                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                src={banner.pic}
                 alt=""
                 style={{ width: "100%", verticalAlign: "top" }}
                 onLoad={() => {
