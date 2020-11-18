@@ -1,12 +1,8 @@
 import React from "react";
 import { Button } from "antd-mobile";
+import { IProps } from "../index.d";
 
-export interface IUserProps {
-  history: any;
-  [prop: string]: any;
-}
-
-function User(props: IUserProps) {
+function User(props: IProps) {
   console.log(props);
 
   const goLogin = () => {

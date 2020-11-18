@@ -16,6 +16,7 @@ import ProtectRoute from "../components/ProtectRoute";
 import Nav from "./nav";
 import Search from "../views/search";
 import "../style/layout.scss";
+import Regist from "../views/regist";
 
 function FullScreenRoute(props: any) {
   return (
@@ -49,6 +50,10 @@ class Layout extends Component {
               <FullScreenRoute
                 path="/login"
                 component={Login}
+              ></FullScreenRoute>
+              <FullScreenRoute
+                path="/regist"
+                component={Regist}
               ></FullScreenRoute>
               <FullScreenRoute
                 path="*"
