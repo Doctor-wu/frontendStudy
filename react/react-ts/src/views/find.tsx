@@ -22,6 +22,7 @@ class Find extends Component<IFindProps> {
     imgHeight: 176,
   };
   componentDidMount() {
+    console.log(this.props);
     // simulate img loading
     // setTimeout(() => {
     //   this.setState({
@@ -35,8 +36,6 @@ class Find extends Component<IFindProps> {
     this.props.bannerList.length || this.props.dispatch(getBannerAction());
   }
   render() {
-    console.log(this.props);
-
     let { bannerList } = this.props;
     return (
       <WingBlank>
