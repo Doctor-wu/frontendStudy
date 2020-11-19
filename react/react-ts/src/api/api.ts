@@ -1,7 +1,6 @@
 import {
   $get,
-  $post,
-  //  $post
+  //   $post,
 } from "./http";
 
 export const getBanner = (data: any) => {
