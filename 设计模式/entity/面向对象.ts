@@ -1,3 +1,5 @@
+
+
 class Person {
     private money: number;
     protected age: number;
