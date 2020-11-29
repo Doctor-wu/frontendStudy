@@ -78,10 +78,10 @@ function CreateSingle<T>(Cstr: ICstr<T>) {
     }
 }
 
-export interface Constructable<T> {
-
-    new(...args: any[]): T
-}
+// export interface Constructable<T> {
+//
+//     new(...args: any[]): T
+// }
 
 
 interface ICstr<T> {

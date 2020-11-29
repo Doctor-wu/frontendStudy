@@ -10,7 +10,6 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var NormalSingle;
 (function (NormalSingle) {
     var Single = /** @class */ (function () {
