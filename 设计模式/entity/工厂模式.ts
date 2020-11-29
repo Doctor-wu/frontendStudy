@@ -54,11 +54,9 @@ class Factory {
     }
 }
 
-
-new Factory().create("orange").log()
-new Factory().create("apple").log()
-
-
+let fac = new Factory();
+fac.create("orange").log()
+fac.create("apple").log()
 
 
 /**

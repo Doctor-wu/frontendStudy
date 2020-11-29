@@ -63,8 +63,9 @@ var Factory = /** @class */ (function () {
     };
     return Factory;
 }());
-new Factory().create("orange").log();
-new Factory().create("apple").log();
+var fac = new Factory();
+fac.create("orange").log();
+fac.create("apple").log();
 /**
  * 工厂方法模式
  *  -多态性工厂方法
