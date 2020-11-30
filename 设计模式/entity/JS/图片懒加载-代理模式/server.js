@@ -45,9 +45,7 @@ var koa_static_1 = __importDefault(require("koa-static"));
 var path_1 = __importDefault(require("path"));
 var fs_1 = __importDefault(require("fs"));
 var app = new koa_1.default();
-app.use(koa_static_1.default(path_1.default.join(__dirname, "./images"), {
-    root: "images"
-}));
+app.use(koa_static_1.default(path_1.default.join(__dirname, "./images")));
 var router = new koa_router_1.default();
 router.get('/', function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
     var _a;

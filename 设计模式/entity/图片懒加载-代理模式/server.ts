@@ -6,9 +6,7 @@ import fs from "fs";
 
 const app = new Koa();
 
-app.use(Static(path.join(__dirname, "./images"), {
-    root: "images"
-}));
+app.use(Static(path.join(__dirname, "./images")));
 
 
 const router = new Router();
@@ -30,6 +28,7 @@ router.get("/images/:name", async ctx => {
             if (err) {
                 reject(err)
             }
+
             setTimeout(() => {
 
                 resolve(res);
