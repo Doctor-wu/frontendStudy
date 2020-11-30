@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片懒加载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .image {
+            width: 50%;
+            height: auto;
+            min-height: 468px;
+            background-color: #ccc;
+            float: left;
+        }
+
+        .image img {
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="image-container">
+    <div class="image"><img src="" alt="" data-src="/images/1.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/2.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/3.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/4.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/5.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/6.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/7.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/8.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/9.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/10.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/11.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/12.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/13.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/14.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/15.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/16.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/17.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/18.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/19.jpg"></div>
+    <div class="image"><img src="" alt="" data-src="/images/20.jpg"></div>
+</div>
+
+<script>
+  const windowsHeight = window.innerHeight || document.documentElement.offsetHeight;
+  const images = new Set(document.querySelectorAll("img"));
+
+  function lazyLoad() {
+    [...images].forEach(image => {
+      let {top} = image.getBoundingClientRect();
+      if (top <= windowsHeight) {
+        image.src = image.dataset.src;
+      }
+    })
+  }
+
+  window.onload = function () {
+    lazyLoad();
+    window.addEventListener("scroll", lazyLoad);
+  }
+</script>
+</body>
+</html>
