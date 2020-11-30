@@ -56,9 +56,11 @@
   const images = new Set(document.querySelectorAll("img"));
 
   function lazyLoad() {
+    console.log(images.size);
     [...images].forEach(image => {
       let {top} = image.getBoundingClientRect();
       if (top <= windowsHeight) {
+        images.delete(image);
         image.src = image.dataset.src;
       }
     })
