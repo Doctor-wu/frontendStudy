@@ -19,6 +19,7 @@ namespace DecoratorPattern {
         }
 
         @before(takeMoney, "10元")
+        @before(takeMoney, "10元")
         buy(money: string, goods: string): void {
             console.log(`${this.name}花${money}买了${goods}`);
         }

@@ -39,6 +39,7 @@ var DecoratorPattern;
         };
         __decorate([
             before(takeMoney, "10元"),
+            before(takeMoney, "10元"),
             __metadata("design:type", Function),
             __metadata("design:paramtypes", [String, String]),
             __metadata("design:returntype", void 0)
