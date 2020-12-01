@@ -92,6 +92,7 @@
   },
   "include": [
     "图片懒加载-代理模式/*",
+    "./*",
     "../../../../.cache/JetBrains/WebStorm2020.2/javascript/typings/node/12.19.0/node_modules/@types/node/globals.d.ts"
   ]
 }

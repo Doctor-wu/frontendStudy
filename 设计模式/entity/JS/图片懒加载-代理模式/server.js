@@ -90,5 +90,5 @@ router.get("/images/:name", function (ctx) { return __awaiter(void 0, void 0, vo
     });
 }); });
 app.use(router.routes());
-app.listen(3000);
-console.log('Server running on port 3000');
+app.listen(3001);
+console.log('Server running on port 3001');
