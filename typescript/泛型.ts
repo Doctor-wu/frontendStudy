@@ -32,4 +32,9 @@ function logger<T extends LengthWise>(val: T) {
     console.log(val.length);
 }
 
-logger("doctorwu");// 传入的参数需要满足Lengthwise
+let obj = {
+    length: 10
+}
+type withLengthObj = typeof obj;
+
+logger<withLengthObj>("doctorwu");// 传入的参数需要满足Lengthwise

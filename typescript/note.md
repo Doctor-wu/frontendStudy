@@ -390,23 +390,39 @@ type T22 = T2/*<T>此处取了默认泛型string*/;
 ### 泛型约束
 
 ```typescript
-interface LengthWise{
-    length:number
+interface LengthWise {
+    length: number
 }
 
-function logger<T extends LengthWise>(val:T){
+function logger<T extends LengthWise>(val: T) {
     console.log(val.length);
 }
-logger("doctorwu");// 传入的参数需要满足Lengthwise
+
+let obj = {
+    length: 10
+}
+type withLengthObj = typeof obj;
+
+logger<withLengthObj>("doctorwu");// 传入的参数需要满足Lengthwise 
 ```
 
 
 
+### 泛型类型别名
 
+```typescript
+type Cart<T> = {list:T[]}|T[];
 
+let c1:Cart<string> = {list:['1']}
+let c2:Cart<number> = [1,2,3]
+```
 
+**泛型接口 vs 泛型类型别名**
 
-
+- 接口创建了一个新的名字，它可以在其他任意地方被调用。而类型别名(**type**)并不创建新的名字，例如报错信息就不会使用别名
+- 类型别名不能被extends和implements，这时我们应该尽量使用接口替代类型别名
+- 当我们需要使用联合类型或者元组类型的时候，类型别名会更合适
+- **能用interface实现的就不要用type**
 
 
 
