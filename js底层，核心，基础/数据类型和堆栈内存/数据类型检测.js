@@ -21,7 +21,7 @@
 
 
 /*
- * JQ中数据类型检测的处理 
+ * JQ中数据类型检测的处理
  */
 var class2type = {};
 var toString = class2type.toString; //Object.prototype.toString
@@ -73,7 +73,7 @@ function isArrayLike(obj) {
     }
 
     // type === "array"：数组
-    // length === 0：我们认为其是一空的类数组集合
+    // length === 0：我们认为其是一空的类数组集合3
     // (length - 1) in obj：对于非空集合，我们认为只要最大索引在对象中，则证明索引是逐级递增的（不准确）
     return type === "array" || length === 0 ||
         typeof length === "number" && length > 0 && (length - 1) in obj;
