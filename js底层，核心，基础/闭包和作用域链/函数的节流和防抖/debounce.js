@@ -19,7 +19,7 @@
 function debounce(func, delay = 500, immediately = false) {
     let timer;
     if (!immediately) {
-        return function(...args) {
+        return function (...args) {
             timer && clearTimeout(timer);
             timer = setTimeout(() => {
                 func.apply(this, args);
@@ -27,7 +27,7 @@ function debounce(func, delay = 500, immediately = false) {
             }, delay);
         }
     } else {
-        return function(...args) {
+        return function (...args) {
             timer && clearTimeout(timer);
             !timer && func.apply(this, args);
             timer = setTimeout(() => {

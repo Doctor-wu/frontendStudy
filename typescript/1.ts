@@ -1,7 +1,8 @@
-let dtname:string = "doctorwu";
+let dtName: string = "doctorwu";
+
 class Person {
-    constructor(name:string){
+    constructor(name: string) {
         console.log(name);
-        
+
     }
 }

@@ -1,5 +1,5 @@
 "use strict";
-var dtname = "doctorwu";
+var dtName = "doctorwu";
 var Person = /** @class */ (function () {
     function Person(name) {
         console.log(name);
