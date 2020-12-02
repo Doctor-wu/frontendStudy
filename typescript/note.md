@@ -287,7 +287,7 @@ abstract class Animal {
 
 class Cat extends Animal {
     speak():void {
-        console.log("喵喵喵");
+        console.log("喵喵喵")
     }
 }
 
