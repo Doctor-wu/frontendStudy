@@ -296,6 +296,136 @@ class Cat extends Animal {
 
 
 
+## 接口
+
+- 接口一方面可以在面向对象编程中表示为**行为的抽象**，另外可以用来描述**对象的形状**
+- 接口就是把一些类中共有的属性和方法抽象出来，可以用来约束实现此接口的类
+- 一个类可以继承另一个类并实现多个接口
+- 接口像插件一样是用来增强类的，而抽象类是具体类的抽象概念
+- 一个类可以实现多个接口，一个接口也可以被多个类实现，但一个类可以有多个子类，但只能有一个父类
+- **同名的接口可以写多个，类型会自动合并**
+
+
+
+### 接口描述类
+
+当我们写一个类的时候，会得到两种类型
+
+1. 构造函数类型的函数类型  clazz:typeof Cstr
+2. 类的实例类型clazz:Cstr
+
+```typescript
+// 接口约束类
+interface Speakable{
+    speak():void;
+}// 实现的类中实现speak方法即可
+
+
+// 接口修饰构造函数
+class Animal{
+    constructor(public name:string){
+        
+    }
+}
+
+// 修饰普通函数的接口加上new之后就是用来描述构造函数类型的接口
+interface WithNameClass{
+    new(name:string):Animal
+}
+
+function createAnimal(clazz:WithNameClass, name:string){
+    return new clazz(name);
+}
+let a = createAnimal(Animal, "Dog");
+console.log(a.name)
+
+```
+
+
+
+## 泛型
+
+```typescript
+// 泛型工厂
+function factory<T>(Cstr:{new():T}):T{
+    return new Cstr();
+}
+
+
+// 泛型接口
+interface Calculate<T>{
+    <U>(a:T, b:T):U
+}
+let sum:Calculate<number> = function<U>(a:T,b:T):U{
+    return a+b;
+}
+
+console.log(sum<number>(1,2))
+```
+
+
+
+### **泛型可以写多个**
+
+```typescript
+function swap<A,B>(tuple:[A,B]):[B,A]{
+    return [tuple[1], tuple[0]]
+}
+```
+
+
+
+### 默认泛型
+
+```typescript
+interface T2<T = string>{
+    // ...
+}
+
+type T22 = T2/*<T>此处取了默认泛型string*/;
+```
+
+
+
+### 泛型约束
+
+```typescript
+interface LengthWise{
+    length:number
+}
+
+function logger<T extends LengthWise>(val:T){
+    console.log(val.length);
+}
+logger("doctorwu");// 传入的参数需要满足Lengthwise
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
