@@ -2,13 +2,17 @@ function sum(A: number, b: number = 5): number {
     return A + b;
 }
 
+function concatString(a: string, b: string = ""): string {
+    return a + b;
+}
+
 type Func<T extends any[], R> = (...a: T) => R;
 /* zero functions */
 console.log(compose()(1));
 console.log(compose(sum)(1));
 console.log(compose(sum, sum)(1));
-console.log(compose(sum, sum, sum)(1));
-console.log(compose(sum, sum, sum, sum)(1));
+console.log(compose(sum, sum, concatString)(1));
+console.log(compose(sum, concatString, sum, sum)(1));
 console.log(compose(sum, sum, sum, sum, sum)(1));
 console.log(compose(sum, sum, sum, sum, sum, sum)(1));
 export default function compose(): <R>(a: R) => R;
