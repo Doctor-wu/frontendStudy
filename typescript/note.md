@@ -497,11 +497,128 @@ export default function compose(...funcs: Function[]) {
 
 
 
+## 结构类型系统
 
 
 
+### 接口的兼容性
+
+- 如果传入的变量和声明的类型不匹配，TS就会进行兼容性检查
+- 原理是Duck-Check，就是说只要目标类型中声明的属性变量在原类型中都存在就是兼容的
+
+### 函数的兼容性 (难点)
+
+```typescript
+// 比较参数
+type Func = (a:number, b:number)=>void;
+
+let sum:Func;
+
+function f1(a:number, b:number):void{
+}
+
+sum = f1; // OK
+
+function f2(a:number):void{}
+
+sum = f2; // OK 参数可以少
 
 
+function f3(a:number, b:number,c:number):void{}
+
+// sum = f3; // Error 参数不能多
+
+
+
+// 比较返回值
+type GetPerson = ()=>{name:string,age:number}
+let getPerson:GetPerson;
+
+function g1(){
+    return {name:"doctorwu", age:20};
+}
+
+getPerson = g1; // OK
+
+function g2(){
+    return {name:"doctorwu", age:20,gender:0};
+}
+
+getPerson = g2; // OK
+
+function g3(){
+    return {name:"doctorwu"};
+}
+
+getPerson = g3; // Error 返回的属性不能少
+```
+
+
+
+### 函数的协变和逆变
+
+- A <= B 意味着A是B的子类型
+
+- A -> B 指的是以A为参数类型，以B为返回值类型的函数参数
+
+- x：A 意味着x的类型为A
+
+- 函数的返回值类型是**协变**的，而参数类型是**逆变**的
+
+- 返回值类型可以传子类(只能多不能少)，参数可以传父类(只能少不能多)
+
+- 参数逆变父类 返回值协变子类
+
+  
+
+**如果关闭 "strictFunctionTypes" 选项的话，ts中的函数是双向协变的(算是个bug)**
+
+```typescript
+export {}
+
+class Animal {
+}
+
+class Dog extends Animal {
+    public name!: string;
+}
+
+class BlackDog extends Dog {
+    public color!: string;
+}
+
+type Callback = (dog: Dog) => Dog;
+
+function exec(callback: Callback): void {
+}
+
+/**
+ * 参数可以传自己和自己逆变成的父类
+ * 返回值可以传自己和自己协变成的子类
+ * 四种情况
+ * 1. 参数传子类，返回值子类 n
+ * 2. 参数传子类，返回值父类 n
+ * 3. 参数传父类，返回值父类 n
+ * 4. 参数传父类，返回值子类 y
+ * */
+
+type ChildToChild = (blackDog: BlackDog) => BlackDog;
+let childToChild: ChildToChild = (bD: BlackDog) => bD;
+// exec(childToChild); Error
+
+type ChildToParent = (blackDog: BlackDog) => Animal;
+let childToParent: ChildToParent = (bD: BlackDog) => new Animal();
+// exec(childToParent); Error
+
+type ParentToParent = (animal: Animal) => Animal;
+let parentToParent: ParentToParent = (animal: Animal) => new Animal();
+// exec(parentToParent); Error
+
+type ParentToChild = (animal: Animal) => BlackDog;
+let parentToChild: ParentToChild = (animal: Animal) => new BlackDog();
+exec(parentToChild);  // OK
+
+```
 
 
 
