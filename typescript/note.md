@@ -622,6 +622,173 @@ exec(parentToChild);  // OK
 
 
 
+## 类型保护
+
+- 类型保护就是一些表达式，他们在编译的时候就能通过类型信息确保某个作用域变量的类型
+
+- 类型保护就是能够通过关键字判断出分支中的类型
+
+  
+
+### typeof类型保护
+
+```typescript
+function double(input:string|number){
+    if(typeof input === "string"){
+        console.log(input); // 类型系统可以认知到string
+    }else if(typeof input === "number"){
+        console.log(input); // 类型系统可以认知到number
+    }
+}
+```
+
+
+
+### instanceof类型保护
+
+```typescript
+class Animal{
+    
+}
+
+class Bird extends Animal {
+    
+}
+
+class Dog extends Animal {
+    
+}
+
+function getName(animal:Animal){
+    if(animal instanceof Bird){
+        // 类型系统可以认知到Bird
+    }else if(animal instanceof Dog){
+        // 类型系统可以认知到Dog
+    }
+}
+```
+
+
+
+### null保护
+
+```typescript
+function getFirstLetter(s:string|null){
+    if(s===null){
+        return "";
+    }
+    s.length; // 类型系统会排除掉null的情况
+    
+    
+    s = s||""; // 这样也可以让类型系统排除null
+}
+```
+
+
+
+### 链判断运算符
+
+```typescript
+let a = {b:2};
+let result = a?.b; // 如果a不为空则返回a.b否则返回undefined
+console.log(result);
+```
+
+
+
+### 可辩识的联合类型
+
+```typescript
+interface WarningButton{
+    className: "warning",
+    text1: "修改"
+}
+
+interface DangerButton{
+    className: "danger",
+    text1: "删除"
+}
+
+type Button = WarningButton | DangerButton;
+
+function getName(button:Button){
+    if(button.className==="warning"){
+        console.log(button.text1); // OK
+    }
+    if(button.className==="danger"){
+        console.log(button.text1); // OK
+    }
+}
+```
+
+
+
+### 自定义的类型保护(难点)
+
+```typescript
+interface Bird{
+    leg: number;
+    birdLeg: number;
+}
+interface Dog{
+    leg: number;
+    dogLeg: number;
+}
+
+function isBird(x:any):x is Bird{
+    return x.leg === 2;
+}
+
+function getLeg(x:Bird|Dog):number{
+    if(isBird(x)){
+        return x.birdLeg;
+    }else{
+        return x.dogLeg;
+    }
+}
+```
+
+
+
+### unknown
+
+unknown 是any的安全类型
+
+- any, 我们可以对any进行任何操作，而不需要类型检查
+- unknown，任何类型都可以覆盖unknown类型，但是unknown不能随意调用方法
+- 如果想调用unknown上的方法和属性
+  - 断言，(unknown as string).length
+- 联合类型中，unknown会吸收任何类型
+- never是unknown的子类型 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
