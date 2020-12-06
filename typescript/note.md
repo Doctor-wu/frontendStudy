@@ -763,7 +763,35 @@ unknown 是any的安全类型
 
 
 
+## 类型变换
 
+
+
+### 类型推断
+
+- 变量的类型可以由定义推断
+- 这是一个从右向左流动类型的示例
+
+```typescript
+// 从右到左
+let foo = 1; // foo 会被推断为number类型  
+
+
+// 通过return关键字推断返回值的类型
+// 底部流出
+function add(a:number, b:number){
+    return a+b;
+}
+let c = add(1, 2); // c会被推断为number
+
+
+
+// 从左到右
+type Sum = (a:number, b:number)=>number;
+let sum:Sum = (a,b)=>{
+    // 此处的 a, b 以及返回值会被推断为number
+}
+```
 
 
 
