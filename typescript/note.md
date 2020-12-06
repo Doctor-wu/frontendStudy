@@ -791,17 +791,120 @@ type Sum = (a:number, b:number)=>number;
 let sum:Sum = (a,b)=>{
     // 此处的 a, b 以及返回值会被推断为number
 }
+
+// 接口推断
+interface DefaultProps{
+    name?:string;
+    age?:number;
+}
+let defaultProps:DefaultProps = {
+    name:"zhufeng",
+    age:10
+}
+let props = {
+    ...defaultProps,
+    home: "深圳"
+}
+
+type Props = typeof props;// 此处能正确推断
 ```
 
 
 
+### 小心使用返回值
+
+```typescript
+function addOne(a:any){
+    return a+1;
+}
+
+function sum3(a:number, b:number){
+    return a + addOne(b); // 此处返回值被推断为any
+}
+```
 
 
 
+### mixin(混入)
+
+```typescript
+interface AnyObject{
+    [prop:string]:any
+}
+
+function mixin<T, U>(one: T, two:U):T&U{
+    const result = <(T&U)>{};
+    for(let key in one)
+        (<T>result)[key] = one[key];
+    for(let key in two)
+        (<U>result)[key] = two[key];
+    
+    return result;
+}
+
+const x = mixin({name:"doctorwu"},{age:20});
+console.log(x.name, x.age);
+```
 
 
 
+### typeof
 
+```typescript
+// 一般先定义类型，再定义变量
+
+type Person3 = {
+    name:string
+}
+
+let p3:Person3 = {
+    name: "doctorwu"
+}
+
+let p4 = {
+    name: "doctorwu"
+}
+
+type P4 = typeof p4; // 变量反推类型
+```
+
+
+
+### 索引访问操作符
+
+```typescript
+interface Person5{
+    name:string;
+    age:number;
+    job: {
+        name: string
+    }
+}
+
+let FrontEndJob:Person5['job']/*索引访问类型*/ = {
+    name: "前端"
+}
+```
+
+
+
+### 映射类型
+
+```typescript
+interface Person6{
+    name:string;
+    age:number;
+    gender:"male"|"female"
+}
+
+// 可以批量把一个接口中的属性全部变成可选的
+type PartialPerson = {
+    [key in keyof Person6]:Person6[key]
+}
+
+// 内置类型 Partial
+type PPerson = Partial<Person6>;// 效果和上方相同
+```
 
 
 
