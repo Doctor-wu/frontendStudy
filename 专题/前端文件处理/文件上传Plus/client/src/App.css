@@ -1,0 +1,7 @@
+@import "~antd/dist/antd.css";
+
+
+.preview{
+    width: 500px;
+    border: 1px solid #ccc;
+}

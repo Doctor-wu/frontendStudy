@@ -1,6 +1,7 @@
 import path from 'path';
-import fs, { WriteStream } from 'fs-extra';
-const DEFAULT_SIZE = 1024 * 1024 * 100;
+import fs, {WriteStream} from 'fs-extra';
+
+const DEFAULT_SIZE = 1024 * 10;
 export const PUBLIC_DIR = path.resolve(__dirname, 'public');
 export const TEMP_DIR = path.resolve(__dirname, 'temp');
 export const splitChunks = async (filename: string, size: number = DEFAULT_SIZE) => {
@@ -27,7 +28,7 @@ const pipeStream = (filePath: string, ws: WriteStream) => new Promise(function (
     rs.pipe(ws);
 })
 /**
- * 1.读取temp目录下tom.jpg目录里所有的文件,还要按尾部的索引号 
+ * 1.读取temp目录下tom.jpg目录里所有的文件,还要按尾部的索引号排序
  * 2.把它们累加在一起，另外一旦加过了要把temp目录里的文件删除
  * 3.为了提高性能，尽量用流来实现，不要readFile writeFile
  */
@@ -37,14 +38,19 @@ export const mergeChunks = async (filename: string, size: number = DEFAULT_SIZE)
     const chunkFiles = await fs.readdir(chunksDir);
     //按文件名升序排列
     chunkFiles.sort((a, b) => Number(a.split('-')[1]) - Number(b.split('-')[1]));
-    await Promise.all(chunkFiles.map((chunkFile: string, index: number) => pipeStream(
-        path.resolve(chunksDir, chunkFile),
-        fs.createWriteStream(filePath, {
-            start: index * size
-        })
-    )));
-    await fs.rmdir(chunksDir);
+    try {
+        await Promise.all(chunkFiles.map((chunkFile: string, index: number) => pipeStream(
+            path.resolve(chunksDir, chunkFile),
+            fs.createWriteStream(filePath, {
+                start: index * size
+            })
+        )));
+        await fs.rmdir(chunksDir);
+    } catch (e) {
+        console.log(e)
+    }
 }
-//splitChunks('tom.jpg');
+
+// splitChunks("zuihao.png");
 //讲一下buffer,blob,流，二进制
-//mergeChunks('tom.jpg');
+mergeChunks('zuihao.png');
