@@ -18,27 +18,70 @@ const http_status_codes_1 = require("http-status-codes");
 const http_errors_1 = __importDefault(require("http-errors"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
-const multiparty_1 = __importDefault(require("multiparty"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
-const { PUBLIC_DIR } = require('./utils');
+const utils_1 = require("./utils");
+const { TEMP_DIR } = require('./utils');
 let app = express_1.default();
 app.use(morgan_1.default('dev'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(cors_1.default());
 app.use(express_1.default.static(path_1.default.resolve(__dirname, 'public')));
-app.post('/upload', function (req, res, next) {
+app.post('/upload/:filename/:chunk_name/:start', function (req, res, _next) {
     return __awaiter(this, void 0, void 0, function* () {
-        let form = new multiparty_1.default.Form();
-        form.parse(req, (err, fields, files) => __awaiter(this, void 0, void 0, function* () {
-            if (err) {
-                return next(err);
-            }
-            let filename = fields.filename[0];
-            let chunk = files.chunk[0];
-            yield fs_extra_1.default.move(chunk.path, path_1.default.resolve(PUBLIC_DIR, filename), { overwrite: true });
+        let { filename, chunk_name } = req.params;
+        let start = isNaN(Number(req.params.start)) ? 0 : Number(req.params.start);
+        let tempFileDir = path_1.default.resolve(TEMP_DIR, filename);
+        let exists = yield fs_extra_1.default.pathExists(tempFileDir);
+        let chunk_dir = path_1.default.resolve(TEMP_DIR, filename);
+        !exists && (yield fs_extra_1.default.mkdirs(tempFileDir));
+        let chunkFilePath = path_1.default.resolve(chunk_dir, chunk_name);
+        let ws = fs_extra_1.default.createWriteStream(chunkFilePath, { start, flags: 'a' });
+        req.on("end", () => {
+            ws.close();
             res.json({ success: true });
-        }));
+        });
+        req.pipe(ws);
+    });
+});
+app.get('/verify/:filename', function (req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let { filename } = req.params;
+        let publicFilePath = path_1.default.resolve(utils_1.PUBLIC_DIR, filename);
+        let publicExists = yield fs_extra_1.default.pathExists(publicFilePath);
+        if (publicExists) {
+            res.json({
+                success: true,
+                needUpload: false
+            });
+            return;
+        }
+        let tempPath = path_1.default.resolve(TEMP_DIR, filename);
+        let exists = yield fs_extra_1.default.pathExists(tempPath);
+        let uploadList = [];
+        if (exists) {
+            let chunks = yield fs_extra_1.default.readdir(tempPath);
+            uploadList = yield Promise.all(chunks.map((chunk) => __awaiter(this, void 0, void 0, function* () {
+                let status = yield fs_extra_1.default.stat(path_1.default.resolve(tempPath, chunk));
+                console.log(status.size, chunk);
+                return {
+                    filename: chunk,
+                    size: status.size
+                };
+            })));
+        }
+        res.json({
+            success: true,
+            needUpload: true,
+            uploadList: uploadList
+        });
+    });
+});
+app.get('/merge/:filename', function (req, res, _next) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let { filename } = req.params;
+        yield utils_1.mergeChunks(filename);
+        res.json({ success: true });
     });
 });
 app.use(function (_req, _res, next) {

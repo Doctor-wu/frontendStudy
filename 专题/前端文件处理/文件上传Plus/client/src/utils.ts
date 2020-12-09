@@ -7,6 +7,8 @@ interface OPTIONS {
     setXHR?: any
     onProgress?: any
 }
+
+export let DEFAULT_SIZE = 1024 * 1024 * 100;
 export function request(options: OPTIONS): Promise<any> {
     let defaultOptions = {
         method: 'GET',
@@ -24,7 +26,7 @@ export function request(options: OPTIONS): Promise<any> {
         xhr.responseType = 'json';
         xhr.upload.onprogress = options.onProgress;
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
+            if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     resolve(xhr.response);
                 } else {

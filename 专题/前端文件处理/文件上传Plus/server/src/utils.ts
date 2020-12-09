@@ -1,7 +1,7 @@
 import path from 'path';
 import fs, {WriteStream} from 'fs-extra';
 
-const DEFAULT_SIZE = 1024 * 10;
+export const DEFAULT_SIZE = 1024 * 1024 * 100;
 export const PUBLIC_DIR = path.resolve(__dirname, 'public');
 export const TEMP_DIR = path.resolve(__dirname, 'temp');
 export const splitChunks = async (filename: string, size: number = DEFAULT_SIZE) => {
@@ -19,6 +19,8 @@ export const splitChunks = async (filename: string, size: number = DEFAULT_SIZE)
         current += size;
     }
 }
+
+
 const pipeStream = (filePath: string, ws: WriteStream) => new Promise(function (resolve: Function) {
     let rs = fs.createReadStream(filePath);//tom.jpg-0
     rs.on('end', async () => {
@@ -53,4 +55,4 @@ export const mergeChunks = async (filename: string, size: number = DEFAULT_SIZE)
 
 // splitChunks("zuihao.png");
 //讲一下buffer,blob,流，二进制
-mergeChunks('zuihao.png');
+// mergeChunks('zuihao.png');

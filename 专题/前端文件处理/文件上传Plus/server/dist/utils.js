@@ -12,13 +12,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mergeChunks = exports.splitChunks = exports.TEMP_DIR = exports.PUBLIC_DIR = void 0;
+exports.mergeChunks = exports.splitChunks = exports.TEMP_DIR = exports.PUBLIC_DIR = exports.DEFAULT_SIZE = void 0;
 const path_1 = __importDefault(require("path"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
-const DEFAULT_SIZE = 1024 * 10;
+exports.DEFAULT_SIZE = 1024 * 1024 * 100;
 exports.PUBLIC_DIR = path_1.default.resolve(__dirname, 'public');
 exports.TEMP_DIR = path_1.default.resolve(__dirname, 'temp');
-const splitChunks = (filename, size = DEFAULT_SIZE) => __awaiter(void 0, void 0, void 0, function* () {
+const splitChunks = (filename, size = exports.DEFAULT_SIZE) => __awaiter(void 0, void 0, void 0, function* () {
     let filePath = path_1.default.resolve(__dirname, filename);
     const chunksDir = path_1.default.resolve(exports.TEMP_DIR, filename);
     yield fs_extra_1.default.mkdirp(chunksDir);
@@ -39,7 +39,7 @@ const pipeStream = (filePath, ws) => new Promise(function (resolve) {
     }));
     rs.pipe(ws);
 });
-const mergeChunks = (filename, size = DEFAULT_SIZE) => __awaiter(void 0, void 0, void 0, function* () {
+const mergeChunks = (filename, size = exports.DEFAULT_SIZE) => __awaiter(void 0, void 0, void 0, function* () {
     const filePath = path_1.default.resolve(exports.PUBLIC_DIR, filename);
     const chunksDir = path_1.default.resolve(exports.TEMP_DIR, filename);
     const chunkFiles = yield fs_extra_1.default.readdir(chunksDir);
