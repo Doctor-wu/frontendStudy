@@ -105,7 +105,7 @@ config: {
 
 ## 切片上传，断点续传，秒传
 
-主要实现思路
+### 主要实现思路
 
 - 现在前端用Blob接收上传的文件
 
@@ -149,6 +149,24 @@ config: {
   
 
 - 计算完哈希值后拿哈希值和文件拓展名拼出最后的文件名，并给每个chunk分配chunk_name；
+
+  ```typescript
+  /**
+       * 转换partList，使每个chunk都有filename和chunk_name
+       * @param partList
+       * @param filename
+       */
+      function transformParts(partList: Part[], filename: string) {
+          partList.forEach((chunk, index) => {
+              chunk.filename = filename;
+              chunk.chunk_name = `${filename}-${index}`;
+              chunk.percent = 0;
+              chunk.loaded = 0;
+          })
+      }
+  ```
+
+  
 
 - 从服务器拉取信息，判断该文件是否可以秒传，有哪些分片需要上传
 
