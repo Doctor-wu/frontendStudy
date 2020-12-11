@@ -945,6 +945,95 @@ type R = Diff<'a'|'b'|'c'|'d', 'a'|'b'|'c'>;
 
 
 
+### 内置条件类型
+
+```typescript
+// Exclude 
+type Exclude<T, U> = T extends U?never:T;
+type R4 = Exclude<'a'|'b'|'c'|'d', 'a'|'b'|'c'>
+// type R4 = 'd'
+
+
+// Extract 
+type Extract<T, U> = T extends U?T:never;
+type R5 = Extract<'a'|'b'|'c'|'d', 'a'|'b'|'c'>
+// type R5 = 'a'|'b'|'c'
+
+
+// NonNullable 
+type Extract<T> = T extends null | undefined? never : T;
+type R6 = NonNullable<'a'| null | undefined>;
+// type R6 = 'a'
+
+
+// ReturnType 
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : T;
+
+function getUser(a:string, b:number){
+    return {
+        name: 'doctorwu',
+        age: 20
+    };
+}
+
+type getUserType = typeof getUser;
+type ReturnUser = ReturnType<GetUserType>;
+let u: ReturnUser = { // 类型可用
+    name: 'dtwu',
+    age: 21
+}
+
+
+// Parameters
+type Parameters<T> = T extends (...args:infer P) => any ? P :nerver;
+type ParamsType = Parameters<GetUserType>; // [string, number]
+
+
+//ConstructorParameters
+
+class Person {
+    name:stirng;
+    constructor(name:string){
+        this.name = name;
+    }
+    getName(){
+        return this.name;
+    }
+}
+
+type ConstructorParameters<T extends new(...args:any)=>any> = T extends new (...args: infer P) => any ? P : never;
+type Params = ConstructorParameters<typeof Person>;
+                                    
+// InstanceType
+type InstanceType<T extends new(...args:any)=>any> = T extends new (...args:any) => infer R ? R : any;
+type PersonInstance = InstanceType<typeof Person>;
+
+```
+
+
+
+### Infer应用案例
+
+```typescript
+type ElementOf<T> = T extends Array<infer E>?E:never; // 把元组转换成联合类型 
+
+type Ttuple = [string, number];
+type TupleToUnion = ElementOf<Ttuple>;
+
+
+
+type T1 = {name:string};
+type T2 = {age:number};
+type ToIntersection<T> = T extends {a:(x:infer U)=>void, b:(x:infer U)=>void}?U:never;
+
+type T3 = ToIntersection<{a:(x:T1)=>void, b:(x:T2)=>void}>;
+
+let t3:T3; // 类型 T1&T2
+
+```
+
+
+
 
 
 
