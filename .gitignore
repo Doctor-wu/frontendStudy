@@ -1,3 +1,4 @@
 .vscode
 .idea
 node_modules
+/专题/前端文件处理/文件上传Plus/server/src/public/
