@@ -1,8 +1,8 @@
 export {};
 
 type Proxy<V> = {
-    get(): V;
-    set(value: V): void;
+    get: () => V;
+    set: (value: V) => void;
 }
 
 type Proxify<T> = {
@@ -14,14 +14,15 @@ function proxify<T extends object>(obj: T): Proxify<T> {
     for (const key in obj) {
         if (obj.hasOwnProperty(key)) {
             type KeyType = typeof key;
-            result[key] = {
+            Object.defineProperty(result, key, {
                 get: (): T[KeyType] => {
                     return obj[key];
                 },
                 set: (value: T[KeyType]) => {
                     obj[key] = value;
-                }
-            }
+                },
+                enumerable: true
+            });
         }
     }
     return result;
@@ -37,17 +38,17 @@ let props: Props = {
     age: 20
 }
 
-let proxyProps = proxify<Props>(props);
+let proxyProps: any = proxify<Props>(props);
 
-console.log(proxyProps.name.get());
-proxyProps.name.set("dtwu66");
-console.log(proxyProps.name.get());
+console.log(proxyProps.name);
+proxyProps.name = "dtwu66";
+console.log(proxyProps.name);
 
 
 function unProxify<T>(p: Proxify<T>): T {
-    let result = {} as T;
+    let result: any = {} as T;
     for (const key in p) {
-        result[key] = p[key].get();
+        result[key] = p[key];
     }
 
     return result;

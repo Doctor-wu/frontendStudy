@@ -4,14 +4,15 @@ function proxify(obj) {
     var result = {};
     var _loop_1 = function (key) {
         if (obj.hasOwnProperty(key)) {
-            result[key] = {
+            Object.defineProperty(result, key, {
                 get: function () {
                     return obj[key];
                 },
                 set: function (value) {
                     obj[key] = value;
-                }
-            };
+                },
+                enumerable: true
+            });
         }
     };
     for (var key in obj) {
@@ -24,13 +25,13 @@ var props = {
     age: 20
 };
 var proxyProps = proxify(props);
-console.log(proxyProps.name.get());
-proxyProps.name.set("dtwu66");
-console.log(proxyProps.name.get());
+console.log(proxyProps.name);
+proxyProps.name = "dtwu66";
+console.log(proxyProps.name);
 function unProxify(p) {
     var result = {};
     for (var key in p) {
-        result[key] = p[key].get();
+        result[key] = p[key];
     }
     return result;
 }
