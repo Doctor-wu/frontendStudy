@@ -7,7 +7,7 @@ type AB = SetDifference<A, B>; // string
 
 
 // Omit
-type Omit<T, K extends keyof any> = Pick<T, SetDifference<keyof T, K>>;
+export type Omit<T, K extends keyof any> = Pick<T, SetDifference<keyof T, K>>;
 
 type Props = { name: string, age: number, visible: boolean };
 type OmitAgeProps = Omit<Props, 'age'>;
