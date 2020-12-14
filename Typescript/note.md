@@ -1480,21 +1480,69 @@ declare global{
 
 
 
+| **关键字**    | **作为类型使用** | **作为值使用** |
+| ------------- | :--------------- | -------------- |
+| class         | yes              | yes            |
+| enum          | yes              | yes            |
+| interface     | yes              | no             |
+| type          | yes              | no             |
+| function      | no               | yes            |
+| var,let,const | no               | yes            |
 
 
 
+可以通过接口合并的特性给一个第三方库扩展类型声明
 
 
 
+### 使用命名空间拓展类 
+
+```typescript
+class Form{
+    username:Form.Item = '';
+    password:Form.Item = '';
+}
+
+namespace Form {
+    export Item{}
+}
+```
 
 
 
+### 使用命名空间拓展函数
+
+```typescript
+function hello(){}
+
+namespace hello {
+    export let worlds = "worlds";
+}
+console.log(hello.worlds);
+```
 
 
 
+### 使用命名空间拓展枚举类型
+
+```typescript
+enum Color{
+    red = 1,
+    yellow =2,
+    blue = 3
+}
+
+namespace Color{
+    export const green = 4;
+    export const purple = 5;
+}
+```
 
 
 
+### 生成声明文件
+
+TS编译成JS后会丢失类型声明，所以我们可以生成一个声明文件
 
 
 
