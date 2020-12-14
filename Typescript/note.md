@@ -1321,6 +1321,167 @@ namespace可以嵌套namespace
 
 
 
+## 类型声明
+
+类型声明可以让我们不需要将JS重构为TS，只需要加上声明文件就可以使用系统
+
+类型声明在编译的时候都会被删除，他不会影响真正的代码
+
+关键字declare表示声明的意思，我们可以用它来做出各种声明
+
+
+
+### 普通的类型声明
+
+```typescript
+declare let name:string;
+declare let age:number;
+declare function getName():string;
+declare class Animal{name:string};
+console.log(name, age);
+getName();
+new Animal();
+export default {};
+```
+
+
+
+### 外部枚举
+
+```typescript
+declare enum Seasons{
+    Spring,
+    Summer,
+    Autumn,
+    Winter
+}
+
+let seasons = [
+    Seasons.Spring,
+    Seasons.Summer,
+    Seasons.Autumn,
+    Seasons.Winter,
+]
+```
+
+
+
+### 命名空间
+
+如果一个全局变量有很多子属性，就可以使用namespace
+
+在声明文件里的namespace表示一个全局变量包含很多子属性
+
+```typescript
+declare namespace ${
+    function ajax(url:string,settings:any):void
+    let name:string;
+    namespace fn{
+        function extend(object:any):void
+    }
+}
+```
+
+
+
+### *.d.ts
+
+*.d.ts是类型声明文件
+
+```typescript
+在tsconfig.json中配置
+{
+    "compilerOptions":{
+        ...
+    },
+    "include":[
+        "src/**/*",// 放源代码
+        "typings/**/*"// 放类型声明文件
+    ]
+}
+```
+
+
+
+### 第三方声明文件
+
+可以安装使用第三方的声明文件
+
+@types是一个约定的前缀，所有的第三方声明的类型库都会带有这样的前缀
+
+JavaScript中有很多内置的对象，他们可以在TypeScript中被当作声明好了的类型
+
+内置对象是根据标准在全局作用域上存在的对象。这里的标准是指ECMAScript和其他环境(比如DOM)的标准
+
+这些内置对象的类型声明文件，就包含在TypeScript核心库的类型声明文件当中
+
+
+
+### 查找类型声明文件
+
+1. 先找 [库名].d.ts
+2. 没有就再找index.d.ts
+3. 还没有再找lib/index.d.js
+4. 去@types中找类型声明
+5. 还找不到就认为没有类型声明了
+
+如果compilerOptions中配置了paths，那么在引入包的时候会自动去paths目录里找类型声明文件，配置paths需要配置baseUrl
+
+
+
+### 扩展全局变量类型
+
+```typescript
+// 扩展局部变量的类型
+declare var String:StringConstructor;
+interface StringConstructor{
+    new(value?:any):String;
+    (value?:any):string;
+     readonly prototype:String;
+}
+interface String{
+    toString():string;
+}
+
+// 相同名称的多个interface会进行合并
+interface String{
+    double():string;
+}
+
+String.prototype.double = function(){  
+    return this+this;
+}
+
+let result = "hello".double();// hellohello
+
+```
+
+```typescript
+// 模块内部扩展全局变量
+declare global{
+    interface String{
+        double():string;
+    };
+    interface Window{
+        myName: string;
+    }
+}
+```
+
+
+
+
+
+### 合并声明
+
+同一个名称的两个独立声明会被合并成一个单一声明
+
+合并后的声明拥有原先两个声明的特性
+
+
+
+
+
 
 
 
