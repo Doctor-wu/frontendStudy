@@ -1544,9 +1544,7 @@ namespace Color{
 
 TS编译成JS后会丢失类型声明，所以我们可以生成一个声明文件
 
-
-
-
+把compilerOptions中的declaration设置为true，在编译时就会自动生成声明文件，配置**declarationDir**可以配置声明文件的输出目录。
 
 
 
