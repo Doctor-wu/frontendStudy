@@ -18,7 +18,7 @@
     // "checkJs": true,                       /* Report errors in .js files. */
     // "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
      "declaration": true,                   /* Generates corresponding '.d.ts' file. */                    /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-    "declarationDir": "./types",
+    "declarationDir": "./src/types",
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
@@ -93,7 +93,7 @@
   },
   "include": [
     "图片懒加载-代理模式/*",
-    "./*",
-    "../../../../.cache/JetBrains/WebStorm2020.2/javascript/typings/node/12.19.0/node_modules/@types/node/globals.d.ts"
+    "src/**/*"
+//    "../../../../.cache/JetBrains/WebStorm2020.2/javascript/typings/node/12.19.0/node_modules/@types/node/globals.d.ts"
   ]
 }
