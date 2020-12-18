@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1608298925258" clover="3.2.0">
+  <project timestamp="1608298925258" name="All files">
+    <metrics statements="45" coveredstatements="45" conditionals="16" coveredconditionals="14" methods="14" coveredmethods="13" elements="75" coveredelements="72" complexity="0" loc="45" ncloc="45" packages="1" files="2" classes="2"/>
+    <file name="Heap.ts" path="/home/doctorwu/study/frontendLearn/算法和数据结构/src/数据结构/Heap.ts">
+      <metrics statements="36" coveredstatements="36" conditionals="14" coveredconditionals="13" methods="11" coveredmethods="10"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="5" count="3" type="stmt"/>
+      <line num="6" count="3" type="stmt"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
+      <line num="13" count="2" type="stmt"/>
+      <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="26" count="2" type="stmt"/>
+      <line num="27" count="3" type="stmt"/>
+      <line num="28" count="3" type="stmt"/>
+      <line num="29" count="6" type="stmt"/>
+      <line num="36" count="2" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="38" count="5" type="stmt"/>
+      <line num="39" count="5" type="stmt"/>
+      <line num="40" count="5" type="stmt"/>
+      <line num="51" count="2" type="stmt"/>
+      <line num="52" count="28" type="stmt"/>
+      <line num="54" count="28" type="cond" truecount="1" falsecount="1"/>
+      <line num="57" count="28" type="stmt"/>
+      <line num="58" count="28" type="stmt"/>
+      <line num="59" count="28" type="cond" truecount="4" falsecount="0"/>
+      <line num="60" count="15" type="stmt"/>
+      <line num="63" count="28" type="cond" truecount="4" falsecount="0"/>
+      <line num="64" count="4" type="stmt"/>
+      <line num="68" count="28" type="cond" truecount="2" falsecount="0"/>
+      <line num="69" count="13" type="stmt"/>
+      <line num="72" count="15" type="stmt"/>
+      <line num="74" count="15" type="stmt"/>
+      <line num="76" count="2" type="stmt"/>
+      <line num="79" count="28" type="stmt"/>
+      <line num="83" count="28" type="stmt"/>
+      <line num="88" count="20" type="stmt"/>
+      <line num="89" count="20" type="stmt"/>
+      <line num="90" count="20" type="stmt"/>
+    </file>
+    <file name="优先级队列.ts" path="/home/doctorwu/study/frontendLearn/算法和数据结构/src/数据结构/优先级队列.ts">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="5" count="3" type="cond" truecount="1" falsecount="1"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="13" count="2" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
