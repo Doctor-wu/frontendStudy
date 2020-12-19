@@ -1,7 +1,7 @@
-import {BinarySearchTree} from "../../src/数据结构/Tree"
+import {BinarySearchTree, BinarySearchTreeNode} from "../../src/数据结构/Tree"
 
 test("Tree-transverse",()=>{
-    const tree = new BinarySearchTree();
+    const tree = new BinarySearchTree(new BinarySearchTreeNode(4));
 
     tree.insert(2);
     tree.insert(3);
@@ -9,5 +9,5 @@ test("Tree-transverse",()=>{
     tree.insert(7);
     tree.insert(1);
 
-    expect([...tree.inorder()].map(n=>n.key)).toEqual([1,2,3,7,10])
+    expect([...tree.inorder()].map(n=>n.key)).toEqual([1,2,3,4,7,10])
 })

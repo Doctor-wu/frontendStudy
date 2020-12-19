@@ -2,7 +2,7 @@ import {MaxHeap} from "./Heap";
 
 export class PriorityQueue<T> extends MaxHeap<T>{
     constructor(data:Array<T>) {
-        super(data);
+        super(data)
     }
 
     push(item:T):number{
