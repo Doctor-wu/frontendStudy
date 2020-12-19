@@ -6,6 +6,8 @@
  */
 type treeNode<T> = BinarySearchTreeNode<T> | null;
 
+type ClipNull<U> = U extends null?never:U;
+
 export class BinarySearchTreeNode<T>{
     public parent:treeNode<T>;
     public left:treeNode<T>;
@@ -56,7 +58,7 @@ export class BinarySearchTree<T>{
     }
 
 
-    *inorder(node?:BinarySearchTreeNode<T>):IterableIterator<BinarySearchTreeNode<T>>{
+    *inorder(node?:ClipNull<treeNode<T>>):IterableIterator<ClipNull<treeNode<T>>>{
         if(!node) {
             if(this.root) node = this.root;
             else return;

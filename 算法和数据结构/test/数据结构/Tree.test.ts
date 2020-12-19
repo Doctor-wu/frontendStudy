@@ -6,7 +6,8 @@ test("Tree-transverse",()=>{
     tree.insert(2);
     tree.insert(3);
     tree.insert(10);
+    tree.insert(7);
     tree.insert(1);
 
-    expect([...tree.inorder()].map(n=>n.key)).toEqual([1,2,3,10])
+    expect([...tree.inorder()].map(n=>n.key)).toEqual([1,2,3,7,10])
 })
