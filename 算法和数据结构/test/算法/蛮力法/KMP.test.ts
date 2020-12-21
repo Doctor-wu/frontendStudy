@@ -1,4 +1,4 @@
-import {KMP} from "../../src/算法/KMP";
+import {KMP} from "../../../src/算法/蛮力法/KMP";
 
 test("get-next",()=>{
     expect(KMP.getNext("ababc")).toEqual([-1,0,0,1,2]);

@@ -14,7 +14,6 @@ var KMP = /** @class */ (function () {
                 }
                 if (i === len) {
                     next[j] = len;
-                    2;
                     break;
                 }
             }
