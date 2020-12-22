@@ -7,7 +7,7 @@ test("selection-sort-0", () => {
 })
 
 test("selection-sort-1", () => {
-    let randomArray = new Array(50).fill('').map(Math.random)
+    let randomArray = new Array(50).fill('').map(Math.random);
     let list = new SelectionSort(randomArray);
     expect(list.sort()).toEqual([...randomArray].sort(((a, b) => a - b)));
     console.log(list);
