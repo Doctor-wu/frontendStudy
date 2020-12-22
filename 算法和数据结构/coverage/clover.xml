@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1608615634193" clover="3.2.0">
-  <project timestamp="1608615634193" name="All files">
-    <metrics statements="159" coveredstatements="155" conditionals="59" coveredconditionals="54" methods="32" coveredmethods="31" elements="250" coveredelements="240" complexity="0" loc="159" ncloc="159" packages="3" files="6" classes="6"/>
+<coverage generated="1608620748047" clover="3.2.0">
+  <project timestamp="1608620748047" name="All files">
+    <metrics statements="184" coveredstatements="180" conditionals="71" coveredconditionals="66" methods="37" coveredmethods="36" elements="292" coveredelements="282" complexity="0" loc="184" ncloc="184" packages="3" files="7" classes="7"/>
     <package name="数据结构">
       <metrics statements="81" coveredstatements="78" conditionals="37" coveredconditionals="33" methods="20" coveredmethods="19"/>
       <file name="Heap.ts" path="/home/doctorwu/study/frontendLearn/算法和数据结构/src/数据结构/Heap.ts">
@@ -96,36 +96,64 @@
       </file>
     </package>
     <package name="算法.分治法">
-      <metrics statements="28" coveredstatements="28" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
+      <metrics statements="53" coveredstatements="53" conditionals="18" coveredconditionals="18" methods="9" coveredmethods="9"/>
       <file name="归并排序.ts" path="/home/doctorwu/study/frontendLearn/算法和数据结构/src/算法/分治法/归并排序.ts">
-        <metrics statements="28" coveredstatements="28" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
+        <metrics statements="26" coveredstatements="26" conditionals="6" coveredconditionals="6" methods="4" coveredmethods="4"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="131" type="stmt"/>
-        <line num="6" count="131" type="stmt"/>
-        <line num="7" count="131" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="44" type="stmt"/>
-        <line num="12" count="44" type="cond" truecount="2" falsecount="0"/>
-        <line num="13" count="92" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="36" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="18" type="stmt"/>
+        <line num="10" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="55" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="29" type="stmt"/>
+        <line num="13" count="29" type="stmt"/>
         <line num="14" count="29" type="stmt"/>
-        <line num="15" count="29" type="stmt"/>
-        <line num="16" count="29" type="stmt"/>
-        <line num="18" count="63" type="stmt"/>
-        <line num="19" count="63" type="stmt"/>
-        <line num="20" count="63" type="stmt"/>
-        <line num="25" count="44" type="stmt"/>
-        <line num="26" count="18" type="stmt"/>
-        <line num="29" count="44" type="stmt"/>
-        <line num="30" count="43" type="stmt"/>
-        <line num="33" count="44" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="37" count="130" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="43" type="stmt"/>
-        <line num="39" count="43" type="stmt"/>
-        <line num="40" count="43" type="stmt"/>
-        <line num="41" count="43" type="stmt"/>
-        <line num="42" count="43" type="stmt"/>
-        <line num="43" count="43" type="stmt"/>
+        <line num="16" count="26" type="stmt"/>
+        <line num="17" count="26" type="stmt"/>
+        <line num="18" count="26" type="stmt"/>
+        <line num="23" count="18" type="stmt"/>
+        <line num="24" count="18" type="stmt"/>
+        <line num="27" count="18" type="stmt"/>
+        <line num="28" count="9" type="stmt"/>
+        <line num="31" count="18" type="stmt"/>
+        <line num="32" count="18" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="35" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="17" type="stmt"/>
+        <line num="39" count="17" type="stmt"/>
+        <line num="40" count="17" type="stmt"/>
+        <line num="41" count="17" type="stmt"/>
+        <line num="42" count="17" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+      </file>
+      <file name="快速排序.ts" path="/home/doctorwu/study/frontendLearn/算法和数据结构/src/算法/分治法/快速排序.ts">
+        <metrics statements="27" coveredstatements="27" conditionals="12" coveredconditionals="12" methods="5" coveredmethods="5"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="27" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="12" count="57" type="cond" truecount="4" falsecount="0"/>
+        <line num="13" count="15" type="stmt"/>
+        <line num="14" count="15" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="16" count="42" type="cond" truecount="4" falsecount="0"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="21" count="34" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="14" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="23" type="stmt"/>
+        <line num="30" count="23" type="stmt"/>
+        <line num="31" count="23" type="stmt"/>
+        <line num="32" count="23" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="12" type="stmt"/>
+        <line num="41" count="12" type="stmt"/>
+        <line num="42" count="12" type="stmt"/>
+        <line num="43" count="12" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
       </file>
     </package>
@@ -175,7 +203,7 @@
         <line num="12" count="54" type="stmt"/>
         <line num="13" count="54" type="stmt"/>
         <line num="14" count="1240" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="136" type="stmt"/>
+        <line num="15" count="129" type="stmt"/>
         <line num="18" count="54" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
