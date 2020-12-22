@@ -24,11 +24,9 @@ exports.MergeSort = void 0;
 var MergeSort = /** @class */ (function () {
     function MergeSort(record) {
         this.record = record;
-        this.list = [];
-        this.list.length = this.record.length;
     }
-    MergeSort.prototype.merge = function (record, list, divide) {
-        var i = 0, j = divide, index = 0;
+    MergeSort.prototype.merge = function (record, divide) {
+        var i = 0, j = divide, index = 0, list = [];
         while (i < divide && j < record.length) {
             if (record[i] > record[j]) {
                 list[index] = record[j];
@@ -49,6 +47,7 @@ var MergeSort = /** @class */ (function () {
         while (j < record.length) {
             list[index++] = record[j++];
         }
+        this.record = list;
         return list;
     };
     MergeSort.prototype.sort = function () {
@@ -58,9 +57,8 @@ var MergeSort = /** @class */ (function () {
         var divide = Math.ceil(this.record.length / 2);
         (_a = this.record).splice.apply(_a, __spread([0, divide], new MergeSort(this.record.slice(0, divide)).sort()));
         (_b = this.record).splice.apply(_b, __spread([divide, this.record.length - divide], new MergeSort(this.record.slice(divide)).sort()));
-        new MergeSort(this.record.slice(divide)).sort();
-        this.merge(this.record, this.list, divide);
-        return this.list;
+        this.merge(this.record, divide);
+        return this.record;
     };
     return MergeSort;
 }());

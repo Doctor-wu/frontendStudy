@@ -1,9 +1,10 @@
 import {MergeSort} from "../../../src/算法/分治法/归并排序"
 
 test("merge", () => {
-    let merge = new MergeSort<number>([]).merge;
+    let ms = new MergeSort<number>([]),
+        merge = ms.merge.bind(ms);
 
-    expect(merge([3, 14, 22, 9, 11, 82], [], 3)).toEqual([3, 9, 11, 14, 22, 82]);
+    expect(merge([3, 14, 22, 9, 11, 82], 3)).toEqual([3, 9, 11, 14, 22, 82]);
 });
 
 test("merge-sort", () => {
