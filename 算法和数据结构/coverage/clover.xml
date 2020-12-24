@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1608732372016" clover="3.2.0">
-  <project timestamp="1608732372016" name="All files">
-    <metrics statements="228" coveredstatements="224" conditionals="85" coveredconditionals="79" methods="47" coveredmethods="46" elements="360" coveredelements="349" complexity="0" loc="228" ncloc="228" packages="4" files="8" classes="8"/>
+<coverage generated="1608735618669" clover="3.2.0">
+  <project timestamp="1608735618669" name="All files">
+    <metrics statements="244" coveredstatements="240" conditionals="89" coveredconditionals="83" methods="51" coveredmethods="50" elements="384" coveredelements="373" complexity="0" loc="244" ncloc="244" packages="4" files="9" classes="9"/>
     <package name="数据结构">
       <metrics statements="81" coveredstatements="78" conditionals="37" coveredconditionals="33" methods="20" coveredmethods="19"/>
       <file name="Heap.ts" path="/home/doctorwu/study/frontendLearn/算法和数据结构/src/数据结构/Heap.ts">
@@ -96,7 +96,7 @@
       </file>
     </package>
     <package name="算法.减治法">
-      <metrics statements="44" coveredstatements="44" conditionals="14" coveredconditionals="13" methods="10" coveredmethods="10"/>
+      <metrics statements="60" coveredstatements="60" conditionals="18" coveredconditionals="17" methods="14" coveredmethods="14"/>
       <file name="堆排序.ts" path="/home/doctorwu/study/frontendLearn/算法和数据结构/src/算法/减治法/堆排序.ts">
         <metrics statements="44" coveredstatements="44" conditionals="14" coveredconditionals="13" methods="10" coveredmethods="10"/>
         <line num="1" count="1" type="stmt"/>
@@ -143,6 +143,25 @@
         <line num="92" count="9" type="stmt"/>
         <line num="93" count="9" type="stmt"/>
         <line num="94" count="9" type="stmt"/>
+      </file>
+      <file name="插入排序.ts" path="/home/doctorwu/study/frontendLearn/算法和数据结构/src/算法/减治法/插入排序.ts">
+        <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="17" type="stmt"/>
+        <line num="17" count="17" type="stmt"/>
+        <line num="18" count="74" type="stmt"/>
+        <line num="20" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="15" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
       </file>
     </package>
     <package name="算法.分治法">
@@ -253,7 +272,7 @@
         <line num="12" count="54" type="stmt"/>
         <line num="13" count="54" type="stmt"/>
         <line num="14" count="1240" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="130" type="stmt"/>
+        <line num="15" count="132" type="stmt"/>
         <line num="18" count="54" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
