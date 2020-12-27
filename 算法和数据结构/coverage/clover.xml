@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1608966049554" clover="3.2.0">
-  <project timestamp="1608966049554" name="All files">
+<coverage generated="1609034177310" clover="3.2.0">
+  <project timestamp="1609034177310" name="All files">
     <metrics statements="244" coveredstatements="240" conditionals="89" coveredconditionals="83" methods="51" coveredmethods="50" elements="384" coveredelements="373" complexity="0" loc="244" ncloc="244" packages="4" files="9" classes="9"/>
     <package name="数据结构">
       <metrics statements="81" coveredstatements="78" conditionals="37" coveredconditionals="33" methods="20" coveredmethods="19"/>
@@ -272,7 +272,7 @@
         <line num="12" count="54" type="stmt"/>
         <line num="13" count="54" type="stmt"/>
         <line num="14" count="1240" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="106" type="stmt"/>
+        <line num="15" count="133" type="stmt"/>
         <line num="18" count="54" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
