@@ -37,23 +37,32 @@ class RandomNumTower {
                 path[i][index] = max ? index : index + 1;
             })
         }
-        this.print(maxAdd);
-        this.print(path);
+        this.print(maxAdd, 100);
+        this.print(path, 1);
         this.printPath(path);
     }
 
-    print(tower: number[][]) {
-        tower.forEach(level => {
-            console.log(`${level}`);
+    print(tower: number[][], radix: number = 10) {
+        let space = new Array(String(radix).length).fill(" ").join("");
+        tower.forEach((level, currIndex) => {
+            console.log(`${new Array(this.size - currIndex).fill(space).join("")}${level.map(transformRadix).join(space)}`);
         })
+        console.log(); // 换行
+        function transformRadix(item: number) {
+            if (item > radix) return item;
+            let templateLength = String(radix).length;
+            let itemLength = String(item).length;
+            return new Array(templateLength - itemLength).fill("0").join("") + item;
+        }
     }
 
-    printPath(path:number[][]){
-        path.reduce((last, curr)=>{
+    printPath(path: number[][]) {
+        path.reduce((last, curr) => {
             console.log(curr[last]);
             return curr[last];
-        },0)
+        }, 0)
     }
 }
 
-new RandomNumTower(5);
+
+new RandomNumTower(8);

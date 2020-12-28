@@ -11,6 +11,6 @@ declare class RandomNumTower {
     constructor(size: number);
     private generateRandomNumTower;
     private programming;
-    print(tower: number[][]): void;
+    print(tower: number[][], radix?: number): void;
     printPath(path: number[][]): void;
 }

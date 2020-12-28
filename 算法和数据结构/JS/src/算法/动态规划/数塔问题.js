@@ -37,14 +37,25 @@ var RandomNumTower = /** @class */ (function () {
         for (var i = size - 2; i >= 0; i--) {
             _loop_1(i);
         }
-        this.print(maxAdd);
-        this.print(path);
+        this.print(maxAdd, 100);
+        this.print(path, 1);
         this.printPath(path);
     };
-    RandomNumTower.prototype.print = function (tower) {
-        tower.forEach(function (level) {
-            console.log("" + level);
+    RandomNumTower.prototype.print = function (tower, radix) {
+        var _this = this;
+        if (radix === void 0) { radix = 10; }
+        var space = new Array(String(radix).length).fill(" ").join("");
+        tower.forEach(function (level, currIndex) {
+            console.log("" + new Array(_this.size - currIndex).fill(space).join("") + level.map(transformRadix).join(space));
         });
+        console.log(); // 换行
+        function transformRadix(item) {
+            if (item > radix)
+                return item;
+            var templateLength = String(radix).length;
+            var itemLength = String(item).length;
+            return new Array(templateLength - itemLength).fill("0").join("") + item;
+        }
     };
     RandomNumTower.prototype.printPath = function (path) {
         path.reduce(function (last, curr) {
@@ -54,4 +65,4 @@ var RandomNumTower = /** @class */ (function () {
     };
     return RandomNumTower;
 }());
-new RandomNumTower(5);
+new RandomNumTower(8);
