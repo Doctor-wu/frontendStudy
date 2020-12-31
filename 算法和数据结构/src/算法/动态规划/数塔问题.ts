@@ -11,7 +11,7 @@ class RandomNumTower {
 
     constructor(public size: number) {
         this.generateRandomNumTower();
-        this.print(this.tower);
+        this.print(this.tower, 100);
         this.programming(this.maxAdd, this.path, this.tower);
     }
 
@@ -38,10 +38,14 @@ class RandomNumTower {
             })
         }
         this.print(maxAdd, 100);
-        this.print(path, 1);
-        this.printPath(path);
+        this.print(path, 100);
     }
 
+    /**
+     * 打印函数
+     * @param tower
+     * @param radix
+     */
     print(tower: number[][], radix: number = 10) {
         let space = new Array(String(radix).length).fill(" ").join("");
         tower.forEach((level, currIndex) => {
@@ -52,10 +56,14 @@ class RandomNumTower {
             if (item > radix) return item;
             let templateLength = String(radix).length;
             let itemLength = String(item).length;
-            return new Array(templateLength - itemLength).fill("0").join("") + item;
+            return new Array(templateLength - itemLength).fill(" ").join("") + item;
         }
     }
 
+    /**
+     * 打印路径
+     * @param path
+     */
     printPath(path: number[][]) {
         path.reduce((last, curr) => {
             console.log(curr[last]);
@@ -65,4 +73,4 @@ class RandomNumTower {
 }
 
 
-new RandomNumTower(8);
+new RandomNumTower(10);

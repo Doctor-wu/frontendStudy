@@ -11,7 +11,7 @@ var RandomNumTower = /** @class */ (function () {
         this.maxAdd = [];
         this.path = [];
         this.generateRandomNumTower();
-        this.print(this.tower);
+        this.print(this.tower, 100);
         this.programming(this.maxAdd, this.path, this.tower);
     }
     RandomNumTower.prototype.generateRandomNumTower = function () {
@@ -38,9 +38,13 @@ var RandomNumTower = /** @class */ (function () {
             _loop_1(i);
         }
         this.print(maxAdd, 100);
-        this.print(path, 1);
-        this.printPath(path);
+        this.print(path, 100);
     };
+    /**
+     * 打印函数
+     * @param tower
+     * @param radix
+     */
     RandomNumTower.prototype.print = function (tower, radix) {
         var _this = this;
         if (radix === void 0) { radix = 10; }
@@ -54,9 +58,13 @@ var RandomNumTower = /** @class */ (function () {
                 return item;
             var templateLength = String(radix).length;
             var itemLength = String(item).length;
-            return new Array(templateLength - itemLength).fill("0").join("") + item;
+            return new Array(templateLength - itemLength).fill(" ").join("") + item;
         }
     };
+    /**
+     * 打印路径
+     * @param path
+     */
     RandomNumTower.prototype.printPath = function (path) {
         path.reduce(function (last, curr) {
             console.log(curr[last]);
@@ -65,4 +73,4 @@ var RandomNumTower = /** @class */ (function () {
     };
     return RandomNumTower;
 }());
-new RandomNumTower(8);
+new RandomNumTower(10);

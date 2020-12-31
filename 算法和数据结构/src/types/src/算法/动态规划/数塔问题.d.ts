@@ -11,6 +11,15 @@ declare class RandomNumTower {
     constructor(size: number);
     private generateRandomNumTower;
     private programming;
+    /**
+     * 打印函数
+     * @param tower
+     * @param radix
+     */
     print(tower: number[][], radix?: number): void;
+    /**
+     * 打印路径
+     * @param path
+     */
     printPath(path: number[][]): void;
 }
