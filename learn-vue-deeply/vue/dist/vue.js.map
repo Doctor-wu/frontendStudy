@@ -1,0 +1,1 @@
+{"version":3,"file":"vue.js","sources":["../src/index.js"],"sourcesContent":["let a = 12;\nconsole.log(a);\n\nexport default a;\n"],"names":["a","console","log"],"mappings":";;;;;;KAAIA,CAAC,GAAG;CACRC,OAAO,CAACC,GAAR,CAAYF,CAAZ;;;;;;;;"}
