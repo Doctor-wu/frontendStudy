@@ -18,7 +18,7 @@ const fs_extra_1 = __importDefault(require("fs-extra"));
 exports.DEFAULT_SIZE = 1024 * 1024 * 100;
 exports.PUBLIC_DIR = path_1.default.resolve(__dirname, 'public');
 exports.TEMP_DIR = path_1.default.resolve(__dirname, 'temp');
-exports.splitChunks = (filename, size = exports.DEFAULT_SIZE) => __awaiter(void 0, void 0, void 0, function* () {
+const splitChunks = (filename, size = exports.DEFAULT_SIZE) => __awaiter(void 0, void 0, void 0, function* () {
     let filePath = path_1.default.resolve(__dirname, filename);
     const chunksDir = path_1.default.resolve(exports.TEMP_DIR, filename);
     yield fs_extra_1.default.mkdirp(chunksDir);
@@ -30,6 +30,7 @@ exports.splitChunks = (filename, size = exports.DEFAULT_SIZE) => __awaiter(void 
         current += size;
     }
 });
+exports.splitChunks = splitChunks;
 const pipeStream = (filePath, ws) => new Promise(function (resolve) {
     let rs = fs_extra_1.default.createReadStream(filePath);
     rs.on('end', () => __awaiter(this, void 0, void 0, function* () {
@@ -38,7 +39,7 @@ const pipeStream = (filePath, ws) => new Promise(function (resolve) {
     }));
     rs.pipe(ws);
 });
-exports.mergeChunks = (filename, size = exports.DEFAULT_SIZE) => __awaiter(void 0, void 0, void 0, function* () {
+const mergeChunks = (filename, size = exports.DEFAULT_SIZE) => __awaiter(void 0, void 0, void 0, function* () {
     const filePath = path_1.default.resolve(exports.PUBLIC_DIR, filename);
     const chunksDir = path_1.default.resolve(exports.TEMP_DIR, filename);
     const chunkFiles = yield fs_extra_1.default.readdir(chunksDir);
@@ -53,4 +54,5 @@ exports.mergeChunks = (filename, size = exports.DEFAULT_SIZE) => __awaiter(void 
         console.log(e);
     }
 });
+exports.mergeChunks = mergeChunks;
 //# sourceMappingURL=utils.js.map
