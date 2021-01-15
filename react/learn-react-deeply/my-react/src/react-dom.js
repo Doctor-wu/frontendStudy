@@ -11,7 +11,7 @@ function render(vdom, container) {
     container.appendChild(dom);
 }
 
-function createDOM(vdom) {
+export function createDOM(vdom) {
     if (typeof vdom === "string" || typeof vdom === "number") {
         return document.createTextNode(vdom);
     }
@@ -19,7 +19,13 @@ function createDOM(vdom) {
     let {type, props} = vdom;
 
     if(typeof vdom.type === "function"){
-        return mountFunctionComponent(vdom);
+        if(type.isReactComponent){
+            // 是类组件
+            return mountClassComponent(vdom);
+        }else{
+            // 是函数组件
+            return mountFunctionComponent(vdom);
+        }
     }
     let dom = document.createElement(type);
     updateProps(props, dom);
@@ -44,6 +50,22 @@ function mountFunctionComponent(vdom){
     return createDOM(functionalVdom);
 }
 
+function mountClassComponent(vdom) {
+    console.log(vdom);
+    // 解构类的属性对象和类的定义
+    let {type, props} = vdom;
+    // 创建类的实例
+    let classInstance = new type(props);
+    // 调用实例的render方法返回要渲染的vdom对象
+    let renderVDOM = classInstance.render();
+    // 根据虚拟DOM创建真实DOM
+    let dom = createDOM(renderVDOM);
+    // 为了以后类组件的更新，把真实DOM挂在类实例上
+    classInstance.dom = dom;
+
+    return dom;
+}
+
 function updateProps(props, dom) {
     for (const key in props) {
         if (key === "children") continue; // children放在后面处理
@@ -52,6 +74,8 @@ function updateProps(props, dom) {
                 dom.style[styleKey] = props.style[styleKey];
             }
             continue;
+        }else if(key.startsWith("on")){
+            dom[key.toLocaleLowerCase()] = props[key]; // 暂时先用DOM0级事件处理
         }
         dom[key] = props[key];
     }

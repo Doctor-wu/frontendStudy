@@ -4,6 +4,8 @@
  * @param config 元素的配置项
  * @param children 子元素
  */
+import Component from "./Component";
+
 function createElement(type, config, children) {
     if (config) {
         delete config.__source;
@@ -33,5 +35,5 @@ function createElement(type, config, children) {
 //     }
 // }
 
-const React = {createElement};
+const React = {createElement, Component};
 export default React;
