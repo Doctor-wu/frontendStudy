@@ -6,6 +6,8 @@
  * @param vdom 虚拟DOM
  * @param container 虚拟DOM被插入的容器
  */
+import {addEvent} from "./event";
+
 function render(vdom, container) {
     let dom = createDOM(vdom);
     container.appendChild(dom);
@@ -51,7 +53,6 @@ function mountFunctionComponent(vdom){
 }
 
 function mountClassComponent(vdom) {
-    console.log(vdom);
     // 解构类的属性对象和类的定义
     let {type, props} = vdom;
     // 创建类的实例
@@ -75,7 +76,8 @@ function updateProps(props, dom) {
             }
             continue;
         }else if(key.startsWith("on")){
-            dom[key.toLocaleLowerCase()] = props[key]; // 暂时先用DOM0级事件处理
+            // dom[key.toLocaleLowerCase()] = props[key]; // 暂时先用DOM0级事件处理
+            addEvent(dom,key.toLocaleLowerCase(),props[key]);
         }
         dom[key] = props[key];
     }

@@ -32,7 +32,7 @@ class Updater{
         if(pendingStates.length > 0){
             classInstance.state = this.getState();
             classInstance.forceUpdate();
-            callbacks.forEach(cb=>cb(classInstance.state));
+            callbacks.forEach(cb=>cb());
             callbacks.length = 0;
         }
     }
