@@ -1,5 +1,6 @@
 import React from "./react";
 import ReactDOM from "./react-dom";
+import {updateQueue} from "./Component";
 
 // function FunctionComponent(props){
 //     return (
@@ -17,14 +18,26 @@ class Counter extends React.Component{
     }
 
     handleClick = ()=>{
+        updateQueue.isBatchingUpdate = true;
         this.setState({
             count: this.state.count + 1
-        })
+        },(newState)=>{
+            console.log(newState);
+        });
+
+        this.setState({
+            count: this.state.count + 1
+        },(newState)=>{
+            console.log(newState);
+        });
+
+        updateQueue.batchUpdate();
     }
 
     render() {
         return (
             <>
+                <h2>{this.state.name}</h2>
                 <div>{this.state.count}</div>
                 <button onClick={this.handleClick}>加一</button>
             </>
