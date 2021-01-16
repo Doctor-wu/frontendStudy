@@ -57,10 +57,12 @@ function mountClassComponent(vdom) {
     let {type, props} = vdom;
     // 创建类的实例
     let classInstance = new type(props);
+    if(classInstance.componentWillMount) classInstance.componentWillMount();
     // 调用实例的render方法返回要渲染的vdom对象
     let renderVDOM = classInstance.render();
     // 根据虚拟DOM创建真实DOM
     let dom = createDOM(renderVDOM);
+    if(classInstance.componentDidMount) classInstance.componentDidMount();
     // 为了以后类组件的更新，把真实DOM挂在类实例上
     classInstance.dom = dom;
 

@@ -20,6 +20,9 @@ class Updater{
         this.pendingStates.push(partialState);
         if(typeof callback === "function")
             this.callbacks.push(callback); // 状态更新后的回调
+        this.emitUpdate();
+    }
+    emitUpdate(newProps){
         if(updateQueue.isBatchingUpdate){ // 如果当前处于批量更新模式，则先把updater缓存起来
             updateQueue.updaters.add(this); // 本次setState调用结束
         }else{
@@ -27,14 +30,8 @@ class Updater{
         }
     }
     updateClassComponent(){
-        let {classInstance, pendingStates, callbacks} = this;
-        // 如果有待更新的状态
-        if(pendingStates.length > 0){
-            classInstance.state = this.getState();
-            classInstance.forceUpdate();
-            callbacks.forEach(cb=>cb());
-            callbacks.length = 0;
-        }
+        let {classInstance} = this;
+        shouldUpdate(classInstance, this.getState());
     }
     getState(){
         let {classInstance, pendingStates} = this;
@@ -62,9 +59,22 @@ class Component{
         this.updater.addState(partialState, callback);
     }
     forceUpdate(){
+        if(this.componentWillUpdate)
+            this.componentWillUpdate();
         let newVDom = this.render();
         updateClassComponent(this, newVDom);
+        if(this.componentDidUpdate)
+            this.componentDidUpdate();
     }
+}
+
+function shouldUpdate(classInstance, nextState){
+    classInstance.state = nextState; // 无论渲染与否，状态一定会更新
+    if(classInstance.shouldComponentUpdate// 如果有classInstance.shouldComponentUpdate且返回false，则不重新渲染组件
+        &&!classInstance.shouldComponentUpdate(classInstance.props, classInstance.state)){
+        return;
+    }
+    classInstance.forceUpdate();
 }
 
 function updateClassComponent(classInstance, newVDom){
