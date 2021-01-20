@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function sum(A, b) {
+function sum(a, b) {
     if (b === void 0) { b = 5; }
-    return A + b;
+    return a + b;
 }
 function concatString(a, b) {
     if (b === void 0) { b = ""; }

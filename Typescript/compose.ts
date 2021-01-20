@@ -1,5 +1,5 @@
-function sum(A: number, b: number = 5): number {
-    return A + b;
+function sum(a: number, b: number = 5): number {
+    return a + b;
 }
 
 function concatString(a: string, b: string = ""): string {

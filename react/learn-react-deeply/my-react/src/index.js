@@ -1,15 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from "./react";
+import ReactDOM from "./react-dom";
 
 
 class ChildCounter extends React.Component{
-
+    static defaultProps = {
+        name: "计数器"
+    }
     constructor(props) {
         super(props);
         console.log(`ChildCounter 1. constructor 初始化属性和状态对象`);
     }
     componentWillReceiveProps(nextProps, nextContext) {
-        console.log(`ChildCounter 0. componentWillMount 组件即将收到新的Props`);
+        console.log(`ChildCounter 0. componentWillReceiveProps 组件即将收到新的Props`);
     }
 
     componentWillMount() {
@@ -83,11 +85,11 @@ class Counter extends React.Component{
     render() {
         console.log(`Counter 3. render 重新计算得到新的虚拟DOM`);
         return (
-            <>
+            <div id={`count-${this.state.count}`}>
                 <div>{this.state.count}</div>
-                <div>{this.state.count===4?null:<ChildCounter count={this.state.count}/>}</div>
+                {this.state.count===4?null:<ChildCounter count={this.state.count}/>}
                 <button onClick={this.handleClick}>加一</button>
-            </>
+            </div>
         )
     }
 }

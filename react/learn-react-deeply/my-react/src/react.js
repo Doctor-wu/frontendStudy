@@ -1,39 +1,28 @@
-/**
- * 将JSX解析后的对象构建成虚拟DOM
- * @param type 元素标签
- * @param config 元素的配置项
- * @param children 子元素
- */
-import Component from "./Component";
+import {wrapToVdom} from './utils';
+import Component from './Component';
 
 function createElement(type, config, children) {
     if (config) {
-        delete config.__source;
+        delete config._owner;
+        delete config._store;
         delete config.__self;
+        delete config.__source;
+        delete config.ref;
     }
     let props = {...config};
     if (arguments.length > 3) {
-        children = [...arguments].slice(2);
+        props.children = Array.prototype.slice.call(arguments, 2).map(wrapToVdom);
+    } else {
+        props.children = wrapToVdom(children);
     }
-    props.children = children;
     return {
         type,
         props
-    }
+    };
 }
 
-// {
-//     "type": "div",
-//     "key": null,
-//     "ref": null,
-//     "props": {
-//         "className": "title",
-//         "style": {
-//             "color": "red"
-//         },
-//         "children": [...]
-//     }
-// }
-
-const React = {createElement, Component};
+const React = {
+    createElement,
+    Component
+};
 export default React;
