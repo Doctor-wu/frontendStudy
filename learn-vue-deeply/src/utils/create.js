@@ -5,14 +5,11 @@ function create(Component, config) {
 
     // 获取构造函数
 
-    console.log(Component);
     // 1. Vue.extend
-    const Ctor = Vue.extend(Component); // 通过
-    console.dir(Ctor);Vue.extend获得通过组件配置构造的组件的构造函数
+    const Ctor = Vue.extend(Component); // 通过Vue.extend获得通过组件配置构造的组件的构造函数
     const comp = new Ctor({
         propsData: config
-    }).$mount() // 获取组件实例并挂载从而让comp.$el为真实dom
-    console.log(comp);
+    }).$mount() // 获取组件实
 
     document.body.appendChild(comp.$el);
 

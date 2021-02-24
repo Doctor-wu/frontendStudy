@@ -16,6 +16,8 @@
   text-align: center;
   color: #2c3e50;
   z-index: 1;
+  width: 20vw;
+  margin: 0 auto;
 }
 
 #nav {

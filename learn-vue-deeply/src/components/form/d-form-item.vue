@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="d-form-item__wrapper">
     <!-- d-form-item 主要负责校验 -->
-    <label v-if="label">{{ label }}</label>
+    <div class="label-wrapper">
+        <label v-if="label">{{ label }}</label>
+    </div>
     <!-- 用来放表单控件 -->
     <slot></slot>
     <div class="error">{{ error }}</div>
@@ -68,5 +70,12 @@ export default {
 <style lang="scss" scoped>
 .error {
   color: red;
+    text-align: left;
+}
+.label-wrapper{
+    text-align: left;
+}
+.d-form-item__wrapper{
+    margin: 10px 0;
 }
 </style>

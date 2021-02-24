@@ -2,7 +2,13 @@
   <div class="box" v-if="isShow">
     <div class="notice-title"><p>{{title}} <a href="javascript:;" @click="hide" class="close">×</a></p></div>
     <div class="divider"></div>
-    <p class="box-content">{{message}}</p>
+    <p class="box-content">
+        {{renderSlot()}}
+        <slot name="messageRender"></slot>
+        <template v-if="!$slots.messageRender">
+            {{message}}
+        </template>
+    </p>
   </div>
 </template>
 
@@ -14,7 +20,7 @@ export default {
       default: ""
     },
     message: {
-      type: String,
+      type: [Function, String],
       default: ""
     },
     duration: {
@@ -46,6 +52,18 @@ export default {
       // 清除自己
       this.remove();
       },300)
+    },
+    renderSlot(){
+        if(typeof this.message === "string") return null;
+        if(this.$slots.messageRender) return null;
+        console.log(this.message);
+        if(this.message instanceof Function){
+            this.$nextTick(()=>{
+                this.$slots.messageRender = this.message(this.$createElement);
+                this.$forceUpdate();
+                console.log(this);
+            })
+        }
     }
   }
 };
@@ -57,8 +75,9 @@ export default {
   position: absolute;
   width: 20%;
   max-height: 200px;
-  margin: auto;
-  top: -30%;
+  margin: 100px auto;
+  overflow: auto;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -67,7 +86,7 @@ export default {
   border: grey 1px solid;
   border-radius: 3px;
   box-sizing: border-box;
-  z-index: 9989;
+  z-index: 22;
   box-shadow: -0.1em 0 2em .12em rgba(77, 77, 77, .3);
   transition: opacity ease-in-out .5s;
   font-family: Avenir, Helvetica, Arial, sans-serif;

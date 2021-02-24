@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div style="text-align: left">
     <!-- 
             d-input主要负责双向数据绑定和input控件的属性
       -->
-    <input :type="type" :value="value" @input="inputMethod" v-bind="$attrs" />
+    <input class="d-input__controller" :style="style" :type="type" :value="value" @input="inputMethod" v-bind="$attrs" />
   </div>
 </template>
 
@@ -18,6 +18,7 @@ export default {
       type: String,
       default: "text",
     },
+    style: String,
     value: String,
     default: "",
   },
@@ -33,4 +34,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+  .d-input__controller{
+      min-width: 120px;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px;
+      outline: lightblue;
+  }
+</style>
