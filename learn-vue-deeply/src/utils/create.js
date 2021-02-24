@@ -11,7 +11,6 @@ function create(Component, config) {
         propsData: config
     }).$mount() // 获取组件实例并挂载从而让comp.$el为真实dom
 
-
     document.body.appendChild(comp.$el);
 
     comp.remove = function () {

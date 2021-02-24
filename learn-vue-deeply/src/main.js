@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './drouter'
 import store from './dstore'
 import create from '@/utils/create'
+import "./style/index.css"
 
 Vue.prototype.$create = create;
 
