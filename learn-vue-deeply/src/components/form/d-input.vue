@@ -3,7 +3,7 @@
     <!-- 
             d-input主要负责双向数据绑定和input控件的属性
       -->
-    <input class="d-input__controller" :style="style" :type="type" :value="value" @input="inputMethod" v-bind="$attrs" />
+    <input class="d-input__controller" :type="type" :value="value" @input="inputMethod" v-bind="$attrs" />
   </div>
 </template>
 
@@ -18,7 +18,6 @@ export default {
       type: String,
       default: "text",
     },
-    style: String,
     value: String,
     default: "",
   },
@@ -40,6 +39,11 @@ export default {
       width: 100%;
       box-sizing: border-box;
       padding: 5px;
-      outline: lightblue;
+      outline: 1px solid #eee;
+  }
+  .error-class{
+      .d-input__controller{
+        border: 1px solid red;
+      }
   }
 </style>

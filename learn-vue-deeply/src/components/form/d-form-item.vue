@@ -1,7 +1,7 @@
 <template>
-  <div class="d-form-item__wrapper">
+  <div class="d-form-item__wrapper" :class="{'error-class': this.error}">
     <!-- d-form-item 主要负责校验 -->
-    <div class="label-wrapper">
+    <div class="label-wrapper" :style="{color: this.error ? 'red' : 'inherit'}">
         <label v-if="label">{{ label }}</label>
     </div>
     <!-- 用来放表单控件 -->

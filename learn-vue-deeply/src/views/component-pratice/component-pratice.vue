@@ -20,7 +20,7 @@
         />
       </d-form-item>
       <d-form-item>
-        <button style="display:block;width:100%;margin:auto;padding:5px 0" @click="login">登录</button>
+        <button style="display:block;width:100%;margin:auto;padding:5px 0;cursor:pointer;" @click="login">登录</button>
       </d-form-item>
     </d-form>
   </div>
