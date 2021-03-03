@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web-component-collapse</title>
+</head>
+
+<body>
+    <dt-collapse>
+        <dt-collapse-item data-name="1" data-title="Node">
+            Node welcome you!
+        </dt-collapse-item>
+        <dt-collapse-item data-name="2" data-title="React">
+            React welcome you!
+        </dt-collapse-item>
+        <dt-collapse-item data-name="3" data-title="Vue">
+            Vue welcome you!
+        </dt-collapse-item>
+    </dt-collapse>
+
+    <template id="collapse_tmpl">
+        <slot></slot>
+    </template>
+
+    <template id="collapse_item_tmpl">
+        <div class="title"></div>
+        <div class="content">
+            <slot></slot>
+        </div>
+    </template>
+
+    <script src="./index.js" type="module"></script>
+</body>
+
+</html>
