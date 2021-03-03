@@ -3,7 +3,6 @@ class CollpaseItem extends HTMLElement {
   constructor() {
     super();
     this.isShow = true;
-    this.name = this.getAttribute("data-name");
     let shadow = this.attachShadow({ mode: "open" });
 
     let template = document.getElementById("collapse_item_tmpl");
@@ -16,6 +15,11 @@ class CollpaseItem extends HTMLElement {
         :host{
             margin-bottom: 5px;
         }
+
+        :host:hover{
+            box-shadow: 2px 2px 8px 2px #333;
+            border: 1px solid black;
+        }
         
         :host>.title{
             min-height: 35px;
@@ -27,16 +31,18 @@ class CollpaseItem extends HTMLElement {
         }
 
         :host>.content{
+            height: auto;
+            max-height: 600px;
             padding: 15px 8px 0 8px;
             margin-bottom: 15px;
-            transition: all ease-in-out .3s;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
         }
 
-        :host>.content.hide{
-            height: 0px;
+        :host>.content.collapsed{
+            max-height: 0px;
             padding: 0 8px;
             margin-bottom: 0px;
-            overflow: hidden;
         }
     `;
     shadow.appendChild(style);
@@ -58,9 +64,9 @@ class CollpaseItem extends HTMLElement {
       let title = this.getAttribute("data-title");
       this.shadowRoot.querySelector(".title").textContent = title;
 
-      this.shadowRoot.querySelector(".content").classList.remove("hide");
+      this.shadowRoot.querySelector(".content").classList.remove("collapsed");
     } else {
-      this.shadowRoot.querySelector(".content").classList.add("hide");
+      this.shadowRoot.querySelector(".content").classList.add("collapsed");
     }
   }
 }
