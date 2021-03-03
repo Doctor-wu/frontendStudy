@@ -38,13 +38,6 @@ class CollpaseItem extends HTMLElement {
             margin-bottom: 0px;
             overflow: hidden;
         }
-
-        @keyframes slideUp {
-            100%{
-                height: 0px;
-                display: none;
-            }
-        }
     `;
     shadow.appendChild(style);
 
