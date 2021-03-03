@@ -2,7 +2,7 @@
   <div class="d-form-item__wrapper" :class="{'error-class': this.error}">
     <!-- d-form-item 主要负责校验 -->
     <div class="label-wrapper" :style="{color: this.error ? 'red' : 'inherit'}">
-        <label v-if="label">{{ label }}</label>
+        <label class="label-content" v-if="label">{{ label }}</label>
     </div>
     <!-- 用来放表单控件 -->
     <slot></slot>
@@ -69,11 +69,18 @@ export default {
 
 <style lang="scss" scoped>
 .error {
-  color: red;
+    color: red;
     text-align: left;
+    font-size: 12px;
 }
 .label-wrapper{
     text-align: left;
+}
+.label-content{
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 2px 0;
 }
 .d-form-item__wrapper{
     margin: 10px 0;
