@@ -1,0 +1,16 @@
+{
+  "name": "algorithm-practise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2",
+    "ts-node": "8.3.0",
+    "ts-node-dev": "^1.0.0-pre.56"
+  },
+  "author": "",
+  "license": "ISC"
+}
