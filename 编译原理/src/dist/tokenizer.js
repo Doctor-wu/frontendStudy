@@ -1,12 +1,8 @@
-"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var JSXTokenizer;
 (function (JSXTokenizer) {
@@ -24,10 +20,10 @@ var Tokenizer = /** @class */ (function () {
         this.tokens = [];
         this.currentToken = {
             type: Symbol("INIT"),
-            value: "",
+            value: ""
         };
         this.RE = {
-            LETTERS: /[a-zA-z0-9]/,
+            LETTERS: /[a-zA-z0-9]/
         };
         this.input = input;
     }
@@ -47,7 +43,7 @@ var Tokenizer = /** @class */ (function () {
             this.emit(this.currentToken);
             this.emit({
                 type: JSXTokenizer.TagStartType,
-                value: char,
+                value: char
             });
             this.resetCurrentToken();
             return this.searchJSXIdentifier;
@@ -73,7 +69,7 @@ var Tokenizer = /** @class */ (function () {
         if (char === "/") {
             this.emit({
                 type: JSXTokenizer.BackFlash,
-                value: char,
+                value: char
             });
             return this.searchJSXIdentifier;
         }
@@ -82,7 +78,7 @@ var Tokenizer = /** @class */ (function () {
             this.resetCurrentToken();
             this.emit({
                 type: JSXTokenizer.TagEndType,
-                value: char,
+                value: char
             });
             return this.searchBeginTagStart;
         }
@@ -99,14 +95,14 @@ var Tokenizer = /** @class */ (function () {
             this.resetCurrentToken();
             this.emit({
                 type: JSXTokenizer.Equator,
-                value: char,
+                value: char
             });
             return this.searchJSXAttributeValue;
         }
         if (char === ">") {
             this.emit({
                 type: JSXTokenizer.TagEndType,
-                value: char,
+                value: char
             });
             return this.foundJSXBeginTagEnd;
         }
@@ -139,7 +135,7 @@ var Tokenizer = /** @class */ (function () {
         if (char === "<") {
             this.currentToken = {
                 type: JSXTokenizer.TagStartType,
-                value: char,
+                value: char
             };
             this.emit(this.currentToken);
             this.resetCurrentToken();
@@ -152,7 +148,7 @@ var Tokenizer = /** @class */ (function () {
             return;
         this.currentToken = {
             type: Symbol("INIT"),
-            value: "",
+            value: ""
         };
     };
     Tokenizer.prototype.emit = function (token) {
@@ -161,23 +157,14 @@ var Tokenizer = /** @class */ (function () {
         this.tokens.push(token);
     };
     __decorate([
-        jumpSpace,
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", [String]),
-        __metadata("design:returntype", Function)
-    ], Tokenizer.prototype, "searchBeginTagStart", null);
+        jumpSpace
+    ], Tokenizer.prototype, "searchBeginTagStart");
     __decorate([
-        jumpSpace,
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", [String]),
-        __metadata("design:returntype", Function)
-    ], Tokenizer.prototype, "searchJSXAttributeKey", null);
+        jumpSpace
+    ], Tokenizer.prototype, "searchJSXAttributeKey");
     __decorate([
-        jumpSpace,
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", [String]),
-        __metadata("design:returntype", Function)
-    ], Tokenizer.prototype, "searchJSXAttributeValue", null);
+        jumpSpace
+    ], Tokenizer.prototype, "searchJSXAttributeValue");
     return Tokenizer;
 }());
 function jumpSpace(target, propertyKey, descriptor) {
