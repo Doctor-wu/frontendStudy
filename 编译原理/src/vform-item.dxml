@@ -1,0 +1,15 @@
+<div class="vform-item" style="">
+      <label class="vform-item-label" v-bind:htmlFor="getItemID()" style="display: block; width: 100%;">
+        {{labelContent.value}}
+      </label>
+      <input
+        @input="inputHandler"
+        class="vform-item-control"
+        v-bind:id="getItemID()"
+        v-bind:value="$props.value || null"
+        v-bind:placeholder="placeholder.value"
+        v-bind="$props.controllConfig"
+        required
+      />
+      <div class="vform-item-msgbox">{{errMsg.value}}</div>
+</div>

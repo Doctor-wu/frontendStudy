@@ -1,0 +1,18 @@
+<div class="login">
+    <h3 v-bind:style="middleStyle">{{stateTitle.value}}</h3>
+      <button @click="$parent.addNumbers" class="btn btn-6 btn-success goLogin">加</button>
+      <button @click="$parent.decreaseNumbers" class="btn btn-6 btn-default">减</button>
+    <slot></slot>
+    <div key="123" v-if="showForm.value" id="login" style="height: 4rem">
+      <VForm v-bind:formItem="formItems" ref="vForm" />
+    </div>
+    <div class=".btn-wrap">
+      <button @click="handleLogin" class="btn btn-12 btn-success goLogin">登录</button>
+      <slot name="middle"></slot>
+      <button @click="changeTitle" class="btn btn-12 btn-default goRegist">注册</button>
+      <slot name="foot">
+        <p>I am reserve foot slot;</p>
+      </slot>
+      <button @click="toggleForm" class="btn btn-12 btn-default goRegist">{{showForm.value ? '隐藏表格' : '显示表格'}}</button>
+    </div>
+</div>

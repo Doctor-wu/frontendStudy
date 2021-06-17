@@ -1,0 +1,199 @@
+[{
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"vform-item\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "style"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "label"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"vform-item-label\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "v-bind:htmlFor"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"getItemID()\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "style"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"display: block; width: 100%;\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "        {{labelContent.value}}      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "label"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "input"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "@input"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"inputHandler\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"vform-item-control\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "v-bind:id"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"getItemID()\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "v-bind:value"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"$props.value || null\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "v-bind:placeholder"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"placeholder.value\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "v-bind"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"$props.controllConfig\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "required"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"vform-item-msgbox\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "{{errMsg.value}}"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}]

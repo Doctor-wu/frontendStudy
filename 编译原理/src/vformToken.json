@@ -1,0 +1,547 @@
+[{
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"login\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "    "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "h3"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "v-bind:style"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"middleStyle\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "{{stateTitle.value}}"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "h3"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "@click"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"$parent.addNumbers\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"btn btn-6 btn-success goLogin\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "加"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "@click"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"$parent.decreaseNumbers\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"btn btn-6 btn-default\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "减"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "    "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "slot"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "slot"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "    "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "key"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"123\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "v-if"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"showForm.value\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "id"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"login\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "style"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"height: 4rem\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "VForm"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "v-bind:formItem"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"formItems\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "ref"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"vForm\""
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "    "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "    "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\".btn-wrap\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "@click"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"handleLogin\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"btn btn-12 btn-success goLogin\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "登录"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "slot"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "name"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"middle\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "slot"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "@click"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"changeTitle\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"btn btn-12 btn-default goRegist\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "注册"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "slot"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "name"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"foot\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "        "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "p"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "I am reserve foot slot;"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "p"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "slot"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "      "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "@click"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"toggleForm\""
+}, {
+  "type": "Symbol(JSXAttributeKey)",
+  "value": "class"
+}, {
+  "type": "Symbol(Equator)",
+  "value": "="
+}, {
+  "type": "Symbol(JSXAttributeValue)",
+  "value": "\"btn btn-12 btn-default goRegist\""
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "{{showForm.value ? '隐藏表格' : '显示表格'}}"
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "button"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "    "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}, {
+  "type": "Symbol(Text)",
+  "value": "  "
+}, {
+  "type": "Symbol(TagStartType)",
+  "value": "<"
+}, {
+  "type": "Symbol(BackFlash)",
+  "value": "/"
+}, {
+  "type": "Symbol(JSXIdentifier)",
+  "value": "div"
+}, {
+  "type": "Symbol(TagEndType)",
+  "value": ">"
+}]

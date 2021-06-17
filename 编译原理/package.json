@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "run": "ts-node src/ast.ts"
   },
   "keywords": [],
   "author": "",

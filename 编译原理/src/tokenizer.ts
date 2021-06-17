@@ -1,6 +1,8 @@
-namespace JSXTokenizer {
+import { ITokenizerConstructor } from "docs/flexier";
+
+export namespace JSXTokenizer {
   export interface ITokenizerConstructor {
-    new (input: TokenizerParamter): ITokenizer;
+    new (): ITokenizer;
   }
 
   export type TokenizerParamter = string;
@@ -22,7 +24,7 @@ namespace JSXTokenizer {
     currentToken: IToken;
     tokens: IToken[];
     RE: REType;
-    run(): void;
+    run(input: JSXTokenizer.TokenizerParamter): void;
     searchBeginTagStart: IStateExcutor;
     searchJSXIdentifier: IStateExcutor;
   }
@@ -36,8 +38,8 @@ namespace JSXTokenizer {
   export const BackFlash = Symbol("BackFlash");
   export const Text = Symbol("Text");
 }
-class Tokenizer implements JSXTokenizer.ITokenizer {
-  input: JSXTokenizer.TokenizerParamter;
+
+export class Tokenizer implements JSXTokenizer.ITokenizer {
   tokens: JSXTokenizer.IToken[] = [];
   currentQuote: string | undefined;
   currentToken: JSXTokenizer.IToken = {
@@ -45,23 +47,27 @@ class Tokenizer implements JSXTokenizer.ITokenizer {
     value: "",
   };
   RE: JSXTokenizer.REType = {
-    LETTERS: /[a-zA-z0-9]/,
+    LETTERS: /[a-zA-Z0-9]/,
+    ATTRIBUTEKEY: /[a-zA-Z0-9-@:$\.]/,
+    ATTRIBUTEVALUE: /[a-zA-Z0-9-@:$|();%\.\s]/,
+    Text: /./,
   };
 
-  constructor(input: JSXTokenizer.TokenizerParamter) {
-    this.input = input;
+  constructor() {
   }
 
-  run() {
+  run(input: JSXTokenizer.TokenizerParamter) {
+    this.tokens = [];
     let state: JSXTokenizer.IStateExcutor | void = this.searchBeginTagStart;
-    for (const char of this.input) {
+    for (const char of input) {
       if (state !== undefined) {
+        // 忽略换行
+        if (/\r\n|\r|\n/.test(char)) continue;
         state = state.call(this, char);
       } else return;
     }
   }
 
-  @jumpSpace
   searchBeginTagStart(char: string): JSXTokenizer.IStateExcutor {
     if (char === "<") {
       this.emit(this.currentToken);
@@ -73,7 +79,7 @@ class Tokenizer implements JSXTokenizer.ITokenizer {
       return this.searchJSXIdentifier;
     }
 
-    if (this.RE.LETTERS.test(char)) {
+    if (this.RE.Text.test(char)) {
       this.currentToken.type = JSXTokenizer.Text;
       this.currentToken.value += char;
       return this.searchBeginTagStart;
@@ -115,7 +121,7 @@ class Tokenizer implements JSXTokenizer.ITokenizer {
 
   @jumpSpace
   searchJSXAttributeKey(char: string): JSXTokenizer.IStateExcutor {
-    if (this.RE.LETTERS.test(char)) {
+    if (this.RE.ATTRIBUTEKEY.test(char)) {
       this.currentToken.type = JSXTokenizer.JSXAttributeKey;
       this.currentToken.value += char;
       return this.searchJSXAttributeKey;
@@ -132,13 +138,34 @@ class Tokenizer implements JSXTokenizer.ITokenizer {
     }
 
     if (char === ">") {
+      this.emit(this.currentToken);
+      this.resetCurrentToken();
       this.emit({
         type: JSXTokenizer.TagEndType,
         value: char,
       });
       return this.foundJSXBeginTagEnd;
     }
+
+    if (char === "/") {
+      this.emit({
+        type: JSXTokenizer.BackFlash,
+        value: char,
+      });
+      return this.foundBackFlashInAttribute;
+    }
     throw TypeError("UnExcepted Error");
+  }
+
+  foundBackFlashInAttribute(char: string): JSXTokenizer.IStateExcutor {
+    if (char === ">") {
+      this.emit({
+        type: JSXTokenizer.TagEndType,
+        value: char,
+      });
+      return this.foundJSXBeginTagEnd;
+    }
+    throw TypeError("Should Be > after /");
   }
 
   @jumpSpace
@@ -153,7 +180,7 @@ class Tokenizer implements JSXTokenizer.ITokenizer {
   }
 
   foundAttributeQuote(char: string): JSXTokenizer.IStateExcutor {
-    if (this.RE.LETTERS.test(char)) {
+    if (this.RE.ATTRIBUTEVALUE.test(char)) {
       this.currentToken.type = JSXTokenizer.JSXAttributeValue;
       this.currentToken.value += char;
       return this.foundAttributeQuote;
@@ -171,6 +198,7 @@ class Tokenizer implements JSXTokenizer.ITokenizer {
 
   foundJSXBeginTagEnd(char: string): JSXTokenizer.IStateExcutor {
     if (char === "<") {
+      this.emit(this.currentToken);
       this.currentToken = {
         type: JSXTokenizer.TagStartType,
         value: char,
@@ -179,6 +207,10 @@ class Tokenizer implements JSXTokenizer.ITokenizer {
       this.resetCurrentToken();
       return this.searchJSXIdentifier;
     }
+
+    this.currentToken.type = JSXTokenizer.Text;
+    this.currentToken.value += char;
+    return this.foundJSXBeginTagEnd;
 
     throw TypeError("UnExcepted Error");
   }
@@ -193,6 +225,7 @@ class Tokenizer implements JSXTokenizer.ITokenizer {
 
   emit(token: JSXTokenizer.IToken) {
     if (!token.value) return;
+
     this.tokens.push(token);
   }
 }
@@ -210,62 +243,8 @@ function jumpSpace(
   descriptor.value = jumpSpaceFunc;
 }
 
-function createTokenizer(
-  Tokenizer: JSXTokenizer.ITokenizerConstructor,
-  input: JSXTokenizer.TokenizerParamter
+export function createTokenizer(
+  Tokenizer: JSXTokenizer.ITokenizerConstructor
 ): JSXTokenizer.ITokenizer {
-  return new Tokenizer(input);
+  return new Tokenizer();
 }
-
-let input = '   <h1 id="title"><span>hello</span>world</h1>';
-let tokenizer = createTokenizer(Tokenizer, input);
-tokenizer.run();
-console.log(tokenizer.tokens);
-
-/**
- * expected
-   [
-    { type: 'Punctuator', value: '<' },
-    { type: 'JSXIdentifier', value: 'h1' },
-    { type: 'JSXIdentifier', value: 'id' },
-    { type: 'Punctuator', value: '=' },
-    { type: 'String', value: '"title"' },
-    { type: 'Punctuator', value: '>' },
-    { type: 'Punctuator', value: '<' },
-    { type: 'JSXIdentifier', value: 'span' },
-    { type: 'Punctuator', value: '>' },
-    { type: 'JSXText', value: 'hello' },
-    { type: 'Punctuator', value: '<' },
-    { type: 'Punctuator', value: '/' },
-    { type: 'JSXIdentifier', value: 'span' },
-    { type: 'Punctuator', value: '>' },
-    { type: 'JSXText', value: 'world' },
-    { type: 'Punctuator', value: '<' },
-    { type: 'Punctuator', value: '/' },
-    { type: 'JSXIdentifier', value: 'h1' },
-    { type: 'Punctuator', value: '>' }
-  ]
-
-  my output
-  [
-    { type: Symbol(TagStartType), value: '<' },
-    { type: Symbol(JSXIdentifier), value: 'h1' },
-    { type: Symbol(JSXAttributeKey), value: 'id' },
-    { type: Symbol(Equator), value: '=' },
-    { type: Symbol(JSXAttributeValue), value: '"title"' },
-    { type: Symbol(TagEndType), value: '>' },
-    { type: Symbol(TagStartType), value: '<' },
-    { type: Symbol(JSXIdentifier), value: 'span' },
-    { type: Symbol(TagEndType), value: '>' },
-    { type: Symbol(Text), value: 'hello' },
-    { type: Symbol(TagStartType), value: '<' },
-    { type: Symbol(BackFlash), value: '/' },
-    { type: Symbol(JSXIdentifier), value: 'span' },
-    { type: Symbol(TagEndType), value: '>' },
-    { type: Symbol(Text), value: 'world' },
-    { type: Symbol(TagStartType), value: '<' },
-    { type: Symbol(BackFlash), value: '/' },
-    { type: Symbol(JSXIdentifier), value: 'h1' },
-    { type: Symbol(TagEndType), value: '>' }
-  ]
- */

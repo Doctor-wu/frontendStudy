@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createTokenizer = exports.Tokenizer = exports.JSXTokenizer = void 0;
 var JSXTokenizer;
 (function (JSXTokenizer) {
     JSXTokenizer.TagStartType = Symbol("TagStartType");
@@ -18,7 +20,7 @@ var JSXTokenizer;
     JSXTokenizer.TagEndType = Symbol("TagEndType");
     JSXTokenizer.BackFlash = Symbol("BackFlash");
     JSXTokenizer.Text = Symbol("Text");
-})(JSXTokenizer || (JSXTokenizer = {}));
+})(JSXTokenizer = exports.JSXTokenizer || (exports.JSXTokenizer = {}));
 var Tokenizer = /** @class */ (function () {
     function Tokenizer(input) {
         this.tokens = [];
@@ -36,6 +38,9 @@ var Tokenizer = /** @class */ (function () {
         for (var _i = 0, _a = this.input; _i < _a.length; _i++) {
             var char = _a[_i];
             if (state !== undefined) {
+                // 忽略换行
+                if (/\r\n|\r|\n/.test(char))
+                    continue;
                 state = state.call(this, char);
             }
             else
@@ -158,6 +163,7 @@ var Tokenizer = /** @class */ (function () {
     Tokenizer.prototype.emit = function (token) {
         if (!token.value)
             return;
+        console.log(token.value);
         this.tokens.push(token);
     };
     __decorate([
@@ -180,6 +186,7 @@ var Tokenizer = /** @class */ (function () {
     ], Tokenizer.prototype, "searchJSXAttributeValue", null);
     return Tokenizer;
 }());
+exports.Tokenizer = Tokenizer;
 function jumpSpace(target, propertyKey, descriptor) {
     var method = descriptor.value;
     var jumpSpaceFunc = function (char) {
@@ -192,54 +199,4 @@ function jumpSpace(target, propertyKey, descriptor) {
 function createTokenizer(Tokenizer, input) {
     return new Tokenizer(input);
 }
-var input = '   <h1 id="title"><span>hello</span>world</h1>';
-var tokenizer = createTokenizer(Tokenizer, input);
-tokenizer.run();
-console.log(tokenizer.tokens);
-/**
- * expected
-   [
-    { type: 'Punctuator', value: '<' },
-    { type: 'JSXIdentifier', value: 'h1' },
-    { type: 'JSXIdentifier', value: 'id' },
-    { type: 'Punctuator', value: '=' },
-    { type: 'String', value: '"title"' },
-    { type: 'Punctuator', value: '>' },
-    { type: 'Punctuator', value: '<' },
-    { type: 'JSXIdentifier', value: 'span' },
-    { type: 'Punctuator', value: '>' },
-    { type: 'JSXText', value: 'hello' },
-    { type: 'Punctuator', value: '<' },
-    { type: 'Punctuator', value: '/' },
-    { type: 'JSXIdentifier', value: 'span' },
-    { type: 'Punctuator', value: '>' },
-    { type: 'JSXText', value: 'world' },
-    { type: 'Punctuator', value: '<' },
-    { type: 'Punctuator', value: '/' },
-    { type: 'JSXIdentifier', value: 'h1' },
-    { type: 'Punctuator', value: '>' }
-  ]
-
-  my output
-  [
-    { type: Symbol(TagStartType), value: '<' },
-    { type: Symbol(JSXIdentifier), value: 'h1' },
-    { type: Symbol(JSXAttributeKey), value: 'id' },
-    { type: Symbol(Equator), value: '=' },
-    { type: Symbol(JSXAttributeValue), value: '"title"' },
-    { type: Symbol(TagEndType), value: '>' },
-    { type: Symbol(TagStartType), value: '<' },
-    { type: Symbol(JSXIdentifier), value: 'span' },
-    { type: Symbol(TagEndType), value: '>' },
-    { type: Symbol(Text), value: 'hello' },
-    { type: Symbol(TagStartType), value: '<' },
-    { type: Symbol(BackFlash), value: '/' },
-    { type: Symbol(JSXIdentifier), value: 'span' },
-    { type: Symbol(TagEndType), value: '>' },
-    { type: Symbol(Text), value: 'world' },
-    { type: Symbol(TagStartType), value: '<' },
-    { type: Symbol(BackFlash), value: '/' },
-    { type: Symbol(JSXIdentifier), value: 'h1' },
-    { type: Symbol(TagEndType), value: '>' }
-  ]
- */
+exports.createTokenizer = createTokenizer;
