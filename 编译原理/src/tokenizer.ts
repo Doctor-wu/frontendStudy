@@ -53,8 +53,7 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
     Text: /./,
   };
 
-  constructor() {
-  }
+  constructor() {}
 
   run(input: JSXTokenizer.TokenizerParamter) {
     this.tokens = [];
@@ -119,8 +118,12 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
     throw TypeError("UnExcepted Error");
   }
 
-  @jumpSpace
   searchJSXAttributeKey(char: string): JSXTokenizer.IStateExcutor {
+    if (char === " ") {
+      this.emit(this.currentToken);
+      this.resetCurrentToken();
+      return this.searchJSXAttributeKey;
+    }
     if (this.RE.ATTRIBUTEKEY.test(char)) {
       this.currentToken.type = JSXTokenizer.JSXAttributeKey;
       this.currentToken.value += char;

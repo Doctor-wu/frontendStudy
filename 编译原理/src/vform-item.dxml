@@ -8,6 +8,7 @@
         v-bind:id="getItemID()"
         v-bind:value="$props.value || null"
         v-bind:placeholder="placeholder.value"
+        configurable
         v-bind="$props.controllConfig"
         required
       />

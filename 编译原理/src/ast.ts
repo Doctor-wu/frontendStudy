@@ -52,6 +52,7 @@ export namespace AST {
   interface IParse extends Record<UnFinalToken, UnFinalTokenHandler> {
     tokenReader: TokenReader;
     ast: ASTNode;
+    closeSelf: Boolean;
   }
 
   export class Parse implements IParse {
@@ -60,6 +61,7 @@ export namespace AST {
     currentNode!: ASTNode;
     parentNode!: ASTNode;
     currentToken!: JSXTokenizer.IToken;
+    closeSelf: Boolean = false;
 
     constructor(tokens: JSXTokenizer.IToken[]) {
       this.tokenReader.loadTokens(tokens);
@@ -73,8 +75,8 @@ export namespace AST {
     ): ASTNode {
       let node: ASTNode = {
         type: <any>type.toString(),
-        children,
       };
+      if (children !== undefined) node.children = children;
       if (value !== undefined) node.value = value;
       return node;
     }
@@ -95,6 +97,7 @@ export namespace AST {
       this.currentNode = root;
       this.parentNode = root;
       this.ast = root;
+      debugger;
       if (this.Expr()) {
         console.log("AST Generate Success!");
         return true;
@@ -109,9 +112,8 @@ export namespace AST {
       let node = this.createASTNode(ASTNodeType.Expr, []);
       this.parentNode.children?.push(node);
       this.parentNode = node;
-      debugger;
+
       if (this.currentToken.type === JSXTokenizer.Text) {
-        this.parentNode = node;
         this.parentNode.children?.push(
           this.createASTNode(
             FinalTokenType.Text,
@@ -124,6 +126,11 @@ export namespace AST {
         this.Expr();
         return true;
       } else if (this.TagHead()) {
+        if (this.closeSelf) {
+          this.parentNode = oldParent;
+          this.Expr();
+          return true;
+        }
         this.parentNode = node;
         if (this.Expr()) {
           this.parentNode = node;
@@ -132,13 +139,16 @@ export namespace AST {
             this.Expr();
             return true;
           }
-          this.parentNode = oldParent;
-          if (!this.Expr()) {
-            oldParent.children?.pop();
-            return false;
+          oldParent.children?.pop();
+          return false;
+        } else {
+          this.parentNode = node;
+          if (this.TagTail()) {
+            this.parentNode = oldParent;
+            this.Expr();
+            return true;
           }
         }
-        return true;
       }
       oldParent.children?.pop();
       return false;
@@ -146,11 +156,13 @@ export namespace AST {
     }
 
     TagHead(): UnFinalTokenHandlerReturnType {
+      this.closeSelf = false;
       this.setCurrentToken(this.tokenReader.peek());
       let node = this.createASTNode(ASTNodeType.TagHead, []);
       let oldParent = this.parentNode;
       this.parentNode.children?.push(node);
       this.parentNode = node;
+
       if (this.TagHeadStart()) {
         this.parentNode = node;
         if (this.Attribute()) {
@@ -160,7 +172,7 @@ export namespace AST {
           this.parentNode = node;
           if (this.TagHeadEnd()) {
             return true;
-          };
+          }
         }
       }
       oldParent.children?.pop();
@@ -173,6 +185,7 @@ export namespace AST {
       let node = this.createASTNode(ASTNodeType.TagHeadStart, []);
       this.parentNode.children?.push(node);
       this.parentNode = node;
+
       if (this.currentToken.value === "<") {
         this.parentNode.children?.push(
           this.createASTNode(
@@ -207,6 +220,7 @@ export namespace AST {
       let node = this.createASTNode(ASTNodeType.Attribute, []);
       this.parentNode.children?.push(node);
       this.parentNode = node;
+
       if (this.currentToken.type === JSXTokenizer.JSXAttributeKey) {
         this.parentNode.children?.push(
           this.createASTNode(
@@ -240,11 +254,13 @@ export namespace AST {
             if (this.Attribute()) return true;
             return true;
           }
+          this.tokenReader.unread(); // 把 = 退掉
+          this.tokenReader.unread(); // 把 AttributeKey 退掉
           oldParent.children?.pop();
           return false;
         }
         this.parentNode = oldParent;
-        if (this.Attribute()) return true;
+        this.Attribute();
         return true;
       }
       oldParent.children?.pop();
@@ -275,8 +291,10 @@ export namespace AST {
             )
           );
           this.tokenReader.read();
+          this.closeSelf = true;
           return true;
         }
+        this.tokenReader.unread();
         return false;
       }
       if (this.tokenReader.peek()?.value === ">") {
@@ -290,6 +308,7 @@ export namespace AST {
         this.tokenReader.read();
         return true;
       }
+      return false;
       throw TypeError(`Unexcepted Token: ${this.currentToken.value}`);
     }
 
@@ -338,10 +357,16 @@ export namespace AST {
               this.tokenReader.read();
               return true;
             }
+            this.tokenReader.unread();
+            this.tokenReader.unread();
+            this.tokenReader.unread();
             return false;
           }
+          this.tokenReader.unread();
+          this.tokenReader.unread();
           return false;
         }
+        this.tokenReader.unread();
         return false;
       }
       return false;
@@ -351,7 +376,7 @@ export namespace AST {
 }
 
 const vformXml = fs
-  .readFileSync(path.resolve(__dirname, "./vform.dxml"))
+  .readFileSync(path.resolve(__dirname, "./vform-item.dxml"))
   .toString();
 
 let tokenizer = createTokenizer(Tokenizer);
@@ -362,6 +387,6 @@ let parser = new AST.Parse(tokenizer.tokens);
 console.log(JSON.stringify(parser.ast));
 
 fs.writeFileSync(
-  path.resolve(__dirname, "./vformAST.json"),
+  path.resolve(__dirname, "./vformItemAST.json"),
   JSON.stringify(parser.ast)
 );

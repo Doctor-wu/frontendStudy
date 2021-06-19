@@ -1,8 +1,9 @@
 // 表达式
 Expr -> TagHead Expr TagTail
         | TagHead
-        | [text] Expr
+        | TagHead TagTail
         | [text]
+        | Expr Expr
 
 // 开始标签
 TagHead -> TagHeadStart Attribute TagHeadEnd
