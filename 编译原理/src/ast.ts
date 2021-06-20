@@ -54,10 +54,11 @@ export module AST {
     | "TagHeadEnd"
     | "TagTail";
 
-  interface IParse extends Record<UnFinalToken, UnFinalTokenHandler> {
+  export interface IParse extends Record<UnFinalToken, UnFinalTokenHandler> {
     tokenReader: TokenReader;
     ast: ASTElementNode;
     closeSelf: Boolean;
+    createAST(tokens: JSXTokenizer.IToken[]): ASTNode;
   }
 
   export class Parse implements IParse {
@@ -72,6 +73,11 @@ export module AST {
     constructor(tokens: JSXTokenizer.IToken[]) {
       this.tokenReader.loadTokens(tokens);
       this.ast = this.toAST();
+    }
+
+    createAST(tokens: JSXTokenizer.IToken[]) {
+      this.tokenReader = new TokenReader(tokens);
+      return this.toAST();
     }
 
     createASTNode(
@@ -116,13 +122,12 @@ export module AST {
       this.currentNode = root;
       this.parentNode = root;
       this.ast = root;
-      debugger;
+      if (!this.tokenReader.tokens.length) return false;
       if (this.Expr()) {
         console.log("AST Generate Success!");
         return true;
       }
       throw TypeError("AST Generate Failed!");
-      return false;
     }
 
     Expr(): UnFinalTokenHandlerReturnType {
@@ -404,19 +409,3 @@ export module AST {
     }
   }
 }
-
-const vformXml = fs
-  .readFileSync(path.resolve(__dirname, "./vform-item.dxml"))
-  .toString();
-
-let tokenizer = createTokenizer(Tokenizer);
-tokenizer.run(vformXml);
-console.log(tokenizer.tokens.length);
-
-let parser = new AST.Parse(tokenizer.tokens);
-console.log(JSON.stringify(parser.ast));
-
-fs.writeFileSync(
-  path.resolve(__dirname, "./vformItemAST.json"),
-  JSON.stringify(parser.ast)
-);

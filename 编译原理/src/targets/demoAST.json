@@ -1,0 +1,70 @@
+{
+  "type": "Symbol(Program)",
+  "children": [
+    {
+      "type": "Symbol(Expr)",
+      "children": [
+        {
+          "type": "Symbol(TagHead)",
+          "children": [
+            {
+              "type": "Symbol(TagHeadStart)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "div"
+                }
+              ]
+            },
+            {
+              "type": "Symbol(TagHeadEnd)",
+              "children": [
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ]
+            }
+          ],
+          "closeSelf": false
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "123"
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(TagTail)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "div"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ]
+        }
+      ],
+      "elementType": "Element"
+    }
+  ]
+}

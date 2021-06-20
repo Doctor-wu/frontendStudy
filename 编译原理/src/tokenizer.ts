@@ -24,7 +24,7 @@ export module JSXTokenizer {
     currentToken: IToken;
     tokens: IToken[];
     RE: REType;
-    run(input: JSXTokenizer.TokenizerParamter): void;
+    run(input: JSXTokenizer.TokenizerParamter): IToken[];
     searchBeginTagStart: IStateExcutor;
     searchJSXIdentifier: IStateExcutor;
   }
@@ -55,7 +55,7 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
 
   constructor() {}
 
-  run(input: JSXTokenizer.TokenizerParamter) {
+  run(input: JSXTokenizer.TokenizerParamter):JSXTokenizer.IToken[] {
     this.tokens = [];
     let state: JSXTokenizer.IStateExcutor | void = this.searchBeginTagStart;
     for (const char of input) {
@@ -63,8 +63,11 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
         // 忽略换行
         if (/\r\n|\r|\n/.test(char)) continue;
         state = state.call(this, char);
-      } else return;
+      }
     }
+    console.log('Tokens Generate Success!');
+    
+    return this.tokens;
   }
 
   searchBeginTagStart(char: string): JSXTokenizer.IStateExcutor {

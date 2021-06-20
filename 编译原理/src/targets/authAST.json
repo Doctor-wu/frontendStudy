@@ -6,10 +6,10 @@
       "children": [
         {
           "type": "Symbol(Text)",
-          "children": [],
           "value": "    "
         }
-      ]
+      ],
+      "elementType": "Text"
     },
     {
       "type": "Symbol(Expr)",
@@ -22,12 +22,10 @@
               "children": [
                 {
                   "type": "Symbol(LeftBracket)",
-                  "children": [],
                   "value": "<"
                 },
                 {
                   "type": "Symbol(Identifier)",
-                  "children": [],
                   "value": "section"
                 }
               ]
@@ -37,17 +35,14 @@
               "children": [
                 {
                   "type": "Symbol(AttributeKey)",
-                  "children": [],
                   "value": "class"
                 },
                 {
                   "type": "Symbol(Equator)",
-                  "children": [],
                   "value": "="
                 },
                 {
                   "type": "Symbol(AttributeValue)",
-                  "children": [],
                   "value": "\"auth\""
                 }
               ]
@@ -57,22 +52,22 @@
               "children": [
                 {
                   "type": "Symbol(RightBracket)",
-                  "children": [],
                   "value": ">"
                 }
               ]
             }
-          ]
+          ],
+          "closeSelf": false
         },
         {
           "type": "Symbol(Expr)",
           "children": [
             {
               "type": "Symbol(Text)",
-              "children": [],
               "value": "        __router-view__        "
             }
-          ]
+          ],
+          "elementType": "Text"
         },
         {
           "type": "Symbol(Expr)",
@@ -85,12 +80,10 @@
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "ul"
                     }
                   ]
@@ -100,17 +93,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "class"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"left\""
                     }
                   ]
@@ -120,22 +110,22 @@
                   "children": [
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "closeSelf": false
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "            "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(Expr)",
@@ -148,12 +138,10 @@
                       "children": [
                         {
                           "type": "Symbol(LeftBracket)",
-                          "children": [],
                           "value": "<"
                         },
                         {
                           "type": "Symbol(Identifier)",
-                          "children": [],
                           "value": "li"
                         }
                       ]
@@ -163,49 +151,46 @@
                       "children": [
                         {
                           "type": "Symbol(RightBracket)",
-                          "children": [],
                           "value": ">"
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "closeSelf": false
                 },
                 {
                   "type": "Symbol(TagTail)",
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(BackFlash)",
-                      "children": [],
                       "value": "/"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "li"
                     },
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "elementType": "Element"
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "            "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(Expr)",
@@ -218,12 +203,10 @@
                       "children": [
                         {
                           "type": "Symbol(LeftBracket)",
-                          "children": [],
                           "value": "<"
                         },
                         {
                           "type": "Symbol(Identifier)",
-                          "children": [],
                           "value": "li"
                         }
                       ]
@@ -233,49 +216,46 @@
                       "children": [
                         {
                           "type": "Symbol(RightBracket)",
-                          "children": [],
                           "value": ">"
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "closeSelf": false
                 },
                 {
                   "type": "Symbol(TagTail)",
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(BackFlash)",
-                      "children": [],
                       "value": "/"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "li"
                     },
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "elementType": "Element"
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "            "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(Expr)",
@@ -288,12 +268,10 @@
                       "children": [
                         {
                           "type": "Symbol(LeftBracket)",
-                          "children": [],
                           "value": "<"
                         },
                         {
                           "type": "Symbol(Identifier)",
-                          "children": [],
                           "value": "li"
                         }
                       ]
@@ -303,86 +281,80 @@
                       "children": [
                         {
                           "type": "Symbol(RightBracket)",
-                          "children": [],
                           "value": ">"
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "closeSelf": false
                 },
                 {
                   "type": "Symbol(TagTail)",
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(BackFlash)",
-                      "children": [],
                       "value": "/"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "li"
                     },
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "elementType": "Element"
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "        "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(TagTail)",
               "children": [
                 {
                   "type": "Symbol(LeftBracket)",
-                  "children": [],
                   "value": "<"
                 },
                 {
                   "type": "Symbol(BackFlash)",
-                  "children": [],
                   "value": "/"
                 },
                 {
                   "type": "Symbol(Identifier)",
-                  "children": [],
                   "value": "ul"
                 },
                 {
                   "type": "Symbol(RightBracket)",
-                  "children": [],
                   "value": ">"
                 }
               ]
             }
-          ]
+          ],
+          "elementType": "Element"
         },
         {
           "type": "Symbol(Expr)",
           "children": [
             {
               "type": "Symbol(Text)",
-              "children": [],
               "value": "        "
             }
-          ]
+          ],
+          "elementType": "Text"
         },
         {
           "type": "Symbol(Expr)",
@@ -395,12 +367,10 @@
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "ul"
                     }
                   ]
@@ -410,17 +380,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "class"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"right\""
                     }
                   ]
@@ -430,22 +397,22 @@
                   "children": [
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "closeSelf": false
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "            "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(Expr)",
@@ -458,12 +425,10 @@
                       "children": [
                         {
                           "type": "Symbol(LeftBracket)",
-                          "children": [],
                           "value": "<"
                         },
                         {
                           "type": "Symbol(Identifier)",
-                          "children": [],
                           "value": "li"
                         }
                       ]
@@ -473,49 +438,46 @@
                       "children": [
                         {
                           "type": "Symbol(RightBracket)",
-                          "children": [],
                           "value": ">"
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "closeSelf": false
                 },
                 {
                   "type": "Symbol(TagTail)",
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(BackFlash)",
-                      "children": [],
                       "value": "/"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "li"
                     },
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "elementType": "Element"
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "            "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(Expr)",
@@ -528,12 +490,10 @@
                       "children": [
                         {
                           "type": "Symbol(LeftBracket)",
-                          "children": [],
                           "value": "<"
                         },
                         {
                           "type": "Symbol(Identifier)",
-                          "children": [],
                           "value": "li"
                         }
                       ]
@@ -543,49 +503,46 @@
                       "children": [
                         {
                           "type": "Symbol(RightBracket)",
-                          "children": [],
                           "value": ">"
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "closeSelf": false
                 },
                 {
                   "type": "Symbol(TagTail)",
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(BackFlash)",
-                      "children": [],
                       "value": "/"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "li"
                     },
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "elementType": "Element"
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "            "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(Expr)",
@@ -598,12 +555,10 @@
                       "children": [
                         {
                           "type": "Symbol(LeftBracket)",
-                          "children": [],
                           "value": "<"
                         },
                         {
                           "type": "Symbol(Identifier)",
-                          "children": [],
                           "value": "li"
                         }
                       ]
@@ -613,113 +568,104 @@
                       "children": [
                         {
                           "type": "Symbol(RightBracket)",
-                          "children": [],
                           "value": ">"
                         }
                       ]
                     }
-                  ]
+                  ],
+                  "closeSelf": false
                 },
                 {
                   "type": "Symbol(TagTail)",
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(BackFlash)",
-                      "children": [],
                       "value": "/"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "li"
                     },
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "elementType": "Element"
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "        "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(TagTail)",
               "children": [
                 {
                   "type": "Symbol(LeftBracket)",
-                  "children": [],
                   "value": "<"
                 },
                 {
                   "type": "Symbol(BackFlash)",
-                  "children": [],
                   "value": "/"
                 },
                 {
                   "type": "Symbol(Identifier)",
-                  "children": [],
                   "value": "ul"
                 },
                 {
                   "type": "Symbol(RightBracket)",
-                  "children": [],
                   "value": ">"
                 }
               ]
             }
-          ]
+          ],
+          "elementType": "Element"
         },
         {
           "type": "Symbol(Expr)",
           "children": [
             {
               "type": "Symbol(Text)",
-              "children": [],
               "value": "    "
             }
-          ]
+          ],
+          "elementType": "Text"
         },
         {
           "type": "Symbol(TagTail)",
           "children": [
             {
               "type": "Symbol(LeftBracket)",
-              "children": [],
               "value": "<"
             },
             {
               "type": "Symbol(BackFlash)",
-              "children": [],
               "value": "/"
             },
             {
               "type": "Symbol(Identifier)",
-              "children": [],
               "value": "section"
             },
             {
               "type": "Symbol(RightBracket)",
-              "children": [],
               "value": ">"
             }
           ]
         }
-      ]
+      ],
+      "elementType": "Element"
     }
   ]
 }

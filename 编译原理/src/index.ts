@@ -1,38 +1,53 @@
-import { createTokenizer, Tokenizer } from "./tokenizer";
+import { JSXCompiler } from "./compiler";
 const path = require("path");
 const fs = require("fs");
-const vformXml = fs
-  .readFileSync(path.resolve(__dirname, "./vform.dxml"))
-  .toString();
-const vformItemXml = fs
-  .readFileSync(path.resolve(__dirname, "./vform-item.dxml"))
-  .toString();
 
-let tokenizer = createTokenizer(Tokenizer);
-tokenizer.run(vformXml);
-fs.writeFileSync(
-  path.resolve(__dirname, "./vformToken.json"),
-  JSON.stringify(
-    tokenizer.tokens.map((token) => {
-      return {
-        type: token.type?.toString(),
-        value: token.value,
-      };
-    })
-  )
-);
-tokenizer.run(vformItemXml);
-fs.writeFileSync(
-  path.resolve(__dirname, "./vformItemToken.json"),
-  JSON.stringify(
-    tokenizer.tokens.map((token) => {
-      return {
-        type: token.type?.toString(),
-        value: token.value,
-      };
-    })
-  )
-);
+const compiler = new JSXCompiler.Compiler;
+const authAST = compiler.compileFile({
+  path: path.resolve(__dirname, "templates/auth.dxml")
+});
+
+// fs.writeFileSync(
+//   path.resolve(__dirname, "./targets/authAST.json"),
+//   JSON.stringify(authAST),
+// );
+
+const demoAST = compiler.compile('<div>123</div>');
+console.log(JSON.stringify(demoAST));
+
+
+// const vformXml = fs
+//   .readFileSync(path.resolve(__dirname, "./vform.dxml"))
+//   .toString();
+// const vformItemXml = fs
+//   .readFileSync(path.resolve(__dirname, "./vform-item.dxml"))
+//   .toString();
+
+// let tokenizer = createTokenizer(Tokenizer);
+// tokenizer.run(vformXml);
+// fs.writeFileSync(
+//   path.resolve(__dirname, "./vformToken.json"),
+//   JSON.stringify(
+//     tokenizer.tokens.map((token) => {
+//       return {
+//         type: token.type?.toString(),
+//         value: token.value,
+//       };
+//     })
+//   )
+// );
+// tokenizer.run(vformItemXml);
+// fs.writeFileSync(
+//   path.resolve(__dirname, "./vformItemToken.json"),
+//   JSON.stringify(
+//     tokenizer.tokens.map((token) => {
+//       return {
+//         type: token.type?.toString(),
+//         value: token.value,
+//       };
+//     })
+//   )
+// );
 
 /**
  * expected
