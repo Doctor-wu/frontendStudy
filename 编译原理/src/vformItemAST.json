@@ -12,12 +12,10 @@
               "children": [
                 {
                   "type": "Symbol(LeftBracket)",
-                  "children": [],
                   "value": "<"
                 },
                 {
                   "type": "Symbol(Identifier)",
-                  "children": [],
                   "value": "div"
                 }
               ]
@@ -27,17 +25,14 @@
               "children": [
                 {
                   "type": "Symbol(AttributeKey)",
-                  "children": [],
                   "value": "class"
                 },
                 {
                   "type": "Symbol(Equator)",
-                  "children": [],
                   "value": "="
                 },
                 {
                   "type": "Symbol(AttributeValue)",
-                  "children": [],
                   "value": "\"vform-item\""
                 }
               ]
@@ -47,17 +42,14 @@
               "children": [
                 {
                   "type": "Symbol(AttributeKey)",
-                  "children": [],
                   "value": "style"
                 },
                 {
                   "type": "Symbol(Equator)",
-                  "children": [],
                   "value": "="
                 },
                 {
                   "type": "Symbol(AttributeValue)",
-                  "children": [],
                   "value": "\"\""
                 }
               ]
@@ -67,22 +59,22 @@
               "children": [
                 {
                   "type": "Symbol(RightBracket)",
-                  "children": [],
                   "value": ">"
                 }
               ]
             }
-          ]
+          ],
+          "closeSelf": false
         },
         {
           "type": "Symbol(Expr)",
           "children": [
             {
               "type": "Symbol(Text)",
-              "children": [],
               "value": "      "
             }
-          ]
+          ],
+          "elementType": "Text"
         },
         {
           "type": "Symbol(Expr)",
@@ -95,12 +87,10 @@
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "label"
                     }
                   ]
@@ -110,17 +100,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "class"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"vform-item-label\""
                     }
                   ]
@@ -130,17 +117,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "v-bind:htmlFor"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"getItemID()\""
                     }
                   ]
@@ -150,17 +134,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "style"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"display: block; width: 100%;\""
                     }
                   ]
@@ -170,59 +151,56 @@
                   "children": [
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "closeSelf": false
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "        {{labelContent.value}}      "
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(TagTail)",
               "children": [
                 {
                   "type": "Symbol(LeftBracket)",
-                  "children": [],
                   "value": "<"
                 },
                 {
                   "type": "Symbol(BackFlash)",
-                  "children": [],
                   "value": "/"
                 },
                 {
                   "type": "Symbol(Identifier)",
-                  "children": [],
                   "value": "label"
                 },
                 {
                   "type": "Symbol(RightBracket)",
-                  "children": [],
                   "value": ">"
                 }
               ]
             }
-          ]
+          ],
+          "elementType": "Element"
         },
         {
           "type": "Symbol(Expr)",
           "children": [
             {
               "type": "Symbol(Text)",
-              "children": [],
               "value": "      "
             }
-          ]
+          ],
+          "elementType": "Text"
         },
         {
           "type": "Symbol(Expr)",
@@ -235,12 +213,10 @@
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "input"
                     }
                   ]
@@ -250,17 +226,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "@input"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"inputHandler\""
                     }
                   ]
@@ -270,17 +243,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "class"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"vform-item-control\""
                     }
                   ]
@@ -290,17 +260,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "v-bind:id"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"getItemID()\""
                     }
                   ]
@@ -310,17 +277,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "v-bind:value"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"$props.value || null\""
                     }
                   ]
@@ -330,17 +294,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "v-bind:placeholder"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"placeholder.value\""
                     }
                   ]
@@ -350,27 +311,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
-                      "value": "configurable"
-                    }
-                  ]
-                },
-                {
-                  "type": "Symbol(Attribute)",
-                  "children": [
-                    {
-                      "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "v-bind"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"$props.controllConfig\""
                     }
                   ]
@@ -380,7 +328,15 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
+                      "value": "configurable"
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
                       "value": "required"
                     }
                   ]
@@ -390,29 +346,29 @@
                   "children": [
                     {
                       "type": "Symbol(BackFlash)",
-                      "children": [],
                       "value": "/"
                     },
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "closeSelf": true
             }
-          ]
+          ],
+          "elementType": "Element"
         },
         {
           "type": "Symbol(Expr)",
           "children": [
             {
               "type": "Symbol(Text)",
-              "children": [],
               "value": "      "
             }
-          ]
+          ],
+          "elementType": "Text"
         },
         {
           "type": "Symbol(Expr)",
@@ -425,12 +381,10 @@
                   "children": [
                     {
                       "type": "Symbol(LeftBracket)",
-                      "children": [],
                       "value": "<"
                     },
                     {
                       "type": "Symbol(Identifier)",
-                      "children": [],
                       "value": "div"
                     }
                   ]
@@ -440,17 +394,14 @@
                   "children": [
                     {
                       "type": "Symbol(AttributeKey)",
-                      "children": [],
                       "value": "class"
                     },
                     {
                       "type": "Symbol(Equator)",
-                      "children": [],
                       "value": "="
                     },
                     {
                       "type": "Symbol(AttributeValue)",
-                      "children": [],
                       "value": "\"vform-item-msgbox\""
                     }
                   ]
@@ -460,76 +411,70 @@
                   "children": [
                     {
                       "type": "Symbol(RightBracket)",
-                      "children": [],
                       "value": ">"
                     }
                   ]
                 }
-              ]
+              ],
+              "closeSelf": false
             },
             {
               "type": "Symbol(Expr)",
               "children": [
                 {
                   "type": "Symbol(Text)",
-                  "children": [],
                   "value": "{{errMsg.value}}"
                 }
-              ]
+              ],
+              "elementType": "Text"
             },
             {
               "type": "Symbol(TagTail)",
               "children": [
                 {
                   "type": "Symbol(LeftBracket)",
-                  "children": [],
                   "value": "<"
                 },
                 {
                   "type": "Symbol(BackFlash)",
-                  "children": [],
                   "value": "/"
                 },
                 {
                   "type": "Symbol(Identifier)",
-                  "children": [],
                   "value": "div"
                 },
                 {
                   "type": "Symbol(RightBracket)",
-                  "children": [],
                   "value": ">"
                 }
               ]
             }
-          ]
+          ],
+          "elementType": "Element"
         },
         {
           "type": "Symbol(TagTail)",
           "children": [
             {
               "type": "Symbol(LeftBracket)",
-              "children": [],
               "value": "<"
             },
             {
               "type": "Symbol(BackFlash)",
-              "children": [],
               "value": "/"
             },
             {
               "type": "Symbol(Identifier)",
-              "children": [],
               "value": "div"
             },
             {
               "type": "Symbol(RightBracket)",
-              "children": [],
               "value": ">"
             }
           ]
         }
-      ]
+      ],
+      "elementType": "Element"
     }
   ]
 }

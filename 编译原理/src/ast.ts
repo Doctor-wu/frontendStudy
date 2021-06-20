@@ -3,7 +3,7 @@ import { createTokenizer, JSXTokenizer, Tokenizer } from "./tokenizer";
 const fs = require("fs");
 const path = require("path");
 
-export namespace AST {
+export module AST {
   export type ASTNodeType =
     | typeof ASTNodeType[keyof typeof ASTNodeType]
     | typeof FinalTokenType[keyof typeof FinalTokenType];
@@ -12,6 +12,11 @@ export namespace AST {
     type: ASTNodeType;
     value?: string;
     children?: ASTNode[];
+  }
+
+  export interface ASTElementNode extends ASTNode {
+    elementType?: "Text" | "Element";
+    closeSelf?: Boolean | String;
   }
 
   // 非终结符
@@ -51,17 +56,18 @@ export namespace AST {
 
   interface IParse extends Record<UnFinalToken, UnFinalTokenHandler> {
     tokenReader: TokenReader;
-    ast: ASTNode;
+    ast: ASTElementNode;
     closeSelf: Boolean;
   }
 
   export class Parse implements IParse {
     tokenReader: TokenReader = new TokenReader([]);
-    ast: ASTNode;
-    currentNode!: ASTNode;
-    parentNode!: ASTNode;
+    ast: ASTElementNode;
+    currentNode!: ASTElementNode;
+    parentNode!: ASTElementNode;
     currentToken!: JSXTokenizer.IToken;
     closeSelf: Boolean = false;
+    identifierStack: string[] = [];
 
     constructor(tokens: JSXTokenizer.IToken[]) {
       this.tokenReader.loadTokens(tokens);
@@ -70,10 +76,10 @@ export namespace AST {
 
     createASTNode(
       type: ASTNodeType,
-      children: ASTNode[] = [],
+      children: ASTElementNode[] | undefined,
       value?: string
-    ): ASTNode {
-      let node: ASTNode = {
+    ): ASTElementNode {
+      let node: ASTElementNode = {
         type: <any>type.toString(),
       };
       if (children !== undefined) node.children = children;
@@ -92,6 +98,19 @@ export namespace AST {
       return this.ast;
     }
 
+    checkIdentifier() {
+      if (this.closeSelf) return;
+
+      let lastIdentifier = this.identifierStack.pop();
+      if (this.tokenReader.peek()?.value !== lastIdentifier) {
+        throw TypeError(
+          `Unexpeted TagTail Identifier ${
+            this.tokenReader.peek()?.value
+          } whitch is not match ${lastIdentifier}`
+        );
+      }
+    }
+
     Program(): UnFinalTokenHandlerReturnType {
       let root = this.createASTNode(ASTNodeType.Program, []);
       this.currentNode = root;
@@ -102,7 +121,7 @@ export namespace AST {
         console.log("AST Generate Success!");
         return true;
       }
-      console.log("AST Generate Failed!");
+      throw TypeError("AST Generate Failed!");
       return false;
     }
 
@@ -114,18 +133,19 @@ export namespace AST {
       this.parentNode = node;
 
       if (this.currentToken.type === JSXTokenizer.Text) {
-        this.parentNode.children?.push(
-          this.createASTNode(
-            FinalTokenType.Text,
-            undefined,
-            this.currentToken.value
-          )
+        let textNode = this.createASTNode(
+          FinalTokenType.Text,
+          undefined,
+          this.currentToken.value
         );
+        node.elementType = "Text";
+        this.parentNode.children?.push(textNode);
         this.tokenReader.read();
         this.parentNode = oldParent;
         this.Expr();
         return true;
       } else if (this.TagHead()) {
+        node.elementType = "Element";
         if (this.closeSelf) {
           this.parentNode = oldParent;
           this.Expr();
@@ -167,10 +187,16 @@ export namespace AST {
         this.parentNode = node;
         if (this.Attribute()) {
           this.parentNode = node;
-          return this.TagHeadEnd();
+          if (this.TagHeadEnd()) {
+            node.closeSelf = !!this.closeSelf;
+            return true;
+          }
+          oldParent.children?.pop();
+          return false;
         } else {
           this.parentNode = node;
           if (this.TagHeadEnd()) {
+            node.closeSelf = !!this.closeSelf;
             return true;
           }
         }
@@ -197,6 +223,8 @@ export namespace AST {
         this.tokenReader.read();
         this.setCurrentToken(this.tokenReader.peek());
         if (this.currentToken.type === JSXTokenizer.JSXIdentifierType) {
+          this.identifierStack.push(this.currentToken.value);
+
           this.parentNode.children?.push(
             this.createASTNode(
               FinalTokenType.Identifier,
@@ -292,6 +320,7 @@ export namespace AST {
           );
           this.tokenReader.read();
           this.closeSelf = true;
+          this.identifierStack.pop();
           return true;
         }
         this.tokenReader.unread();
@@ -338,6 +367,7 @@ export namespace AST {
           if (
             this.tokenReader.peek()?.type === JSXTokenizer.JSXIdentifierType
           ) {
+            this.checkIdentifier();
             this.parentNode.children?.push(
               this.createASTNode(
                 FinalTokenType.Identifier,

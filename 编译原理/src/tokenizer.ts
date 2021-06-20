@@ -1,6 +1,6 @@
 import { ITokenizerConstructor } from "docs/flexier";
 
-export namespace JSXTokenizer {
+export module JSXTokenizer {
   export interface ITokenizerConstructor {
     new (): ITokenizer;
   }
