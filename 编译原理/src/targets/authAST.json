@@ -15,49 +15,33 @@
       "type": "Symbol(Expr)",
       "children": [
         {
-          "type": "Symbol(TagHead)",
+          "type": "Symbol(LeftBracket)",
+          "value": "<"
+        },
+        {
+          "type": "Symbol(Identifier)",
+          "value": "section"
+        },
+        {
+          "type": "Symbol(Attribute)",
           "children": [
             {
-              "type": "Symbol(TagHeadStart)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "section"
-                }
-              ]
+              "type": "Symbol(AttributeKey)",
+              "value": "class"
             },
             {
-              "type": "Symbol(Attribute)",
-              "children": [
-                {
-                  "type": "Symbol(AttributeKey)",
-                  "value": "class"
-                },
-                {
-                  "type": "Symbol(Equator)",
-                  "value": "="
-                },
-                {
-                  "type": "Symbol(AttributeValue)",
-                  "value": "\"auth\""
-                }
-              ]
+              "type": "Symbol(Equator)",
+              "value": "="
             },
             {
-              "type": "Symbol(TagHeadEnd)",
-              "children": [
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ]
+              "type": "Symbol(AttributeValue)",
+              "value": "\"auth\""
             }
-          ],
-          "closeSelf": false
+          ]
+        },
+        {
+          "type": "Symbol(RightBracket)",
+          "value": ">"
         },
         {
           "type": "Symbol(Expr)",
@@ -73,49 +57,33 @@
           "type": "Symbol(Expr)",
           "children": [
             {
-              "type": "Symbol(TagHead)",
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "ul"
+            },
+            {
+              "type": "Symbol(Attribute)",
               "children": [
                 {
-                  "type": "Symbol(TagHeadStart)",
-                  "children": [
-                    {
-                      "type": "Symbol(LeftBracket)",
-                      "value": "<"
-                    },
-                    {
-                      "type": "Symbol(Identifier)",
-                      "value": "ul"
-                    }
-                  ]
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
                 },
                 {
-                  "type": "Symbol(Attribute)",
-                  "children": [
-                    {
-                      "type": "Symbol(AttributeKey)",
-                      "value": "class"
-                    },
-                    {
-                      "type": "Symbol(Equator)",
-                      "value": "="
-                    },
-                    {
-                      "type": "Symbol(AttributeValue)",
-                      "value": "\"left\""
-                    }
-                  ]
+                  "type": "Symbol(Equator)",
+                  "value": "="
                 },
                 {
-                  "type": "Symbol(TagHeadEnd)",
-                  "children": [
-                    {
-                      "type": "Symbol(RightBracket)",
-                      "value": ">"
-                    }
-                  ]
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"left\""
                 }
-              ],
-              "closeSelf": false
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
             },
             {
               "type": "Symbol(Expr)",
@@ -131,53 +99,32 @@
               "type": "Symbol(Expr)",
               "children": [
                 {
-                  "type": "Symbol(TagHead)",
-                  "children": [
-                    {
-                      "type": "Symbol(TagHeadStart)",
-                      "children": [
-                        {
-                          "type": "Symbol(LeftBracket)",
-                          "value": "<"
-                        },
-                        {
-                          "type": "Symbol(Identifier)",
-                          "value": "li"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "Symbol(TagHeadEnd)",
-                      "children": [
-                        {
-                          "type": "Symbol(RightBracket)",
-                          "value": ">"
-                        }
-                      ]
-                    }
-                  ],
-                  "closeSelf": false
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
                 },
                 {
-                  "type": "Symbol(TagTail)",
-                  "children": [
-                    {
-                      "type": "Symbol(LeftBracket)",
-                      "value": "<"
-                    },
-                    {
-                      "type": "Symbol(BackFlash)",
-                      "value": "/"
-                    },
-                    {
-                      "type": "Symbol(Identifier)",
-                      "value": "li"
-                    },
-                    {
-                      "type": "Symbol(RightBracket)",
-                      "value": ">"
-                    }
-                  ]
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
                 }
               ],
               "elementType": "Element"
@@ -196,53 +143,32 @@
               "type": "Symbol(Expr)",
               "children": [
                 {
-                  "type": "Symbol(TagHead)",
-                  "children": [
-                    {
-                      "type": "Symbol(TagHeadStart)",
-                      "children": [
-                        {
-                          "type": "Symbol(LeftBracket)",
-                          "value": "<"
-                        },
-                        {
-                          "type": "Symbol(Identifier)",
-                          "value": "li"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "Symbol(TagHeadEnd)",
-                      "children": [
-                        {
-                          "type": "Symbol(RightBracket)",
-                          "value": ">"
-                        }
-                      ]
-                    }
-                  ],
-                  "closeSelf": false
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
                 },
                 {
-                  "type": "Symbol(TagTail)",
-                  "children": [
-                    {
-                      "type": "Symbol(LeftBracket)",
-                      "value": "<"
-                    },
-                    {
-                      "type": "Symbol(BackFlash)",
-                      "value": "/"
-                    },
-                    {
-                      "type": "Symbol(Identifier)",
-                      "value": "li"
-                    },
-                    {
-                      "type": "Symbol(RightBracket)",
-                      "value": ">"
-                    }
-                  ]
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
                 }
               ],
               "elementType": "Element"
@@ -261,53 +187,32 @@
               "type": "Symbol(Expr)",
               "children": [
                 {
-                  "type": "Symbol(TagHead)",
-                  "children": [
-                    {
-                      "type": "Symbol(TagHeadStart)",
-                      "children": [
-                        {
-                          "type": "Symbol(LeftBracket)",
-                          "value": "<"
-                        },
-                        {
-                          "type": "Symbol(Identifier)",
-                          "value": "li"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "Symbol(TagHeadEnd)",
-                      "children": [
-                        {
-                          "type": "Symbol(RightBracket)",
-                          "value": ">"
-                        }
-                      ]
-                    }
-                  ],
-                  "closeSelf": false
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
                 },
                 {
-                  "type": "Symbol(TagTail)",
-                  "children": [
-                    {
-                      "type": "Symbol(LeftBracket)",
-                      "value": "<"
-                    },
-                    {
-                      "type": "Symbol(BackFlash)",
-                      "value": "/"
-                    },
-                    {
-                      "type": "Symbol(Identifier)",
-                      "value": "li"
-                    },
-                    {
-                      "type": "Symbol(RightBracket)",
-                      "value": ">"
-                    }
-                  ]
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
                 }
               ],
               "elementType": "Element"
@@ -323,25 +228,20 @@
               "elementType": "Text"
             },
             {
-              "type": "Symbol(TagTail)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(BackFlash)",
-                  "value": "/"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "ul"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ]
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "ul"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
             }
           ],
           "elementType": "Element"
@@ -360,49 +260,33 @@
           "type": "Symbol(Expr)",
           "children": [
             {
-              "type": "Symbol(TagHead)",
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "ul"
+            },
+            {
+              "type": "Symbol(Attribute)",
               "children": [
                 {
-                  "type": "Symbol(TagHeadStart)",
-                  "children": [
-                    {
-                      "type": "Symbol(LeftBracket)",
-                      "value": "<"
-                    },
-                    {
-                      "type": "Symbol(Identifier)",
-                      "value": "ul"
-                    }
-                  ]
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
                 },
                 {
-                  "type": "Symbol(Attribute)",
-                  "children": [
-                    {
-                      "type": "Symbol(AttributeKey)",
-                      "value": "class"
-                    },
-                    {
-                      "type": "Symbol(Equator)",
-                      "value": "="
-                    },
-                    {
-                      "type": "Symbol(AttributeValue)",
-                      "value": "\"right\""
-                    }
-                  ]
+                  "type": "Symbol(Equator)",
+                  "value": "="
                 },
                 {
-                  "type": "Symbol(TagHeadEnd)",
-                  "children": [
-                    {
-                      "type": "Symbol(RightBracket)",
-                      "value": ">"
-                    }
-                  ]
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"right\""
                 }
-              ],
-              "closeSelf": false
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
             },
             {
               "type": "Symbol(Expr)",
@@ -418,53 +302,32 @@
               "type": "Symbol(Expr)",
               "children": [
                 {
-                  "type": "Symbol(TagHead)",
-                  "children": [
-                    {
-                      "type": "Symbol(TagHeadStart)",
-                      "children": [
-                        {
-                          "type": "Symbol(LeftBracket)",
-                          "value": "<"
-                        },
-                        {
-                          "type": "Symbol(Identifier)",
-                          "value": "li"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "Symbol(TagHeadEnd)",
-                      "children": [
-                        {
-                          "type": "Symbol(RightBracket)",
-                          "value": ">"
-                        }
-                      ]
-                    }
-                  ],
-                  "closeSelf": false
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
                 },
                 {
-                  "type": "Symbol(TagTail)",
-                  "children": [
-                    {
-                      "type": "Symbol(LeftBracket)",
-                      "value": "<"
-                    },
-                    {
-                      "type": "Symbol(BackFlash)",
-                      "value": "/"
-                    },
-                    {
-                      "type": "Symbol(Identifier)",
-                      "value": "li"
-                    },
-                    {
-                      "type": "Symbol(RightBracket)",
-                      "value": ">"
-                    }
-                  ]
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
                 }
               ],
               "elementType": "Element"
@@ -483,53 +346,32 @@
               "type": "Symbol(Expr)",
               "children": [
                 {
-                  "type": "Symbol(TagHead)",
-                  "children": [
-                    {
-                      "type": "Symbol(TagHeadStart)",
-                      "children": [
-                        {
-                          "type": "Symbol(LeftBracket)",
-                          "value": "<"
-                        },
-                        {
-                          "type": "Symbol(Identifier)",
-                          "value": "li"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "Symbol(TagHeadEnd)",
-                      "children": [
-                        {
-                          "type": "Symbol(RightBracket)",
-                          "value": ">"
-                        }
-                      ]
-                    }
-                  ],
-                  "closeSelf": false
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
                 },
                 {
-                  "type": "Symbol(TagTail)",
-                  "children": [
-                    {
-                      "type": "Symbol(LeftBracket)",
-                      "value": "<"
-                    },
-                    {
-                      "type": "Symbol(BackFlash)",
-                      "value": "/"
-                    },
-                    {
-                      "type": "Symbol(Identifier)",
-                      "value": "li"
-                    },
-                    {
-                      "type": "Symbol(RightBracket)",
-                      "value": ">"
-                    }
-                  ]
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
                 }
               ],
               "elementType": "Element"
@@ -548,53 +390,32 @@
               "type": "Symbol(Expr)",
               "children": [
                 {
-                  "type": "Symbol(TagHead)",
-                  "children": [
-                    {
-                      "type": "Symbol(TagHeadStart)",
-                      "children": [
-                        {
-                          "type": "Symbol(LeftBracket)",
-                          "value": "<"
-                        },
-                        {
-                          "type": "Symbol(Identifier)",
-                          "value": "li"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "Symbol(TagHeadEnd)",
-                      "children": [
-                        {
-                          "type": "Symbol(RightBracket)",
-                          "value": ">"
-                        }
-                      ]
-                    }
-                  ],
-                  "closeSelf": false
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
                 },
                 {
-                  "type": "Symbol(TagTail)",
-                  "children": [
-                    {
-                      "type": "Symbol(LeftBracket)",
-                      "value": "<"
-                    },
-                    {
-                      "type": "Symbol(BackFlash)",
-                      "value": "/"
-                    },
-                    {
-                      "type": "Symbol(Identifier)",
-                      "value": "li"
-                    },
-                    {
-                      "type": "Symbol(RightBracket)",
-                      "value": ">"
-                    }
-                  ]
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "li"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
                 }
               ],
               "elementType": "Element"
@@ -610,25 +431,20 @@
               "elementType": "Text"
             },
             {
-              "type": "Symbol(TagTail)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(BackFlash)",
-                  "value": "/"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "ul"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ]
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "ul"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
             }
           ],
           "elementType": "Element"
@@ -644,25 +460,20 @@
           "elementType": "Text"
         },
         {
-          "type": "Symbol(TagTail)",
-          "children": [
-            {
-              "type": "Symbol(LeftBracket)",
-              "value": "<"
-            },
-            {
-              "type": "Symbol(BackFlash)",
-              "value": "/"
-            },
-            {
-              "type": "Symbol(Identifier)",
-              "value": "section"
-            },
-            {
-              "type": "Symbol(RightBracket)",
-              "value": ">"
-            }
-          ]
+          "type": "Symbol(LeftBracket)",
+          "value": "<"
+        },
+        {
+          "type": "Symbol(BackFlash)",
+          "value": "/"
+        },
+        {
+          "type": "Symbol(Identifier)",
+          "value": "section"
+        },
+        {
+          "type": "Symbol(RightBracket)",
+          "value": ">"
         }
       ],
       "elementType": "Element"

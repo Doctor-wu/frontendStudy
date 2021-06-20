@@ -4,16 +4,17 @@ const fs = require("fs");
 
 const compiler = new JSXCompiler.Compiler;
 const authAST = compiler.compileFile({
-  path: path.resolve(__dirname, "templates/auth.dxml")
+  path: path.resolve(__dirname, "templates/vform.dxml"),
+  extractParserNode: true
 });
 
-// fs.writeFileSync(
-//   path.resolve(__dirname, "./targets/authAST.json"),
-//   JSON.stringify(authAST),
-// );
+fs.writeFileSync(
+  path.resolve(__dirname, "./targets/vformAST.json"),
+  JSON.stringify(authAST),
+);
 
-const demoAST = compiler.compile('<div>123</div>');
-console.log(JSON.stringify(demoAST));
+// const demoAST = compiler.compile('<div>123</div>');
+// console.log(JSON.stringify(compiler.extractASTParserNode(demoAST)));
 
 
 // const vformXml = fs
