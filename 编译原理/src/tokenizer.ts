@@ -25,6 +25,18 @@ export module JSXTokenizer {
     run(input: JSXTokenizer.TokenizerParamter): IToken[];
     searchBeginTagStart: IStateExcutor;
     searchJSXIdentifier: IStateExcutor;
+    searchFirstCommentBar: IStateExcutor;
+    searchSecondCommentBar: IStateExcutor;
+    searchCommentContent: IStateExcutor;
+    searchCommentEnd: IStateExcutor;
+    searchJSXAttributeKey: IStateExcutor;
+    foundBackFlashInAttribute: IStateExcutor;
+    searchJSXAttributeValue: IStateExcutor;
+    foundAttributeQuote: IStateExcutor;
+    foundJSXBeginTagEnd: IStateExcutor;
+    resetCurrentToken(): void;
+    emit(token: IToken): void;
+    pop(): IToken | undefined;
   }
 
   export const TagStartType = Symbol("TagStartType");
@@ -46,14 +58,12 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
     value: "",
   };
   RE: JSXTokenizer.REType = {
-    LETTERS: /[a-zA-Z0-9]/,
+    LETTERS: /[a-zA-Z0-9\-]/,
     ATTRIBUTEKEY: /[a-zA-Z0-9-@:$\.]/,
-    ATTRIBUTEVALUE: /[a-zA-Z0-9-@:$|();%\.\s]/,
+    ATTRIBUTEVALUE: /[^\"]/,
     Text: /./,
     commentContent: /[^-]/,
   };
-
-  constructor() {}
 
   run(input: JSXTokenizer.TokenizerParamter): JSXTokenizer.IToken[] {
     this.tokens = [];
@@ -167,11 +177,14 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
     if (char === "-") {
       this.currentToken.value += char;
       return this.searchCommentEnd;
-    }else if (char === '>') {
+    } else if (char === ">") {
       this.currentToken.value += char;
       this.emit(this.currentToken);
       this.resetCurrentToken();
       return this.searchBeginTagStart;
+    } else {
+      this.currentToken.value += char;
+      return this.searchCommentContent;
     }
 
     throw TypeError("Unexpeted Error");
@@ -285,7 +298,7 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
     };
   }
 
-  emit(token: JSXTokenizer.IToken) {
+  emit(token: JSXTokenizer.IToken): void {
     if (!token.value) return;
 
     this.tokens.push(token);
