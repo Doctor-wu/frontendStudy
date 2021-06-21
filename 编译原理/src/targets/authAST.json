@@ -5,475 +5,644 @@
       "type": "Symbol(Expr)",
       "children": [
         {
-          "type": "Symbol(Text)",
-          "value": "    "
-        }
-      ],
-      "elementType": "Text"
-    },
-    {
-      "type": "Symbol(Expr)",
-      "children": [
-        {
-          "type": "Symbol(LeftBracket)",
-          "value": "<"
-        },
-        {
-          "type": "Symbol(Identifier)",
-          "value": "section"
-        },
-        {
-          "type": "Symbol(Attribute)",
+          "type": "Symbol(TagHead)",
           "children": [
             {
-              "type": "Symbol(AttributeKey)",
-              "value": "class"
+              "type": "Symbol(TagHeadStart)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "section"
+                }
+              ]
             },
             {
-              "type": "Symbol(Equator)",
-              "value": "="
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"auth\""
+                }
+              ]
             },
             {
-              "type": "Symbol(AttributeValue)",
-              "value": "\"auth\""
+              "type": "Symbol(TagHeadEnd)",
+              "children": [
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ]
+            }
+          ],
+          "closeSelf": false
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "  __router-view__  "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(TagHead)",
+              "children": [
+                {
+                  "type": "Symbol(TagHeadStart)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "ul"
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "class"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"left\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(TagHeadEnd)",
+                  "children": [
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ]
+                }
+              ],
+              "closeSelf": false
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "    "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(TagHead)",
+                  "children": [
+                    {
+                      "type": "Symbol(TagHeadStart)",
+                      "children": [
+                        {
+                          "type": "Symbol(LeftBracket)",
+                          "value": "<"
+                        },
+                        {
+                          "type": "Symbol(Identifier)",
+                          "value": "li"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Symbol(TagHeadEnd)",
+                      "children": [
+                        {
+                          "type": "Symbol(RightBracket)",
+                          "value": ">"
+                        }
+                      ]
+                    }
+                  ],
+                  "closeSelf": false
+                },
+                {
+                  "type": "Symbol(TagTail)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(BackFlash)",
+                      "value": "/"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "li"
+                    },
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ]
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "    "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(TagHead)",
+                  "children": [
+                    {
+                      "type": "Symbol(TagHeadStart)",
+                      "children": [
+                        {
+                          "type": "Symbol(LeftBracket)",
+                          "value": "<"
+                        },
+                        {
+                          "type": "Symbol(Identifier)",
+                          "value": "li"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Symbol(TagHeadEnd)",
+                      "children": [
+                        {
+                          "type": "Symbol(RightBracket)",
+                          "value": ">"
+                        }
+                      ]
+                    }
+                  ],
+                  "closeSelf": false
+                },
+                {
+                  "type": "Symbol(TagTail)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(BackFlash)",
+                      "value": "/"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "li"
+                    },
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ]
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "    "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(TagHead)",
+                  "children": [
+                    {
+                      "type": "Symbol(TagHeadStart)",
+                      "children": [
+                        {
+                          "type": "Symbol(LeftBracket)",
+                          "value": "<"
+                        },
+                        {
+                          "type": "Symbol(Identifier)",
+                          "value": "li"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Symbol(TagHeadEnd)",
+                      "children": [
+                        {
+                          "type": "Symbol(RightBracket)",
+                          "value": ">"
+                        }
+                      ]
+                    }
+                  ],
+                  "closeSelf": false
+                },
+                {
+                  "type": "Symbol(TagTail)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(BackFlash)",
+                      "value": "/"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "li"
+                    },
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ]
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "  "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(TagTail)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "ul"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ]
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "  "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(TagHead)",
+              "children": [
+                {
+                  "type": "Symbol(TagHeadStart)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "ul"
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "class"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"right\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(TagHeadEnd)",
+                  "children": [
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ]
+                }
+              ],
+              "closeSelf": false
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "    "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(TagHead)",
+                  "children": [
+                    {
+                      "type": "Symbol(TagHeadStart)",
+                      "children": [
+                        {
+                          "type": "Symbol(LeftBracket)",
+                          "value": "<"
+                        },
+                        {
+                          "type": "Symbol(Identifier)",
+                          "value": "li"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Symbol(TagHeadEnd)",
+                      "children": [
+                        {
+                          "type": "Symbol(RightBracket)",
+                          "value": ">"
+                        }
+                      ]
+                    }
+                  ],
+                  "closeSelf": false
+                },
+                {
+                  "type": "Symbol(TagTail)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(BackFlash)",
+                      "value": "/"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "li"
+                    },
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ]
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "    "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(TagHead)",
+                  "children": [
+                    {
+                      "type": "Symbol(TagHeadStart)",
+                      "children": [
+                        {
+                          "type": "Symbol(LeftBracket)",
+                          "value": "<"
+                        },
+                        {
+                          "type": "Symbol(Identifier)",
+                          "value": "li"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Symbol(TagHeadEnd)",
+                      "children": [
+                        {
+                          "type": "Symbol(RightBracket)",
+                          "value": ">"
+                        }
+                      ]
+                    }
+                  ],
+                  "closeSelf": false
+                },
+                {
+                  "type": "Symbol(TagTail)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(BackFlash)",
+                      "value": "/"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "li"
+                    },
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ]
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "    "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(TagHead)",
+                  "children": [
+                    {
+                      "type": "Symbol(TagHeadStart)",
+                      "children": [
+                        {
+                          "type": "Symbol(LeftBracket)",
+                          "value": "<"
+                        },
+                        {
+                          "type": "Symbol(Identifier)",
+                          "value": "li"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Symbol(TagHeadEnd)",
+                      "children": [
+                        {
+                          "type": "Symbol(RightBracket)",
+                          "value": ">"
+                        }
+                      ]
+                    }
+                  ],
+                  "closeSelf": false
+                },
+                {
+                  "type": "Symbol(TagTail)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(BackFlash)",
+                      "value": "/"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "li"
+                    },
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ]
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "  "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(TagTail)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "ul"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ]
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(TagTail)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "section"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
             }
           ]
-        },
-        {
-          "type": "Symbol(RightBracket)",
-          "value": ">"
-        },
-        {
-          "type": "Symbol(Expr)",
-          "children": [
-            {
-              "type": "Symbol(Text)",
-              "value": "        __router-view__        "
-            }
-          ],
-          "elementType": "Text"
-        },
-        {
-          "type": "Symbol(Expr)",
-          "children": [
-            {
-              "type": "Symbol(LeftBracket)",
-              "value": "<"
-            },
-            {
-              "type": "Symbol(Identifier)",
-              "value": "ul"
-            },
-            {
-              "type": "Symbol(Attribute)",
-              "children": [
-                {
-                  "type": "Symbol(AttributeKey)",
-                  "value": "class"
-                },
-                {
-                  "type": "Symbol(Equator)",
-                  "value": "="
-                },
-                {
-                  "type": "Symbol(AttributeValue)",
-                  "value": "\"left\""
-                }
-              ]
-            },
-            {
-              "type": "Symbol(RightBracket)",
-              "value": ">"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(Text)",
-                  "value": "            "
-                }
-              ],
-              "elementType": "Text"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                },
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(BackFlash)",
-                  "value": "/"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ],
-              "elementType": "Element"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(Text)",
-                  "value": "            "
-                }
-              ],
-              "elementType": "Text"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                },
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(BackFlash)",
-                  "value": "/"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ],
-              "elementType": "Element"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(Text)",
-                  "value": "            "
-                }
-              ],
-              "elementType": "Text"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                },
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(BackFlash)",
-                  "value": "/"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ],
-              "elementType": "Element"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(Text)",
-                  "value": "        "
-                }
-              ],
-              "elementType": "Text"
-            },
-            {
-              "type": "Symbol(LeftBracket)",
-              "value": "<"
-            },
-            {
-              "type": "Symbol(BackFlash)",
-              "value": "/"
-            },
-            {
-              "type": "Symbol(Identifier)",
-              "value": "ul"
-            },
-            {
-              "type": "Symbol(RightBracket)",
-              "value": ">"
-            }
-          ],
-          "elementType": "Element"
-        },
-        {
-          "type": "Symbol(Expr)",
-          "children": [
-            {
-              "type": "Symbol(Text)",
-              "value": "        "
-            }
-          ],
-          "elementType": "Text"
-        },
-        {
-          "type": "Symbol(Expr)",
-          "children": [
-            {
-              "type": "Symbol(LeftBracket)",
-              "value": "<"
-            },
-            {
-              "type": "Symbol(Identifier)",
-              "value": "ul"
-            },
-            {
-              "type": "Symbol(Attribute)",
-              "children": [
-                {
-                  "type": "Symbol(AttributeKey)",
-                  "value": "class"
-                },
-                {
-                  "type": "Symbol(Equator)",
-                  "value": "="
-                },
-                {
-                  "type": "Symbol(AttributeValue)",
-                  "value": "\"right\""
-                }
-              ]
-            },
-            {
-              "type": "Symbol(RightBracket)",
-              "value": ">"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(Text)",
-                  "value": "            "
-                }
-              ],
-              "elementType": "Text"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                },
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(BackFlash)",
-                  "value": "/"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ],
-              "elementType": "Element"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(Text)",
-                  "value": "            "
-                }
-              ],
-              "elementType": "Text"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                },
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(BackFlash)",
-                  "value": "/"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ],
-              "elementType": "Element"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(Text)",
-                  "value": "            "
-                }
-              ],
-              "elementType": "Text"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                },
-                {
-                  "type": "Symbol(LeftBracket)",
-                  "value": "<"
-                },
-                {
-                  "type": "Symbol(BackFlash)",
-                  "value": "/"
-                },
-                {
-                  "type": "Symbol(Identifier)",
-                  "value": "li"
-                },
-                {
-                  "type": "Symbol(RightBracket)",
-                  "value": ">"
-                }
-              ],
-              "elementType": "Element"
-            },
-            {
-              "type": "Symbol(Expr)",
-              "children": [
-                {
-                  "type": "Symbol(Text)",
-                  "value": "        "
-                }
-              ],
-              "elementType": "Text"
-            },
-            {
-              "type": "Symbol(LeftBracket)",
-              "value": "<"
-            },
-            {
-              "type": "Symbol(BackFlash)",
-              "value": "/"
-            },
-            {
-              "type": "Symbol(Identifier)",
-              "value": "ul"
-            },
-            {
-              "type": "Symbol(RightBracket)",
-              "value": ">"
-            }
-          ],
-          "elementType": "Element"
-        },
-        {
-          "type": "Symbol(Expr)",
-          "children": [
-            {
-              "type": "Symbol(Text)",
-              "value": "    "
-            }
-          ],
-          "elementType": "Text"
-        },
-        {
-          "type": "Symbol(LeftBracket)",
-          "value": "<"
-        },
-        {
-          "type": "Symbol(BackFlash)",
-          "value": "/"
-        },
-        {
-          "type": "Symbol(Identifier)",
-          "value": "section"
-        },
-        {
-          "type": "Symbol(RightBracket)",
-          "value": ">"
         }
       ],
       "elementType": "Element"

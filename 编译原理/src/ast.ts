@@ -1,7 +1,5 @@
 import { TokenReader } from "./token-reader";
-import { createTokenizer, JSXTokenizer, Tokenizer } from "./tokenizer";
-const fs = require("fs");
-const path = require("path");
+import { JSXTokenizer } from "./tokenizer";
 
 export module AST {
   export type ASTNodeType =
@@ -15,7 +13,7 @@ export module AST {
   }
 
   export interface ASTElementNode extends ASTNode {
-    elementType?: "Text" | "Element";
+    elementType?: "Text" | "Element" | "Comment";
     closeSelf?: Boolean | String;
   }
 
@@ -33,6 +31,7 @@ export module AST {
   // 终结符
   export const FinalTokenType = {
     Text: Symbol("Text"),
+    Comment: Symbol("Comment"),
     LeftBracket: Symbol("LeftBracket"),
     Identifier: Symbol("Identifier"),
     AttributeKey: Symbol("AttributeKey"),
@@ -76,7 +75,7 @@ export module AST {
     }
 
     createAST(tokens: JSXTokenizer.IToken[]) {
-      this.tokenReader = new TokenReader(tokens);
+      this.tokenReader.loadTokens(tokens);
       return this.toAST();
     }
 
@@ -86,7 +85,7 @@ export module AST {
       value?: string
     ): ASTElementNode {
       let node: ASTElementNode = {
-        type: <any>type.toString(),
+        type: <any>type,
       };
       if (children !== undefined) node.children = children;
       if (value !== undefined) node.value = value;
@@ -137,7 +136,19 @@ export module AST {
       this.parentNode.children?.push(node);
       this.parentNode = node;
 
-      if (this.currentToken.type === JSXTokenizer.Text) {
+      if (this.currentToken.type === JSXTokenizer.Comment) {
+        let textNode = this.createASTNode(
+          FinalTokenType.Comment,
+          undefined,
+          this.currentToken.value
+        );
+        node.elementType = "Comment";
+        this.parentNode.children?.push(textNode);
+        this.tokenReader.read();
+        this.parentNode = oldParent;
+        this.Expr();
+        return true;
+      } else if (this.currentToken.type === JSXTokenizer.Text) {
         let textNode = this.createASTNode(
           FinalTokenType.Text,
           undefined,
@@ -177,7 +188,6 @@ export module AST {
       }
       oldParent.children?.pop();
       return false;
-      throw TypeError(`Unexcepted Token: ${this.currentToken.value}`);
     }
 
     TagHead(): UnFinalTokenHandlerReturnType {
@@ -208,7 +218,6 @@ export module AST {
       }
       oldParent.children?.pop();
       return false;
-      throw TypeError(`Unexcepted Token: ${this.currentToken.value}`);
     }
 
     TagHeadStart(): UnFinalTokenHandlerReturnType {
@@ -244,7 +253,6 @@ export module AST {
         return false;
       }
       return false;
-      throw TypeError(`Unexcepted Token: ${this.currentToken.value}`);
     }
 
     Attribute(): UnFinalTokenHandlerReturnType {
@@ -298,7 +306,6 @@ export module AST {
       }
       oldParent.children?.pop();
       return false;
-      throw TypeError(`Unexcepted Token: ${this.currentToken.value}`);
     }
 
     TagHeadEnd(): UnFinalTokenHandlerReturnType {
@@ -343,7 +350,6 @@ export module AST {
         return true;
       }
       return false;
-      throw TypeError(`Unexcepted Token: ${this.currentToken.value}`);
     }
 
     TagTail(): UnFinalTokenHandlerReturnType {
@@ -405,7 +411,6 @@ export module AST {
         return false;
       }
       return false;
-      throw TypeError(`Unexcepted Token: ${this.currentToken.value}`);
     }
   }
 }

@@ -1,5 +1,3 @@
-import { ITokenizerConstructor } from "docs/flexier";
-
 export module JSXTokenizer {
   export interface ITokenizerConstructor {
     new (): ITokenizer;
@@ -37,6 +35,7 @@ export module JSXTokenizer {
   export const TagEndType = Symbol("TagEndType");
   export const BackFlash = Symbol("BackFlash");
   export const Text = Symbol("Text");
+  export const Comment = Symbol("Comment");
 }
 
 export class Tokenizer implements JSXTokenizer.ITokenizer {
@@ -51,11 +50,12 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
     ATTRIBUTEKEY: /[a-zA-Z0-9-@:$\.]/,
     ATTRIBUTEVALUE: /[a-zA-Z0-9-@:$|();%\.\s]/,
     Text: /./,
+    commentContent: /[^-]/,
   };
 
   constructor() {}
 
-  run(input: JSXTokenizer.TokenizerParamter):JSXTokenizer.IToken[] {
+  run(input: JSXTokenizer.TokenizerParamter): JSXTokenizer.IToken[] {
     this.tokens = [];
     let state: JSXTokenizer.IStateExcutor | void = this.searchBeginTagStart;
     for (const char of input) {
@@ -65,8 +65,8 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
         state = state.call(this, char);
       }
     }
-    console.log('Tokens Generate Success!');
-    
+    console.log("Tokens Generate Success!");
+
     return this.tokens;
   }
 
@@ -117,8 +117,64 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
       });
       return this.searchBeginTagStart;
     }
+    if (char === "!") {
+      let lastToken = this.pop();
+      if (
+        lastToken !== undefined &&
+        lastToken.type !== JSXTokenizer.TagStartType
+      ) {
+        throw TypeError(`UnExcepted char ${char}`);
+      }
+      this.currentToken = {
+        type: JSXTokenizer.Comment,
+        value: "<!",
+      };
+      return this.searchFirstCommentBar;
+    }
 
     throw TypeError("UnExcepted Error");
+  }
+
+  searchFirstCommentBar(char: string): JSXTokenizer.IStateExcutor {
+    if (char === "-") {
+      this.currentToken.value += char;
+      return this.searchSecondCommentBar;
+    }
+    throw TypeError("UnExcepted Error");
+  }
+
+  searchSecondCommentBar(char: string): JSXTokenizer.IStateExcutor {
+    if (char === "-") {
+      this.currentToken.value += char;
+      return this.searchCommentContent;
+    }
+    throw TypeError("UnExcepted Error");
+  }
+
+  searchCommentContent(char: string): JSXTokenizer.IStateExcutor {
+    if (this.RE.commentContent.test(char)) {
+      this.currentToken.value += char;
+      return this.searchCommentContent;
+    } else if (char === "-") {
+      this.currentToken.value += char;
+      return this.searchCommentEnd;
+    }
+
+    throw TypeError("Unexpeted Error");
+  }
+
+  searchCommentEnd(char: string): JSXTokenizer.IStateExcutor {
+    if (char === "-") {
+      this.currentToken.value += char;
+      return this.searchCommentEnd;
+    }else if (char === '>') {
+      this.currentToken.value += char;
+      this.emit(this.currentToken);
+      this.resetCurrentToken();
+      return this.searchBeginTagStart;
+    }
+
+    throw TypeError("Unexpeted Error");
   }
 
   searchJSXAttributeKey(char: string): JSXTokenizer.IStateExcutor {
@@ -233,6 +289,10 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
     if (!token.value) return;
 
     this.tokens.push(token);
+  }
+
+  pop(): JSXTokenizer.IToken | undefined {
+    return this.tokens.pop();
   }
 }
 

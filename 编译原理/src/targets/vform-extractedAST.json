@@ -1,0 +1,1056 @@
+{
+  "type": "Symbol(Program)",
+  "children": [
+    {
+      "type": "Symbol(Expr)",
+      "children": [
+        {
+          "type": "Symbol(LeftBracket)",
+          "value": "<"
+        },
+        {
+          "type": "Symbol(Identifier)",
+          "value": "div"
+        },
+        {
+          "type": "Symbol(Attribute)",
+          "children": [
+            {
+              "type": "Symbol(AttributeKey)",
+              "value": "class"
+            },
+            {
+              "type": "Symbol(Equator)",
+              "value": "="
+            },
+            {
+              "type": "Symbol(AttributeValue)",
+              "value": "\"login\""
+            }
+          ]
+        },
+        {
+          "type": "Symbol(RightBracket)",
+          "value": ">"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "    "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "h3"
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "v-bind:style"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"middleStyle\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "{{stateTitle.value}}"
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "h3"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "      "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "button"
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "@click"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"$parent.addNumbers\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"btn btn-6 btn-success goLogin\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "加"
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "button"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "      "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "button"
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "@click"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"$parent.decreaseNumbers\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"btn btn-6 btn-default\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "减"
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "button"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "    "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "slot"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            },
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "slot"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "    "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "div"
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "key"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"123\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "v-if"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"showForm.value\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "id"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"login\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "style"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"height: 4rem\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "      "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "VForm"
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "v-bind:formItem"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"formItems\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "ref"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"vForm\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "    "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "div"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "    "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "div"
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\".btn-wrap\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "      "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "button"
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "@click"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"handleLogin\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "class"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"btn btn-12 btn-success goLogin\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(Expr)",
+                  "children": [
+                    {
+                      "type": "Symbol(Text)",
+                      "value": "登录"
+                    }
+                  ],
+                  "elementType": "Text"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "button"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "      "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "slot"
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "name"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"middle\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "slot"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "      "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "button"
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "@click"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"changeTitle\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "class"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"btn btn-12 btn-default goRegist\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(Expr)",
+                  "children": [
+                    {
+                      "type": "Symbol(Text)",
+                      "value": "注册"
+                    }
+                  ],
+                  "elementType": "Text"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "button"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "      "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "slot"
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "name"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"foot\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(Expr)",
+                  "children": [
+                    {
+                      "type": "Symbol(Text)",
+                      "value": "        "
+                    }
+                  ],
+                  "elementType": "Text"
+                },
+                {
+                  "type": "Symbol(Expr)",
+                  "children": [
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "p"
+                    },
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    },
+                    {
+                      "type": "Symbol(Expr)",
+                      "children": [
+                        {
+                          "type": "Symbol(Text)",
+                          "value": "I am reserve foot slot;"
+                        }
+                      ],
+                      "elementType": "Text"
+                    },
+                    {
+                      "type": "Symbol(LeftBracket)",
+                      "value": "<"
+                    },
+                    {
+                      "type": "Symbol(BackFlash)",
+                      "value": "/"
+                    },
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "p"
+                    },
+                    {
+                      "type": "Symbol(RightBracket)",
+                      "value": ">"
+                    }
+                  ],
+                  "elementType": "Element"
+                },
+                {
+                  "type": "Symbol(Expr)",
+                  "children": [
+                    {
+                      "type": "Symbol(Text)",
+                      "value": "      "
+                    }
+                  ],
+                  "elementType": "Text"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "slot"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "      "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "button"
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "@click"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"toggleForm\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "class"
+                    },
+                    {
+                      "type": "Symbol(Equator)",
+                      "value": "="
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"btn btn-12 btn-default goRegist\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                },
+                {
+                  "type": "Symbol(Expr)",
+                  "children": [
+                    {
+                      "type": "Symbol(Text)",
+                      "value": "{{showForm.value ? '隐藏表格' : '显示表格'}}"
+                    }
+                  ],
+                  "elementType": "Text"
+                },
+                {
+                  "type": "Symbol(LeftBracket)",
+                  "value": "<"
+                },
+                {
+                  "type": "Symbol(BackFlash)",
+                  "value": "/"
+                },
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "button"
+                },
+                {
+                  "type": "Symbol(RightBracket)",
+                  "value": ">"
+                }
+              ],
+              "elementType": "Element"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "    "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "div"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(LeftBracket)",
+          "value": "<"
+        },
+        {
+          "type": "Symbol(BackFlash)",
+          "value": "/"
+        },
+        {
+          "type": "Symbol(Identifier)",
+          "value": "div"
+        },
+        {
+          "type": "Symbol(RightBracket)",
+          "value": ">"
+        }
+      ],
+      "elementType": "Element"
+    }
+  ]
+}

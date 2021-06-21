@@ -38,8 +38,12 @@ export module JSXCompiler {
     ast?: AST.ASTNode;
 
     compile(template: string) {
+      console.log('================== Compile Start ====================');
+      
       this.tokens = this.tokenizer.run(template);
       this.ast = this.astParser.createAST(this.tokens);
+      console.log('Compile Success!');
+      
       return this.ast;
     }
 

@@ -1,0 +1,401 @@
+{
+  "type": "Symbol(Program)",
+  "children": [
+    {
+      "type": "Symbol(Expr)",
+      "children": [
+        {
+          "type": "Symbol(LeftBracket)",
+          "value": "<"
+        },
+        {
+          "type": "Symbol(Identifier)",
+          "value": "div"
+        },
+        {
+          "type": "Symbol(Attribute)",
+          "children": [
+            {
+              "type": "Symbol(AttributeKey)",
+              "value": "class"
+            },
+            {
+              "type": "Symbol(Equator)",
+              "value": "="
+            },
+            {
+              "type": "Symbol(AttributeValue)",
+              "value": "\"vform-item\""
+            }
+          ]
+        },
+        {
+          "type": "Symbol(Attribute)",
+          "children": [
+            {
+              "type": "Symbol(AttributeKey)",
+              "value": "style"
+            },
+            {
+              "type": "Symbol(Equator)",
+              "value": "="
+            },
+            {
+              "type": "Symbol(AttributeValue)",
+              "value": "\"\""
+            }
+          ]
+        },
+        {
+          "type": "Symbol(RightBracket)",
+          "value": ">"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "      "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "label"
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"vform-item-label\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "v-bind:htmlFor"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"getItemID()\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "style"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"display: block; width: 100%;\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "        {{labelContent.value}}      "
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "label"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "      "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "input"
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "@input"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"inputHandler\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"vform-item-control\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "v-bind:id"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"getItemID()\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "v-bind:value"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"$props.value || null\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "v-bind:placeholder"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"placeholder.value\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "v-bind"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"$props.controllConfig\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "configurable"
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "required"
+                }
+              ]
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(Text)",
+              "value": "      "
+            }
+          ],
+          "elementType": "Text"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "div"
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "class"
+                },
+                {
+                  "type": "Symbol(Equator)",
+                  "value": "="
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"vform-item-msgbox\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            },
+            {
+              "type": "Symbol(Expr)",
+              "children": [
+                {
+                  "type": "Symbol(Text)",
+                  "value": "{{errMsg.value}}"
+                }
+              ],
+              "elementType": "Text"
+            },
+            {
+              "type": "Symbol(LeftBracket)",
+              "value": "<"
+            },
+            {
+              "type": "Symbol(BackFlash)",
+              "value": "/"
+            },
+            {
+              "type": "Symbol(Identifier)",
+              "value": "div"
+            },
+            {
+              "type": "Symbol(RightBracket)",
+              "value": ">"
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(LeftBracket)",
+          "value": "<"
+        },
+        {
+          "type": "Symbol(BackFlash)",
+          "value": "/"
+        },
+        {
+          "type": "Symbol(Identifier)",
+          "value": "div"
+        },
+        {
+          "type": "Symbol(RightBracket)",
+          "value": ">"
+        }
+      ],
+      "elementType": "Element"
+    }
+  ]
+}
