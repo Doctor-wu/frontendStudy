@@ -1,0 +1,219 @@
+{
+  "type": "Symbol(Program)",
+  "children": [
+    {
+      "type": "Symbol(Expr)",
+      "children": [
+        {
+          "type": "Symbol(TagHead)",
+          "children": [
+            {
+              "type": "Symbol(TagHeadStart)",
+              "children": [
+                {
+                  "type": "Symbol(Identifier)",
+                  "value": "ShareImage"
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "height"
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"268\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(Attribute)",
+              "children": [
+                {
+                  "type": "Symbol(AttributeKey)",
+                  "value": "width"
+                },
+                {
+                  "type": "Symbol(AttributeValue)",
+                  "value": "\"420\""
+                }
+              ]
+            },
+            {
+              "type": "Symbol(TagHeadEnd)",
+              "children": []
+            }
+          ],
+          "closeSelf": false
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(TagHead)",
+              "children": [
+                {
+                  "type": "Symbol(TagHeadStart)",
+                  "children": [
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "Image"
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "src"
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"avatar.png\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "layout"
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"20/20 50/50\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(TagHeadEnd)",
+                  "children": []
+                }
+              ],
+              "closeSelf": true
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(Expr)",
+          "children": [
+            {
+              "type": "Symbol(TagHead)",
+              "children": [
+                {
+                  "type": "Symbol(TagHeadStart)",
+                  "children": [
+                    {
+                      "type": "Symbol(Identifier)",
+                      "value": "Text"
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "content"
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"文字内容\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "offset"
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"CenterMiddle\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "color"
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"#FFFFFF\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "FontWeight"
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"true\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "FontSize"
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"24\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(Attribute)",
+                  "children": [
+                    {
+                      "type": "Symbol(AttributeKey)",
+                      "value": "layout"
+                    },
+                    {
+                      "type": "Symbol(AttributeValue)",
+                      "value": "\"80/20 420/32\""
+                    }
+                  ]
+                },
+                {
+                  "type": "Symbol(TagHeadEnd)",
+                  "children": []
+                }
+              ],
+              "closeSelf": true
+            }
+          ],
+          "elementType": "Element"
+        },
+        {
+          "type": "Symbol(TagTail)",
+          "children": [
+            {
+              "type": "Symbol(Identifier)",
+              "value": "ShareImage"
+            }
+          ]
+        }
+      ],
+      "elementType": "Element"
+    }
+  ]
+}

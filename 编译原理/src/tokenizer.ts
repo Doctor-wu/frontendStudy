@@ -299,7 +299,7 @@ export class Tokenizer implements JSXTokenizer.ITokenizer {
   }
 
   emit(token: JSXTokenizer.IToken): void {
-    if (!token.value) return;
+    if (!token.value || !token.value.trim()) return;
 
     this.tokens.push(token);
   }

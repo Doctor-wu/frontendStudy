@@ -5,7 +5,7 @@ const fs = require("fs");
 export module JSXCompiler {
   export interface compileFileOptions {
     path: string;
-    extractParserNode?: Boolean; // 是否摘除掉AST解析时递归下降语法的辅助节点
+    reserveParserNode?: Boolean; // 是否保留AST解析时递归下降语法的辅助节点
   }
 
   export interface ICompiler {
@@ -37,25 +37,21 @@ export module JSXCompiler {
     tokens: JSXTokenizer.IToken[] = [];
     ast?: AST.ASTNode;
 
-    compile(template: string) {
+    compile(template: string, reserve: Boolean = false) {
       console.log('================== Compile Start ====================');
       
       this.tokens = this.tokenizer.run(template);
       this.ast = this.astParser.createAST(this.tokens);
-      console.log('Compile Success!');
       
+      if (!reserve) return this.extractASTParserNode(this.ast);
+      console.log('================== Compile Success! ====================');
       return this.ast;
     }
 
     compileFile(options: compileFileOptions): AST.ASTNode {
       let template = fs.readFileSync(options.path).toString();
 
-      if (options.extractParserNode) {
-        return this.extractASTParserNode(
-          this.compile(template)
-       ) 
-      }
-      return this.compile(template);
+      return this.compile(template, options.reserveParserNode);
     }
 
     extractASTParserNode(node: AST.ASTNode): AST.ASTNode {
@@ -73,6 +69,7 @@ export module JSXCompiler {
       if (!node.children) return node;
       extractedNode.children = node.children.map(item => extract(item)).flat();
       console.log('Extract AST Parser Node Success!');
+      console.log('================== Compile Success! ====================');
       
       return extractedNode;
     }

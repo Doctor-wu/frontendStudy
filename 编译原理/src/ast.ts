@@ -227,13 +227,13 @@ export module AST {
       this.parentNode = node;
 
       if (this.currentToken.value === "<") {
-        this.parentNode.children?.push(
-          this.createASTNode(
-            FinalTokenType.LeftBracket,
-            undefined,
-            this.currentToken.value
-          )
-        );
+        // this.parentNode.children?.push(
+        //   this.createASTNode(
+        //     FinalTokenType.LeftBracket,
+        //     undefined,
+        //     this.currentToken.value
+        //   )
+        // );
         this.tokenReader.read();
         this.setCurrentToken(this.tokenReader.peek());
         if (this.currentToken.type === JSXTokenizer.JSXIdentifierType) {
@@ -272,13 +272,13 @@ export module AST {
         );
         this.tokenReader.read();
         if (this.tokenReader.peek()?.type === JSXTokenizer.Equator) {
-          this.parentNode.children?.push(
-            this.createASTNode(
-              FinalTokenType.Equator,
-              undefined,
-              this.tokenReader.peek()?.value
-            )
-          );
+          // this.parentNode.children?.push(
+          //   this.createASTNode(
+          //     FinalTokenType.Equator,
+          //     undefined,
+          //     this.tokenReader.peek()?.value
+          //   )
+          // );
           this.tokenReader.read();
           if (
             this.tokenReader.peek()?.type === JSXTokenizer.JSXAttributeValue
@@ -314,22 +314,22 @@ export module AST {
       this.parentNode.children?.push(node);
       this.parentNode = node;
       if (this.currentToken.type === JSXTokenizer.BackFlash) {
-        this.parentNode.children?.push(
-          this.createASTNode(
-            FinalTokenType.BackFlash,
-            undefined,
-            this.currentToken.value
-          )
-        );
+        // this.parentNode.children?.push(
+        //   this.createASTNode(
+        //     FinalTokenType.BackFlash,
+        //     undefined,
+        //     this.currentToken.value
+        //   )
+        // );
         this.tokenReader.read();
         if (this.tokenReader.peek()?.value === ">") {
-          this.parentNode.children?.push(
-            this.createASTNode(
-              FinalTokenType.RightBracket,
-              undefined,
-              this.tokenReader.peek()?.value
-            )
-          );
+          // this.parentNode.children?.push(
+          //   this.createASTNode(
+          //     FinalTokenType.RightBracket,
+          //     undefined,
+          //     this.tokenReader.peek()?.value
+          //   )
+          // );
           this.tokenReader.read();
           this.closeSelf = true;
           this.identifierStack.pop();
@@ -339,13 +339,13 @@ export module AST {
         return false;
       }
       if (this.tokenReader.peek()?.value === ">") {
-        this.parentNode.children?.push(
-          this.createASTNode(
-            FinalTokenType.RightBracket,
-            undefined,
-            this.tokenReader.peek()?.value
-          )
-        );
+        // this.parentNode.children?.push(
+        //   this.createASTNode(
+        //     FinalTokenType.RightBracket,
+        //     undefined,
+        //     this.tokenReader.peek()?.value
+        //   )
+        // );
         this.tokenReader.read();
         return true;
       }
@@ -358,22 +358,22 @@ export module AST {
       this.parentNode.children?.push(node);
       this.parentNode = node;
       if (this.currentToken.value === "<") {
-        this.parentNode.children?.push(
-          this.createASTNode(
-            FinalTokenType.LeftBracket,
-            undefined,
-            this.currentToken.value
-          )
-        );
+        // this.parentNode.children?.push(
+        //   this.createASTNode(
+        //     FinalTokenType.LeftBracket,
+        //     undefined,
+        //     this.currentToken.value
+        //   )
+        // );
         this.tokenReader.read();
         if (this.tokenReader.peek()?.type === JSXTokenizer.BackFlash) {
-          this.parentNode.children?.push(
-            this.createASTNode(
-              FinalTokenType.BackFlash,
-              undefined,
-              this.tokenReader.peek()?.value
-            )
-          );
+          // this.parentNode.children?.push(
+          //   this.createASTNode(
+          //     FinalTokenType.BackFlash,
+          //     undefined,
+          //     this.tokenReader.peek()?.value
+          //   )
+          // );
           this.tokenReader.read();
           if (
             this.tokenReader.peek()?.type === JSXTokenizer.JSXIdentifierType
@@ -388,13 +388,13 @@ export module AST {
             );
             this.tokenReader.read();
             if (this.tokenReader.peek()?.value === ">") {
-              this.parentNode.children?.push(
-                this.createASTNode(
-                  FinalTokenType.RightBracket,
-                  undefined,
-                  this.tokenReader.peek()?.value
-                )
-              );
+              // this.parentNode.children?.push(
+              //   this.createASTNode(
+              //     FinalTokenType.RightBracket,
+              //     undefined,
+              //     this.tokenReader.peek()?.value
+              //   )
+              // );
               this.tokenReader.read();
               return true;
             }
