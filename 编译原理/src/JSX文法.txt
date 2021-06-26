@@ -3,7 +3,10 @@ Expr -> TagHead Expr TagTail
         | TagHead
         | TagHead TagTail
         | [text]
-        | Expr Expr
+        | TagHead Expr TagTail Expr
+        | TagHead Expr
+        | TagHead TagTail Expr
+        | [text] Expr
 
 // 开始标签
 TagHead -> TagHeadStart Attribute TagHeadEnd
