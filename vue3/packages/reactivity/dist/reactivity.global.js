@@ -200,11 +200,83 @@ var VueReactivity = (function (exports) {
       return proxy;
   }
 
+  // ref 内部使用的是defineProperty
+  function ref(value) {
+      // 将普通类型变成一个对象, 也可以是对象，但是一般情况下对象用reactive更合理
+      return createRef(value);
+  }
+  function shallowRef(value) {
+      return createRef(value, true);
+  }
+  var RefImpl = /** @class */ (function () {
+      function RefImpl(rawValue, shallow) {
+          this.rawValue = rawValue;
+          this.shallow = shallow;
+          this.__v_isRef = true; // 表示是一个ref属性
+          this._value = shallow ? rawValue : reactive(rawValue);
+      }
+      Object.defineProperty(RefImpl.prototype, "value", {
+          get: function () {
+              track(this, 0 /* GET */, 'value');
+              return this._value;
+          },
+          set: function (newValue) {
+              if (hasChanged(this._value, newValue)) {
+                  this.rawValue = newValue;
+                  this._value = newValue;
+                  trigger(this, 1 /* SET */, 'value', newValue);
+              }
+          },
+          enumerable: false,
+          configurable: true
+      });
+      return RefImpl;
+  }());
+  function createRef(rawValue, shallow) {
+      if (shallow === void 0) { shallow = false; }
+      return new RefImpl(rawValue, shallow);
+  }
+  var ObjectRefImpl = /** @class */ (function () {
+      function ObjectRefImpl(target, key) {
+          this.target = target;
+          this.key = key;
+          this.__v_isRef = true; // 表示是一个ref属性
+      }
+      Object.defineProperty(ObjectRefImpl.prototype, "value", {
+          get: function () {
+              return this.target[this.key];
+          },
+          set: function (newValue) {
+              this.target[this.key] = newValue;
+          },
+          enumerable: false,
+          configurable: true
+      });
+      return ObjectRefImpl;
+  }());
+  // 将某一个key对应的值转换成ref
+  function toRef(target, key) {
+      return new ObjectRefImpl(target, key);
+  }
+  function toRefs(object) {
+      var ret = isArray(object) ? new Array(object.length) : {};
+      for (var key in object) {
+          if (hasOwn(object, key)) {
+              ret[key] = toRef(object, key);
+          }
+      }
+      return ret;
+  }
+
   exports.effect = effect;
   exports.reactive = reactive;
   exports.readonly = readonly;
+  exports.ref = ref;
   exports.shallowReactive = shallowReactive;
   exports.shallowReadonly = shallowReadonly;
+  exports.shallowRef = shallowRef;
+  exports.toRef = toRef;
+  exports.toRefs = toRefs;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
