@@ -1,6 +1,6 @@
-import { extend, isObject } from "@vue/shared";
-import { track } from "./effect";
-import { TrackOpTypes } from "./operators";
+import { extend, hasChanged, hasOwn, isArray, isIntegerKey, isNumber, isObject } from "@vue/shared";
+import { track, trigger } from "./effect";
+import { TrackOpTypes, TriggerOpTypes } from "./operators";
 import { reactive, readonly } from "./reactive";
 
 function createGetter(
@@ -12,7 +12,6 @@ function createGetter(
 
     if (!isReadonly) {
       // 不是仅读的，就收集依赖，数据改变后更新对应的视图
-      console.log('收集', target, key);
       track(target, TrackOpTypes.GET, key);
     }
 
@@ -32,7 +31,21 @@ function createSetter(
   shallow = false
 ) {
   return function set(target, key, value, receiver) {
+    const oldValue = Reflect.get(target, key, receiver);
+    // 判断对象中是否已经存在对应的key
+    const hasKey = isArray(target)
+      && isIntegerKey(key)
+      ? Number(key) < target.length
+      : hasOwn(target, key);
     const result = Reflect.set(target, key, value, receiver);
+    
+    if (!hasKey) {
+      // 新增的值
+      trigger(target, TriggerOpTypes.ADD, key, value);
+    } else if (hasChanged(oldValue, value)) {
+      // 修改的值
+      trigger(target, TriggerOpTypes.SET, key, value, oldValue);
+    }
 
     // 当数据更新时，通知对应属性的effect重新执行
 

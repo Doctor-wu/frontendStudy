@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
-  <script>
-    let { reactive, effect } = VueReactivity;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="../node_modules/@vue/reactivity/dist/reactivity.global.js"></script>
+    <script>
+      let { reactive, effect } = VueReactivity;
 
-    var state = reactive({name: 'doctorwu', age: {num: 21}});
-    effect(() => {
-      console.log(`I am ${state.name}, i'm ${state.age.num} years old;${state.loveMsg}`);
-    });
-    setTimeout(() => {
-      state.loveMsg = 'I love 果子~';
-    }, 1000)
-  </script>
-</body>
+      var state = reactive({
+        name: "doctorwu",
+        age: { num: 21 },
+        arr: [1, 2, 3],
+      });
+      effect(() => {
+        console.log('render');
+        document.body.innerHTML = state.arr;
+      });
+      setTimeout(() => {
+        // state.name = 'Doctorwu';
+        // state.loveMsg = "I love 果子~"; // 更改loveMsg属性，effect内的函数需要重新执行
+        state.arr[100] = 1;
+      }, 1000);
+    </script>
+  </body>
 </html>
