@@ -3,7 +3,7 @@ const fs = require("fs");
 const execa = require("execa");
 
 
-const packages = ['reactivity'];
+const packages = ['runtime-dom'];
 
 runParallel(packages, build);
 

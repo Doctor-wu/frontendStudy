@@ -1,8 +1,3 @@
-const Reactivity = {
-  reactive(){}
-};
-
-
 export {
   reactive,
   shallowReactive,
@@ -20,3 +15,7 @@ export {
   toRef,
   toRefs,
 } from './ref';
+
+export {
+  computed,
+} from './computed';

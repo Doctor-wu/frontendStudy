@@ -1,7 +1,9 @@
 export const isObject = (value) => typeof value === 'object' && value !== null;
 export const extend = Object.assign;
 export const isArray = Array.isArray;
-export const isFunction = value => typeof value === 'function';
+export function isFunction(value): value is Function {
+  return typeof value === 'function';
+};
 export const isNumber = value => typeof value === 'number';
 export const isString = value => typeof value === 'string';
 export const isIntegerKey = key => {

@@ -1,0 +1,1 @@
+{"version":3,"file":"runtime-dom.esm-bundler.js","sources":["../src/index.ts"],"sourcesContent":["export default {\r\n  runtime: 1\r\n}"],"names":[],"mappings":"AAAA,YAAe;IACb,OAAO,EAAE,CAAC;CACX;;;;"}

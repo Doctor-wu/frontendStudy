@@ -1,6 +1,9 @@
 var isObject = function (value) { return typeof value === 'object' && value !== null; };
 var extend = Object.assign;
 var isArray = Array.isArray;
+function isFunction(value) {
+    return typeof value === 'function';
+}
 var isIntegerKey = function (key) {
     if (typeof key === 'symbol')
         return false;
@@ -101,7 +104,12 @@ function trigger(target, type, key, newValue, oldValue) {
                 }
         }
     }
-    effects.forEach(function (effect) { return effect(); });
+    effects.forEach(function (effect) {
+        if (effect.options.scheduler) {
+            return effect.options.scheduler();
+        }
+        effect();
+    });
 }
 
 function createGetter(isReadonly, shallow) {
@@ -265,5 +273,53 @@ function toRefs(object) {
     return ret;
 }
 
-export { effect, reactive, readonly, ref, shallowReactive, shallowReadonly, shallowRef, toRef, toRefs };
+var ComputedRefImpl = /** @class */ (function () {
+    function ComputedRefImpl(getter, setter) {
+        var _this = this;
+        this.getter = getter;
+        this.setter = setter;
+        this.dirty = true; // 默认取值时 计算一次
+        this.effect = effect(getter, {
+            lazy: true,
+            scheduler: function () {
+                if (!_this.dirty) {
+                    _this.dirty = true;
+                    trigger(_this, 1 /* SET */, 'value');
+                }
+            }
+        });
+    }
+    Object.defineProperty(ComputedRefImpl.prototype, "value", {
+        get: function () {
+            if (this.dirty) {
+                this._value = this.effect();
+                this.dirty = false;
+            }
+            track(this, 0 /* GET */, 'value');
+            return this._value;
+        },
+        set: function (newValue) {
+            this.setter(newValue);
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return ComputedRefImpl;
+}());
+function computed(getterOrOptions) {
+    var getter, setter;
+    if (isFunction(getterOrOptions)) {
+        getter = getterOrOptions;
+        setter = function () {
+            console.warn('computed value must be readonly');
+        };
+    }
+    else {
+        getter = getterOrOptions.get;
+        setter = getterOrOptions.set;
+    }
+    return new ComputedRefImpl(getter, setter);
+}
+
+export { computed, effect, reactive, readonly, ref, shallowReactive, shallowReadonly, shallowRef, toRef, toRefs };
 //# sourceMappingURL=reactivity.esm-bundler.js.map
