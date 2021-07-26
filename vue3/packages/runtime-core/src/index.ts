@@ -1,3 +1,3 @@
-export default {
-  runtime: 1
-}
+export {
+  createRenderer
+} from './renderer';

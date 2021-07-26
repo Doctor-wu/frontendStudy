@@ -29,7 +29,7 @@ const outputConfigs = {
 };
 
 function createConfig(format, output) {
-  output.name = buildOptions.name;
+  output.name = buildOptions.name; 
   output.sourcemap = true;
 
   return {
