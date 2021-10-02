@@ -15,7 +15,7 @@ export function effect(fn: Function, options: any = {}) {
 let eid = 0;
 let effectStack = [];
 let activeEffect = null;
-function createReactiveEffect(fn: Function, options: any = {}):Function {
+function createReactiveEffect(fn: Function, options: any = {}): Function {
   const effective = function reactiveEffect() {
     if (!effectStack.includes(effective)) {
       try {
@@ -39,7 +39,7 @@ function createReactiveEffect(fn: Function, options: any = {}):Function {
 }
 
 const targetMap = new WeakMap();
-export function track(target, type:TrackOpTypes, key) {
+export function track(target, type: TrackOpTypes, key) {
   if (activeEffect) {
     // target对应的Map
     let depsMap = targetMap.get(target);
